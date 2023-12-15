@@ -14,9 +14,11 @@ class APICharactersDataSource: APICharactersDataSourceType {
         self.httpClient = httpClient
     }
     
-    func getCharactersList() async -> Result<[CharacterListDTO], HTTPClientError> {
+    func getCharactersList(currentPage: Int) async -> Result<[CharacterListDTO], HTTPClientError> {
+        let queryParameters: [String: Any] = ["page": currentPage]
+        
         let endpoint = Endpoint(path: "character",
-                                queryParameters: [:],
+                                queryParameters: queryParameters,
                                 method: .get)
 
         let result = await httpClient.makeRequest(endpoint: endpoint, baseUrl: "https://rickandmortyapi.com/api/")

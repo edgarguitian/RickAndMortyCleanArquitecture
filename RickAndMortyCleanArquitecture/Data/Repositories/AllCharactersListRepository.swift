@@ -21,11 +21,11 @@ class AllCharactersListRepository: AllCharactersListRepositoryType {
     func getAllCharactersList(currentPage: Int) async -> Result<[Character], RickAndMortyDomainError> {
         let charactersListCache = await cacheDataSource.getCharactersList()
         
-        if !charactersListCache.isEmpty {
+        if !charactersListCache.isEmpty && charactersListCache.count > currentPage * 20 {
             return .success(charactersListCache)
         }
         
-        let charactersList = await apiDataSource.getCharactersList()
+        let charactersList = await apiDataSource.getCharactersList(currentPage: currentPage)
         
         guard case .success(let charactersListInfo) = charactersList else {
             return .failure(errorMapper.map(error: charactersList.failureValue as? HTTPClientError))

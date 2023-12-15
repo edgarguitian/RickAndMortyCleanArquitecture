@@ -10,7 +10,7 @@ import Foundation
 class CharacterListViewModel: ObservableObject {
     private let getCharacterList: GetAllCharactersList
     private let errorMapper: RickAndMortyPresentableErrorMapper
-    private var currentPage: Int = 0
+    private var currentPage: Int = 1
     @Published var characters: [CharacterListPresentableItem] = []
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
