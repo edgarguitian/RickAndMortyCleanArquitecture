@@ -50,6 +50,7 @@
 		6D1A006D2B2C6A5200783DD0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A006C2B2C6A5200783DD0 /* LocationData.swift */; };
 		6D1A006F2B2C6BCE00783DD0 /* CharacterResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A006E2B2C6BCE00783DD0 /* CharacterResponseDTO.swift */; };
 		6D1A00712B2C6C0200783DD0 /* InfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A00702B2C6C0200783DD0 /* InfoDTO.swift */; };
+		6D1A00732B2C71FE00783DD0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A00722B2C71FE00783DD0 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		6D1A006C2B2C6A5200783DD0 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		6D1A006E2B2C6BCE00783DD0 /* CharacterResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponseDTO.swift; sourceTree = "<group>"; };
 		6D1A00702B2C6C0200783DD0 /* InfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDTO.swift; sourceTree = "<group>"; };
+		6D1A00722B2C71FE00783DD0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6D1AFFFD2B2C57B000783DD0 /* RickAndMortyCleanArquitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyCleanArquitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				6D1A00002B2C57B000783DD0 /* RickAndMortyCleanArquitectureApp.swift */,
+				6D1A00722B2C71FE00783DD0 /* MainView.swift */,
 				6D1A000E2B2C585D00783DD0 /* Utils */,
 				6D1A00112B2C587900783DD0 /* Composition Root */,
 				6D1A00122B2C588C00783DD0 /* UI */,
@@ -400,6 +403,7 @@
 			files = (
 				6D1A00432B2C5FD400783DD0 /* RickAndMortyDomainErrorMapper.swift in Sources */,
 				6D1A005D2B2C657F00783DD0 /* CharacterListViewModel.swift in Sources */,
+				6D1A00732B2C71FE00783DD0 /* MainView.swift in Sources */,
 				6D1A00672B2C67A900783DD0 /* LoadingSpinnerView.swift in Sources */,
 				6D1A00412B2C5F7E00783DD0 /* LocationDTO.swift in Sources */,
 				6D1A00612B2C664700783DD0 /* CharacterListPresentableItem.swift in Sources */,
