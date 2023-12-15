@@ -11,6 +11,7 @@
 		6D1A00032B2C57B000783DD0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A00022B2C57B000783DD0 /* ContentView.swift */; };
 		6D1A00052B2C57B100783DD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D1A00042B2C57B100783DD0 /* Assets.xcassets */; };
 		6D1A00082B2C57B100783DD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D1A00072B2C57B100783DD0 /* Preview Assets.xcassets */; };
+		6D1A00102B2C586B00783DD0 /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A000F2B2C586B00783DD0 /* Foundation+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		6D1A00022B2C57B000783DD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6D1A00042B2C57B100783DD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D1A00072B2C57B100783DD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6D1A000F2B2C586B00783DD0 /* Foundation+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extensions.swift"; sourceTree = "<group>"; };
 		6D1AFFFD2B2C57B000783DD0 /* RickAndMortyCleanArquitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyCleanArquitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -38,6 +40,144 @@
 				6D1A00072B2C57B100783DD0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6D1A000E2B2C585D00783DD0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6D1A000F2B2C586B00783DD0 /* Foundation+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6D1A00112B2C587900783DD0 /* Composition Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Composition Root";
+			sourceTree = "<group>";
+		};
+		6D1A00122B2C588C00783DD0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6D1A00132B2C589800783DD0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6D1A00142B2C58A400783DD0 /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				6D1A00152B2C58B000783DD0 /* Data */,
+				6D1A00162B2C58B900783DD0 /* Networking */,
+			);
+			path = Infraestructure;
+			sourceTree = "<group>";
+		};
+		6D1A00152B2C58B000783DD0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6D1A00162B2C58B900783DD0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		6D1A00172B2C58CA00783DD0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6D1A00182B2C58D300783DD0 /* Mapper */,
+				6D1A00192B2C58D900783DD0 /* Cache */,
+				6D1A001A2B2C58E200783DD0 /* Networking */,
+				6D1A001B2B2C58FA00783DD0 /* DTOs */,
+				6D1A001C2B2C591700783DD0 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6D1A00182B2C58D300783DD0 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		6D1A00192B2C58D900783DD0 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		6D1A001A2B2C58E200783DD0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		6D1A001B2B2C58FA00783DD0 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		6D1A001C2B2C591700783DD0 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		6D1A001D2B2C593300783DD0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6D1A001E2B2C593D00783DD0 /* Error */,
+				6D1A001F2B2C594200783DD0 /* Interfaces */,
+				6D1A00202B2C594C00783DD0 /* Use Cases */,
+				6D1A00212B2C595900783DD0 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6D1A001E2B2C593D00783DD0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		6D1A001F2B2C594200783DD0 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		6D1A00202B2C594C00783DD0 /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		6D1A00212B2C595900783DD0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		6D1AFFF42B2C57B000783DD0 = {
@@ -61,6 +201,13 @@
 			children = (
 				6D1A00002B2C57B000783DD0 /* RickAndMortyCleanArquitectureApp.swift */,
 				6D1A00022B2C57B000783DD0 /* ContentView.swift */,
+				6D1A000E2B2C585D00783DD0 /* Utils */,
+				6D1A00112B2C587900783DD0 /* Composition Root */,
+				6D1A00122B2C588C00783DD0 /* UI */,
+				6D1A00132B2C589800783DD0 /* Presentation */,
+				6D1A00142B2C58A400783DD0 /* Infraestructure */,
+				6D1A00172B2C58CA00783DD0 /* Data */,
+				6D1A001D2B2C593300783DD0 /* Domain */,
 				6D1A00042B2C57B100783DD0 /* Assets.xcassets */,
 				6D1A00062B2C57B100783DD0 /* Preview Content */,
 			);
@@ -139,6 +286,7 @@
 			files = (
 				6D1A00032B2C57B000783DD0 /* ContentView.swift in Sources */,
 				6D1A00012B2C57B000783DD0 /* RickAndMortyCleanArquitectureApp.swift in Sources */,
+				6D1A00102B2C586B00783DD0 /* Foundation+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
