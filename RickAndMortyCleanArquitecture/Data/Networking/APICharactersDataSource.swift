@@ -14,7 +14,7 @@ class APICharactersDataSource: APICharactersDataSourceType {
         self.httpClient = httpClient
     }
     
-    func getCharactersList(currentPage: Int) async -> Result<[CharacterListDTO], HTTPClientError> {
+    func getCharactersList(currentPage: Int) async -> Result<CharacterResponseDTO, HTTPClientError> {
         let queryParameters: [String: Any] = ["page": currentPage]
         
         let endpoint = Endpoint(path: "character",
@@ -30,7 +30,7 @@ class APICharactersDataSource: APICharactersDataSourceType {
         guard let charactersListResponse = try? JSONDecoder().decode(CharacterResponseDTO.self, from: data) else {
             return .failure(.parsingError)
         }
-        return .success(charactersListResponse.results)
+        return .success(charactersListResponse)
     }
     
     private func handleError(error: HTTPClientError?) -> HTTPClientError {

@@ -14,7 +14,7 @@ class GetAllCharactersList: GetAllCharactersListType {
         self.repository = repository
     }
     
-    func execute(currentPage: Int) async -> Result<[Character], RickAndMortyDomainError> {
+    func execute(currentPage: Int) async -> Result<CharacterResult, RickAndMortyDomainError> {
         let result = await repository.getAllCharactersList(currentPage: currentPage)
         
         guard let charactersList = try? result.get() else {

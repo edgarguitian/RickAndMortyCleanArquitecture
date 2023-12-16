@@ -37,7 +37,7 @@ struct CharacterListItemView: View {
                     .fontWeight(.medium)
                     .padding(.vertical, 2)
 
-                Text(item.species)
+                Text("# \(item.id)")
                     .font(.caption2)
                     .foregroundColor(.gray)
                     .fontWeight(.medium)

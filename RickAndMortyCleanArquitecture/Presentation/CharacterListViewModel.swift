@@ -11,6 +11,7 @@ class CharacterListViewModel: ObservableObject {
     private let getCharacterList: GetAllCharactersList
     private let errorMapper: RickAndMortyPresentableErrorMapper
     private var currentPage: Int = 1
+    private var lastPage: Int = -1
     @Published var characters: [CharacterListPresentableItem] = []
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
@@ -25,19 +26,21 @@ class CharacterListViewModel: ObservableObject {
         if currentPage == 0 {
             showLoadingSpinner = true
         }
-        Task {
-            let result = await getCharacterList.execute(currentPage: currentPage)
-            handleResult(result, isSearch: false)
+        if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
+            Task {
+                let result = await getCharacterList.execute(currentPage: currentPage)
+                handleResult(result, isSearch: false)
+            }
         }
     }
     
-    private func handleResult(_ result: Result<[Character], RickAndMortyDomainError>, isSearch: Bool) {
+    private func handleResult(_ result: Result<CharacterResult, RickAndMortyDomainError>, isSearch: Bool) {
         guard case .success(let characters) = result else {
             handleError(error: result.failureValue as? RickAndMortyDomainError)
             return
         }
 
-        let charactersPresentable = characters.map {
+        let charactersPresentable = characters.result.map {
             CharacterListPresentableItem(id: String($0.id), name: $0.name,
                                          status: $0.status, species: $0.species,
                                          type: $0.type, gender: $0.gender, image: $0.image)
@@ -50,7 +53,8 @@ class CharacterListViewModel: ObservableObject {
             if isSearch {
                 self.characters = charactersPresentable
             } else {
-                self.characters = self.characters + charactersPresentable//self.characters.append(contentsOf: charactersPresentable)
+                self.characters = self.characters + charactersPresentable
+                self.lastPage = characters.info.pages
                 currentPage += 1
             }
         }

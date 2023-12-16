@@ -51,6 +51,9 @@
 		6D1A006F2B2C6BCE00783DD0 /* CharacterResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A006E2B2C6BCE00783DD0 /* CharacterResponseDTO.swift */; };
 		6D1A00712B2C6C0200783DD0 /* InfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A00702B2C6C0200783DD0 /* InfoDTO.swift */; };
 		6D1A00732B2C71FE00783DD0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1A00722B2C71FE00783DD0 /* MainView.swift */; };
+		6D4433B22B2DCBC000AFBB56 /* CharactersResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4433B12B2DCBC000AFBB56 /* CharactersResultData.swift */; };
+		6D4433B42B2DD6A500AFBB56 /* InfoResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4433B32B2DD6A500AFBB56 /* InfoResultData.swift */; };
+		6D4433B62B2DD77500AFBB56 /* SwiftDataDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4433B52B2DD77500AFBB56 /* SwiftDataDomainMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +102,9 @@
 		6D1A00702B2C6C0200783DD0 /* InfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDTO.swift; sourceTree = "<group>"; };
 		6D1A00722B2C71FE00783DD0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6D1AFFFD2B2C57B000783DD0 /* RickAndMortyCleanArquitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyCleanArquitecture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D4433B12B2DCBC000AFBB56 /* CharactersResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResultData.swift; sourceTree = "<group>"; };
+		6D4433B32B2DD6A500AFBB56 /* InfoResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoResultData.swift; sourceTree = "<group>"; };
+		6D4433B52B2DD77500AFBB56 /* SwiftDataDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataDomainMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,9 @@
 				6D1A00522B2C63A900783DD0 /* CharactersData.swift */,
 				6D1A00542B2C649300783DD0 /* SwiftDataCacheDataSource.swift */,
 				6D1A006C2B2C6A5200783DD0 /* LocationData.swift */,
+				6D4433B12B2DCBC000AFBB56 /* CharactersResultData.swift */,
+				6D4433B32B2DD6A500AFBB56 /* InfoResultData.swift */,
+				6D4433B52B2DD77500AFBB56 /* SwiftDataDomainMapper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -403,6 +412,7 @@
 			files = (
 				6D1A00432B2C5FD400783DD0 /* RickAndMortyDomainErrorMapper.swift in Sources */,
 				6D1A005D2B2C657F00783DD0 /* CharacterListViewModel.swift in Sources */,
+				6D4433B62B2DD77500AFBB56 /* SwiftDataDomainMapper.swift in Sources */,
 				6D1A00732B2C71FE00783DD0 /* MainView.swift in Sources */,
 				6D1A00672B2C67A900783DD0 /* LoadingSpinnerView.swift in Sources */,
 				6D1A00412B2C5F7E00783DD0 /* LocationDTO.swift in Sources */,
@@ -430,6 +440,7 @@
 				6D1A003D2B2C5ED100783DD0 /* CharacterListDTO.swift in Sources */,
 				6D1A00452B2C601300783DD0 /* CacheCharacterDataSourceType.swift in Sources */,
 				6D1A002F2B2C5BE100783DD0 /* EpisodeResult.swift in Sources */,
+				6D4433B22B2DCBC000AFBB56 /* CharactersResultData.swift in Sources */,
 				6D1A00352B2C5CDE00783DD0 /* GetAllCharactersListType.swift in Sources */,
 				6D1A002D2B2C5B9E00783DD0 /* LocationResult.swift in Sources */,
 				6D1A00332B2C5CAF00783DD0 /* RickAndMortyDomainError.swift in Sources */,
@@ -440,6 +451,7 @@
 				6D1A00572B2C654000783DD0 /* URLSessionHTTPCLient.swift in Sources */,
 				6D1A00492B2C625400783DD0 /* HTTPMethod.swift in Sources */,
 				6D1A004F2B2C632C00783DD0 /* SwiftDataContainer.swift in Sources */,
+				6D4433B42B2DD6A500AFBB56 /* InfoResultData.swift in Sources */,
 				6D1A00472B2C624700783DD0 /* Endpoint.swift in Sources */,
 				6D1A00232B2C59E900783DD0 /* Character.swift in Sources */,
 				6D1A00712B2C6C0200783DD0 /* InfoDTO.swift in Sources */,

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol SwiftDataContainerType {
-    func fetchCharacters() -> [CharactersData]
-    func insert(_ charactersList: [CharactersData]) async
+    func fetchCharacters(currentPage: Int) -> CharactersResultData
+    func insert(_ charactersList: CharactersResultData) async
 }

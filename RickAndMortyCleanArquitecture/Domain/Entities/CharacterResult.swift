@@ -10,4 +10,5 @@ import Foundation
 struct CharacterResult {
     let info: InfoResult
     let result: [Character]
+    let currentPage: Int
 }

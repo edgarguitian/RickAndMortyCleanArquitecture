@@ -15,7 +15,7 @@ class SwiftDataContainer: SwiftDataContainerType {
     private let context: ModelContext?
 
     private init() {
-        let scheme = Schema([CharactersData.self])
+        let scheme = Schema([CharactersResultData.self])
         do {
             container = try ModelContainer(for: scheme, configurations: [])
             if let container = container {
@@ -30,22 +30,22 @@ class SwiftDataContainer: SwiftDataContainerType {
         }
     }
 
-    func fetchCharacters() -> [CharactersData] {
-        let descriptor = FetchDescriptor<CharactersData>()
+    func fetchCharacters(currentPage: Int) -> CharactersResultData {
+        let descriptor = FetchDescriptor<CharactersResultData>(predicate: #Predicate<CharactersResultData> { $0.currentPage == currentPage })
 
         guard let context = context, let characters = try? context.fetch(descriptor) else {
-            return []
+            return CharactersResultData(info: nil, result: [], currentPage: currentPage)
         }
+        guard let charactersResult = characters.first else {
+            return CharactersResultData(info: nil, result: [], currentPage: currentPage)
+        }
+        return charactersResult
 
-        return characters
     }
 
-    func insert(_ charactersList: [CharactersData]) async {
+    func insert(_ charactersList: CharactersResultData) async {
         if let context = context {
-            charactersList.forEach { character in
-                context.insert(character)
-            }
-
+            context.insert(charactersList)
             try? context.save()
         }
     }

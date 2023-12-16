@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AllCharactersListRepositoryType {
-    func getAllCharactersList(currentPage: Int) async -> Result<[Character], RickAndMortyDomainError>
+    func getAllCharactersList(currentPage: Int) async -> Result<CharacterResult, RickAndMortyDomainError>
 }

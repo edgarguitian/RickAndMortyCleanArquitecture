@@ -28,7 +28,7 @@ class CharacterListFactory {
     }
 
     static func createCacheDataSource() -> CacheCharacterDataSourceType {
-        return SwiftDataCacheDataSource(container: SwiftDataContainer.shared)
+        return SwiftDataCacheDataSource(container: SwiftDataContainer.shared, mapper: SwiftDataDomainMapper())
     }
 
     private static func createAPIDataSource() -> APICharactersDataSourceType {

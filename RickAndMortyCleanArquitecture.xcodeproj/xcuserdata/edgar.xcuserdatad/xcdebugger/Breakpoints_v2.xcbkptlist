@@ -14,10 +14,42 @@
             filePath = "RickAndMortyCleanArquitecture/Presentation/CharacterListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "onAppear()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5BBAE2EB-7513-4FEE-AEDC-C2269C1655ED - 5c7cb765991add2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RickAndMortyCleanArquitecture.CharacterListViewModel.onAppear() -&gt; ()"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Presentation/CharacterListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "5BBAE2EB-7513-4FEE-AEDC-C2269C1655ED - 5c7cb765991add2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in RickAndMortyCleanArquitecture.CharacterListViewModel.onAppear() -&gt; ()"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Presentation/CharacterListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -114,13 +146,45 @@
             endingLineNumber = "33"
             landmarkName = "getCharactersList(currentPage:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80234116-23D3-4A34-8C71-79B5A1CBA18E - 5d18925d9a7a56ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.APICharactersDataSource.getCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;Swift.Array&lt;RickAndMortyCleanArquitecture.CharacterListDTO&gt;, RickAndMortyCleanArquitecture.HTTPClientError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "900">
+               </Location>
+               <Location
+                  uuid = "80234116-23D3-4A34-8C71-79B5A1CBA18E - bd4c94a721fe5d49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.APICharactersDataSource.getCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResponseDTO, RickAndMortyCleanArquitecture.HTTPClientError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "916">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8B46DDD2-164C-4F23-A60B-4EBC9C2A677A"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
@@ -130,6 +194,38 @@
             endingLineNumber = "31"
             landmarkName = "getCharactersList(currentPage:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8B46DDD2-164C-4F23-A60B-4EBC9C2A677A - 5d18925d9a7a568c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.APICharactersDataSource.getCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;Swift.Array&lt;RickAndMortyCleanArquitecture.CharacterListDTO&gt;, RickAndMortyCleanArquitecture.HTTPClientError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1104">
+               </Location>
+               <Location
+                  uuid = "8B46DDD2-164C-4F23-A60B-4EBC9C2A677A - bd4c94a721fe5d0b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.APICharactersDataSource.getCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResponseDTO, RickAndMortyCleanArquitecture.HTTPClientError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1176">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,8 +238,8 @@
             filePath = "RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "getAllCharactersList(currentPage:)"
             landmarkType = "7">
             <Locations>
@@ -213,22 +309,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA49F06F-3E49-4C33-A4E8-E51A621A3EB6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RickAndMortyCleanArquitecture/Presentation/CharacterListViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "handleResult(_:isSearch:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C91FE8D8-CA58-4C42-9D90-6E3F806BFB42"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -236,10 +316,42 @@
             filePath = "RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getAllCharactersList(currentPage:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C91FE8D8-CA58-4C42-9D90-6E3F806BFB42 - 8f42fe68896422"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResult, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "C91FE8D8-CA58-4C42-9D90-6E3F806BFB42 - a81bafd652fbfc26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResult, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "824">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,6 +446,258 @@
             startingLineNumber = "24"
             endingLineNumber = "24"
             landmarkName = "getAllCharactersList(currentPage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getAllCharactersList(currentPage:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61 - 93a82c4aa6d0423f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;Swift.Array&lt;RickAndMortyCleanArquitecture.Character&gt;, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "348">
+               </Location>
+               <Location
+                  uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61 - b87bea2ead7c0c7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResponseDTO, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "416">
+               </Location>
+               <Location
+                  uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61 - b87bea2ead7c0c7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResponseDTO, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "808">
+               </Location>
+               <Location
+                  uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61 - a81bafd652fbfb88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResult, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "936">
+               </Location>
+               <Location
+                  uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61 - 74c5354a67e2bf8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResult, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1024">
+               </Location>
+               <Location
+                  uuid = "E6DD75EE-64F6-4071-BD6F-85E9D913DF61 - a81bafd652fbfb88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.AllCharactersListRepository.getAllCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResult, RickAndMortyCleanArquitecture.RickAndMortyDomainError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Repositories/AllCharactersListRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "972">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECFE8960-D566-4332-A4BF-0F2B437CF68F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getCharactersList(currentPage:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ECFE8960-D566-4332-A4BF-0F2B437CF68F - 5d18925d9a7a5608"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.APICharactersDataSource.getCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;Swift.Array&lt;RickAndMortyCleanArquitecture.CharacterListDTO&gt;, RickAndMortyCleanArquitecture.HTTPClientError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "ECFE8960-D566-4332-A4BF-0F2B437CF68F - bd4c94a721fe5d8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for RickAndMortyCleanArquitecture.APICharactersDataSource.getCharactersList(currentPage: Swift.Int) async -&gt; Swift.Result&lt;RickAndMortyCleanArquitecture.CharacterResponseDTO, RickAndMortyCleanArquitecture.HTTPClientError&gt;"
+                  moduleName = "RickAndMortyCleanArquitecture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitecture/Data/Networking/APICharactersDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "929154A3-28DE-4589-B59D-E311BBB79122"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Presentation/CharacterListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "handleResult(_:isSearch:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E030CB3-FC77-47A9-849D-52E02D7388A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Infraestructure/Data/SwiftDataContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "fetchCharacters(currentPage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "831F0F93-9094-4164-BD71-C996ECC93933"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Domain/Use Cases/GetAllCharactersList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "execute(currentPage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D8ADC5F-38A5-430E-80B7-4D89CDD8AA8F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Domain/Use Cases/GetAllCharactersList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "execute(currentPage:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "773D652A-831F-4F53-84A9-AD531E541A0E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Presentation/RickAndMortyPresentableErrorMapper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "map(error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDFAE0F6-A4FD-482E-82B7-3556570452E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitecture/Presentation/CharacterListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "handleResult(_:isSearch:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

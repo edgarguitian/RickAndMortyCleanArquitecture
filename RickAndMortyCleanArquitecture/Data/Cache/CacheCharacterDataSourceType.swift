@@ -8,6 +8,6 @@
 import Foundation
 
 protocol CacheCharacterDataSourceType {
-    func getCharactersList() async -> [Character]
-    func saveCharactersList(_ charactersList: [Character]) async
+    func getCharactersList(currentPage: Int) async -> CharacterResult
+    func saveCharactersList(_ charactersList: CharacterResult) async
 }

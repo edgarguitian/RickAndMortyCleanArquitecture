@@ -51,8 +51,6 @@ struct CharacterListView: View {
     
     func loadMoreCharactersIfNeeded(currentCharacter: CharacterListPresentableItem) {
         Task {
-            print("Last: "+"\(viewModel.characters.last!.id)")
-            print("Current: "+"\(currentCharacter.id)")
             if currentCharacter == viewModel.characters.last {
                 viewModel.onAppear()
             }
