@@ -10,7 +10,8 @@ import SwiftUI
 struct CharacterListView: View {
     @ObservedObject private var viewModel: CharacterListViewModel
     @State private var searchCharacterText: String = ""
-
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
     
     init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
@@ -36,7 +37,7 @@ struct CharacterListView: View {
                         }
                         .navigationTitle("Characters")
                         .accessibilityIdentifier("listCharacters")
-
+                        
                     }.searchable(text: $searchCharacterText).onChange(of: searchCharacterText) { _, newValue in
                         //viewModel.search(searchText: newValue)
                     }

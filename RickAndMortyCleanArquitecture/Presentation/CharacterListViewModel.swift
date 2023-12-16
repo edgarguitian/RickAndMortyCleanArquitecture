@@ -45,7 +45,7 @@ class CharacterListViewModel: ObservableObject {
                                          status: $0.status, species: $0.species,
                                          type: $0.type, gender: $0.gender, image: $0.image)
         }
-
+        
         Task { @MainActor in
             if currentPage == 0 {
                 showLoadingSpinner = false

@@ -8,41 +8,55 @@
 import Foundation
 
 class SwiftDataDomainMapper {
-    func map(_ charactersList: CharactersResultData, currentPage: Int) -> CharacterResult {
-        let characterResultList = charactersList.result.map {
-            Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
-                      type: $0.type, gender: $0.gender, origin: Location(name: $0.origin.name, url: $0.origin.url),
-                      location: Location(name: $0.location.name, url: $0.location.url), image: $0.image,
-                      episode: $0.episode, url: $0.url, created: $0.created)
+    func map(_ charactersList: [CharactersResultData]) -> CharacterResult {
+        var characterResult: [Character] = []
+        for character in charactersList {
+            for i in 0..<character.result.count {
+                if character.result[i].origin == nil {
+                    print(i)
+                }
+                
+                if character.result[i].location == nil {
+                    print(i)
+                }
+                
+                if character.result[i] == nil {
+                    print(i)
+                }
+            }
+            let characterResultList = character.result.map {
+                Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
+                          type: $0.type, gender: $0.gender, origin: Location(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
+                          location: Location(name: $0.location?.name ?? "", url: $0.location?.url ?? ""), image: $0.image,
+                          episode: $0.episode, url: $0.url, created: $0.created)
+            }
+            
+            characterResult.append(contentsOf: characterResultList)
         }
-        guard let characterInfo = charactersList.info else {
-            return CharacterResult(info: InfoResult(count: -1,
-                                                    pages: -1,
-                                                    next: "",
-                                                    prev: ""),
-                                   result: characterResultList)
-        }
-        return CharacterResult(info: InfoResult(count: characterInfo.count,
-                                             pages: characterInfo.pages,
-                                             next: characterInfo.next,
-                                             prev: characterInfo.prev),
-                            result: characterResultList)
+        let characterResultSorted = characterResult.sorted(by: { $0.id < $1.id })
+        return CharacterResult(info: InfoResult(count: characterResult.count,
+                                                pages: charactersList.count,
+                                                     next: nil,
+                                                     prev: nil),
+                                    result: characterResultSorted)
+        
+        
     }
     
     func map(_ charactersList: CharacterResult, currentPage: Int) -> CharactersResultData {
         let characterResultList = charactersList.result.map {
             CharactersData(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
-                      type: $0.type, gender: $0.gender, origin: LocationData(name: $0.origin.name, url: $0.origin.url),
-                      location: LocationData(name: $0.location.name, url: $0.location.url), image: $0.image,
-                      episode: $0.episode, url: $0.url, created: $0.created)
+                           type: $0.type, gender: $0.gender, origin: LocationData(name: $0.origin.name, url: $0.origin.url),
+                           location: LocationData(name: $0.location.name, url: $0.location.url), image: $0.image,
+                           episode: $0.episode, url: $0.url, created: $0.created)
         }
         return CharactersResultData(info:
                                         InfoResultData(count: charactersList.info.count,
-                                                                       pages: charactersList.info.pages,
-                                                                       next: charactersList.info.next,
-                                                                       prev: charactersList.info.prev),
-                                                      result: characterResultList,
-                                                      currentPage: currentPage)
+                                                       pages: charactersList.info.pages,
+                                                       next: charactersList.info.next,
+                                                       prev: charactersList.info.prev),
+                                    result: characterResultList,
+                                    currentPage: currentPage)
         
     }
 }

@@ -10,12 +10,14 @@ import SwiftData
 
 @Model
 class InfoResultData {
+    @Attribute(.unique) let identifier: UUID
     let count: Int
     let pages: Int
     let next: String?
     let prev: String?
     
-    init(count: Int, pages: Int, next: String?, prev: String?) {
+    init(identifier: UUID = UUID(), count: Int, pages: Int, next: String?, prev: String?) {
+        self.identifier = identifier
         self.count = count
         self.pages = pages
         self.next = next

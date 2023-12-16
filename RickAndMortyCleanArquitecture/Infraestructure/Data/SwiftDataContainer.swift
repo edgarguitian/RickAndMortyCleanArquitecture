@@ -20,6 +20,7 @@ class SwiftDataContainer: SwiftDataContainerType {
             container = try ModelContainer(for: scheme, configurations: [])
             if let container = container {
                 context = ModelContext(container)
+                context?.autosaveEnabled = true
             } else {
                 context = nil
             }
@@ -30,23 +31,31 @@ class SwiftDataContainer: SwiftDataContainerType {
         }
     }
 
-    func fetchCharacters(currentPage: Int) -> CharactersResultData {
-        let descriptor = FetchDescriptor<CharactersResultData>(predicate: #Predicate<CharactersResultData> { $0.currentPage == currentPage })
+    func fetchCharacters() -> [CharactersResultData] {
+        let descriptor = FetchDescriptor<CharactersResultData>()
 
         guard let context = context, let characters = try? context.fetch(descriptor) else {
-            return CharactersResultData(info: nil, result: [], currentPage: currentPage)
+            return []
         }
-        guard let charactersResult = characters.first else {
-            return CharactersResultData(info: nil, result: [], currentPage: currentPage)
-        }
-        return charactersResult
+        
+        return characters
 
     }
 
     func insert(_ charactersList: CharactersResultData) async {
         if let context = context {
             context.insert(charactersList)
-            try? context.save()
+            if let infoResultData = charactersList.info {
+                context.insert(infoResultData)
+            }
+            for result in charactersList.result {
+                context.insert(result)
+            }
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
+            }
         }
     }
 }

@@ -14,12 +14,6 @@ struct MainView: View {
             characterList.tabItem {
                 Label("Characters", systemImage: "person.3.fill")
             }
-            characterList.tabItem {
-                Label("Locations", systemImage: "location.fill")
-            }
-            characterList.tabItem {
-                Label("Episodes", systemImage: "list.dash")
-            }
         }
     }
 }
