@@ -22,7 +22,7 @@ class SwiftDataCacheDataSource: CacheCharacterDataSourceType {
         return mapper.map(charactersList, currentPage: currentPage)
     }
     
-    func saveCharactersList(_ charactersList: CharacterResult) async {
-        await container.insert(mapper.map(charactersList))
+    func saveCharactersList(_ charactersList: CharacterResult, currentPage: Int) async {
+        await container.insert(mapper.map(charactersList, currentPage: currentPage))
     }
 }

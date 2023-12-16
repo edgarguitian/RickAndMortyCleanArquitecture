@@ -42,8 +42,7 @@ class AllCharactersListRepository: AllCharactersListRepositoryType {
                                                                    pages: charactersListInfo.info.pages,
                                                                    next: charactersListInfo.info.next,
                                                                    prev: charactersListInfo.info.prev),
-                                                     result: charactersDomain,
-                                                     currentPage: currentPage)
+                                                     result: charactersDomain)
         //await cacheDataSource.saveCharactersList(charactersResultDomain)
         
         return .success(charactersResultDomain)

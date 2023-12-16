@@ -20,18 +20,16 @@ class SwiftDataDomainMapper {
                                                     pages: -1,
                                                     next: "",
                                                     prev: ""),
-                                   result: characterResultList,
-                                      currentPage: currentPage)
+                                   result: characterResultList)
         }
         return CharacterResult(info: InfoResult(count: characterInfo.count,
                                              pages: characterInfo.pages,
                                              next: characterInfo.next,
                                              prev: characterInfo.prev),
-                            result: characterResultList,
-                               currentPage: currentPage)
+                            result: characterResultList)
     }
     
-    func map(_ charactersList: CharacterResult) -> CharactersResultData {
+    func map(_ charactersList: CharacterResult, currentPage: Int) -> CharactersResultData {
         let characterResultList = charactersList.result.map {
             CharactersData(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
                       type: $0.type, gender: $0.gender, origin: LocationData(name: $0.origin.name, url: $0.origin.url),
@@ -44,7 +42,7 @@ class SwiftDataDomainMapper {
                                                                        next: charactersList.info.next,
                                                                        prev: charactersList.info.prev),
                                                       result: characterResultList,
-                                                      currentPage: charactersList.currentPage)
+                                                      currentPage: currentPage)
         
     }
 }
