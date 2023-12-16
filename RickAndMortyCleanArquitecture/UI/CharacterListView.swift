@@ -23,7 +23,7 @@ struct CharacterListView: View {
             } else {
                 if viewModel.showErrorMessage == nil {
                     NavigationStack {
-                        List {
+                        ScrollView {
                             ForEach(viewModel.characters, id: \.id) { character in
                                 NavigationLink {
                                     
@@ -58,4 +58,8 @@ struct CharacterListView: View {
             }
         }
     }
+}
+
+#Preview {
+    CharacterListFactory.create()
 }

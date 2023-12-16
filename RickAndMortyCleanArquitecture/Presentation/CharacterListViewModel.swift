@@ -50,7 +50,7 @@ class CharacterListViewModel: ObservableObject {
             if isSearch {
                 self.characters = charactersPresentable
             } else {
-                self.characters.append(contentsOf: charactersPresentable)
+                self.characters = self.characters + charactersPresentable//self.characters.append(contentsOf: charactersPresentable)
                 currentPage += 1
             }
         }

@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class CharactersData {
-    let id: Int
+    @Attribute(.unique) let id: Int
     let name: String
     let status: String
     let species: String
