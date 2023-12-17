@@ -9,12 +9,13 @@ import SwiftUI
 
 struct CharacterListView: View {
     @ObservedObject private var viewModel: CharacterListViewModel
+    private let createCharacterDetailView: CreateCharacterDetailView
     @State private var searchCharacterText: String = ""
-    @Environment(\.verticalSizeClass) private var verticalSizeClass
     
     
-    init(viewModel: CharacterListViewModel) {
+    init(viewModel: CharacterListViewModel, createCharacterDetailView: CreateCharacterDetailView) {
         self.viewModel = viewModel
+        self.createCharacterDetailView = createCharacterDetailView
     }
     
     var body: some View {
@@ -27,7 +28,7 @@ struct CharacterListView: View {
                         ScrollView {
                             ForEach(viewModel.characters, id: \.id) { character in
                                 NavigationLink {
-                                    
+                                    createCharacterDetailView.create(characterId: character.id)
                                 } label: {
                                     CharacterListItemView(item: character)
                                 }.onAppear {

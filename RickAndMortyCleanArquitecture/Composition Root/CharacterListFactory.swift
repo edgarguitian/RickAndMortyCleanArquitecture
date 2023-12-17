@@ -9,7 +9,7 @@ import Foundation
 
 class CharacterListFactory {
     static func create() -> CharacterListView {
-        return CharacterListView(viewModel: createViewModel())
+        return CharacterListView(viewModel: createViewModel(), createCharacterDetailView: CharacterDetailFactory())
     }
 
     private static func createViewModel() -> CharacterListViewModel {

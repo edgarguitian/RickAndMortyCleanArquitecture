@@ -15,7 +15,7 @@ class CharactersResultData {
     let result: [CharactersData]
     let currentPage: Int
 
-    init(id: UUID = UUID(), info: InfoResultData?, result: [CharactersData], currentPage: Int) {
+    init(id: UUID = UUID(), info: InfoResultData?, result: [CharactersData] = [], currentPage: Int) {
         self.id = id
         self.info = info
         self.result = result

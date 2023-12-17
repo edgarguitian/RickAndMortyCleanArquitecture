@@ -17,9 +17,9 @@ class SwiftDataCacheDataSource: CacheCharacterDataSourceType {
         self.mapper = mapper
     }
 
-    func getCharactersList() async -> CharacterResult {
+    func getCharactersList(currentPage: Int) async -> CharacterResult {
         let charactersList = container.fetchCharacters()
-        return mapper.map(charactersList)
+        return mapper.map(charactersList, currentPage: currentPage)
     }
     
     func saveCharactersList(_ charactersList: CharacterResult, currentPage: Int) async {

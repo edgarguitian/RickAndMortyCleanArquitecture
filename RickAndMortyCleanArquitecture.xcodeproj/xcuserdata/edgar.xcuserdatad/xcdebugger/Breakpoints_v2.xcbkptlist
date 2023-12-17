@@ -5,95 +5,50 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
-         <BreakpointContent
-            uuid = "5894279E-0309-4762-AAF2-B417085519EF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            symbolName = "malloxc_error_break"
-            moduleName = "">
-            <Locations>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6A43843E-6A30-460E-B9C8-24E81087C6E8"
+            uuid = "6D534922-433F-405D-A07E-1DDE1CB83DCE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RickAndMortyCleanArquitecture/UI/CharacterListView.swift"
+            filePath = "RickAndMortyCleanArquitecture/Presentation/CharacterDetailViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "loadMoreCharactersIfNeeded(currentCharacter:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "onAppear()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D26071FD-39D1-41AE-8921-7D59E13DD4B2"
-            shouldBeEnabled = "Yes"
+            uuid = "DCCEFAB8-2B42-4D9F-9559-00DAEFB658DE"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RickAndMortyCleanArquitecture/Infraestructure/Networking/URLSessionHTTPCLient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "makeRequest(endpoint:baseUrl:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D61601CA-3EB1-4DD3-BA4D-D02626940E77"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RickAndMortyCleanArquitecture/Infraestructure/Data/SwiftDataDomainMapper.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "map(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B88C167C-C7D1-4813-844F-5E276C8658F7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RickAndMortyCleanArquitecture/Infraestructure/Data/SwiftDataDomainMapper.swift"
+            filePath = "RickAndMortyCleanArquitecture/Data/Networking/APISingleCharacterDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
             endingLineNumber = "24"
-            landmarkName = "map(_:)"
+            landmarkName = "getSingleCharacter(characterId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1CB68952-AC76-41D4-B8C5-6DEC62C713F7"
-            shouldBeEnabled = "Yes"
+            uuid = "48AF3A77-F09C-4861-9E39-DA7C22D9F611"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RickAndMortyCleanArquitecture/Infraestructure/Data/SwiftDataDomainMapper.swift"
+            filePath = "RickAndMortyCleanArquitecture/Data/Networking/APISingleCharacterDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "map(_:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getSingleCharacter(characterId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
