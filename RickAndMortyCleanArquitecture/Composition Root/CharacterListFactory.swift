@@ -8,8 +8,10 @@
 import Foundation
 
 class CharacterListFactory {
+    static let viewModel: CharacterListViewModel = createViewModel()
+    
     static func create() -> CharacterListView {
-        return CharacterListView(viewModel: createViewModel(), createCharacterDetailView: CharacterDetailFactory())
+        return CharacterListView(viewModel: viewModel, createCharacterDetailView: CharacterDetailFactory(), createFilterView: FilterView(viewModel: viewModel))
     }
 
     private static func createViewModel() -> CharacterListViewModel {

@@ -10,12 +10,15 @@ import SwiftUI
 struct CharacterListView: View {
     @ObservedObject private var viewModel: CharacterListViewModel
     private let createCharacterDetailView: CreateCharacterDetailView
+    private let createFilterView: FilterView
+
     @State private var searchCharacterText: String = ""
     
     
-    init(viewModel: CharacterListViewModel, createCharacterDetailView: CreateCharacterDetailView) {
+    init(viewModel: CharacterListViewModel, createCharacterDetailView: CreateCharacterDetailView, createFilterView: FilterView) {
         self.viewModel = viewModel
         self.createCharacterDetailView = createCharacterDetailView
+        self.createFilterView = createFilterView
     }
     
     var body: some View {
@@ -36,11 +39,30 @@ struct CharacterListView: View {
                                 }
                             }
                         }
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) { // Boton de filtros
+                                Button {
+                                    viewModel.isShowingFilters.toggle()
+                                } label: {
+                                    Image(systemName: "slider.horizontal.3")
+                                }
+                            }
+                        }
+                        .onChange(of: viewModel.selectedStatusIndex) { _, _ in
+                            viewModel.filterCharacters()
+                        }
+                        .onChange(of: viewModel.selectedStatusIndex) { _, _ in
+                            viewModel.filterCharacters()
+                        }
                         .navigationTitle("Characters")
                         .accessibilityIdentifier("listCharacters")
                         
-                    }.searchable(text: $searchCharacterText).onChange(of: searchCharacterText) { _, newValue in
+                    }
+                    
+                    .searchable(text: $searchCharacterText).onChange(of: searchCharacterText) { _, newValue in
                         viewModel.search(searchText: newValue)
+                    }.sheet(isPresented: $viewModel.isShowingFilters) {
+                        createFilterView
                     }
                 } else {
                     Text(viewModel.showErrorMessage!)

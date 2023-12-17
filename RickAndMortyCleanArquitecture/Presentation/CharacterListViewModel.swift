@@ -19,6 +19,13 @@ class CharacterListViewModel: ObservableObject {
     @Published var showErrorMessage: String?
     @Published var characterDetail: CharacterListPresentableItem?
     
+    // MARK: Filters
+    @Published var isShowingFilters: Bool = false
+    var selectedStatusIndex: Int?
+    var selectedGenderIndex: Int?
+    let charactersStatus: [String] = ["alive", "dead", "unknown"]
+    let charactersGender: [String] = ["female", "male", "genderless", "unknown"]
+    
     init(getCharacterList: GetAllCharactersList, searchCharacterList: SearchCharactersListType, errorMapper: RickAndMortyPresentableErrorMapper) {
         self.getCharacterList = getCharacterList
         self.searchCharacterList = searchCharacterList
@@ -107,5 +114,26 @@ class CharacterListViewModel: ObservableObject {
             showLoadingSpinner = false
             showErrorMessage = errorMapper.map(error: error)
         }
+    }
+    
+    func filterCharacters() {
+        let hasStatusFilter = selectedStatusIndex != nil
+        let hasGenderFilter = selectedGenderIndex != nil
+
+        filteredCharacters = characters.filter { result in
+            let matchesStatus = !hasStatusFilter || result.status.lowercased() == charactersStatus[selectedStatusIndex!]
+            let matchesGender = !hasGenderFilter || result.gender.lowercased() == charactersGender[selectedGenderIndex!]
+
+            return matchesStatus && matchesGender
+        }
+
+        isShowingFilters = false
+    }
+    
+    func resetFilters() {
+        selectedStatusIndex = nil
+        selectedGenderIndex = nil
+        filteredCharacters = characters
+        isShowingFilters = false
     }
 }
