@@ -10,10 +10,10 @@ import SwiftData
 
 class SwiftDataContainer: SwiftDataContainerType {
     static let shared = SwiftDataContainer()
-
+    
     private let container: ModelContainer?
     private let context: ModelContext?
-
+    
     private init() {
         let scheme = Schema([CharactersResultData.self])
         do {
@@ -30,18 +30,25 @@ class SwiftDataContainer: SwiftDataContainerType {
             context = nil
         }
     }
-
+    
     func fetchCharacters() -> [CharactersResultData] {
         let descriptor = FetchDescriptor<CharactersResultData>()
-
-        guard let context = context, let characters = try? context.fetch(descriptor) else {
+        
+        
+        do {
+            guard let context = context else {
+                return []
+            }
+            let characters = try context.fetch(descriptor)
+            return characters
+        } catch {
+            print("Error al realizar la consulta: \(error)")
             return []
         }
         
-        return characters
-
+        
     }
-
+    
     func insert(_ charactersList: CharactersResultData) async {
         if let context = context {
             context.insert(charactersList)

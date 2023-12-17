@@ -9,6 +9,7 @@ import Foundation
 
 class CharacterListViewModel: ObservableObject {
     private let getCharacterList: GetAllCharactersList
+    private let searchCharacterList: SearchCharactersListType
     private let errorMapper: RickAndMortyPresentableErrorMapper
     private var currentPage: Int = 1
     private var lastPage: Int = -1
@@ -17,9 +18,10 @@ class CharacterListViewModel: ObservableObject {
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
     @Published var characterDetail: CharacterListPresentableItem?
-
-    init(getCharacterList: GetAllCharactersList, errorMapper: RickAndMortyPresentableErrorMapper) {
+    
+    init(getCharacterList: GetAllCharactersList, searchCharacterList: SearchCharactersListType, errorMapper: RickAndMortyPresentableErrorMapper) {
         self.getCharacterList = getCharacterList
+        self.searchCharacterList = searchCharacterList
         self.errorMapper = errorMapper
     }
     
@@ -31,31 +33,56 @@ class CharacterListViewModel: ObservableObject {
             if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
                 Task {
                     let result = await getCharacterList.execute(currentPage: currentPage)
-                    handleResult(result, isSearch: false)
+                    handleResult(result)
                 }
             }
         }
     }
     
     func search(searchText: String) {
-        showLoadingSpinner = true
+        
         if searchText.isEmpty {
             showLoadingSpinner = false
             filteredCharacters = characters
         } else {
-            filteredCharacters = characters.filter {
-                $0.name.contains(searchText) || $0.status.contains(searchText) || $0.gender.contains(searchText) || $0.species.contains(searchText) || $0.type.contains(searchText)
+            if searchText.count > 2 {
+                Task {
+                    let result = await searchCharacterList.execute(searchText: searchText)
+                    handleResult(result)
+                }
             }
-            showLoadingSpinner = false
         }
     }
     
-    private func handleResult(_ result: Result<CharacterResult, RickAndMortyDomainError>, isSearch: Bool) {
+    private func handleResult(_ result: Result<[Character], RickAndMortyDomainError>) {
         guard case .success(let characters) = result else {
             handleError(error: result.failureValue as? RickAndMortyDomainError)
             return
         }
-
+        
+        let charactersPresentable = characters.map {
+            CharacterListPresentableItem(id: String($0.id), name: $0.name,
+                                         status: $0.status, species: $0.species,
+                                         type: $0.type, gender: $0.gender, image: $0.image)
+        }
+        
+        Task { @MainActor in
+            
+            showLoadingSpinner = false
+            
+            
+            self.characters = charactersPresentable
+            self.filteredCharacters = charactersPresentable
+            
+        }
+    }
+    
+    private func handleResult(_ result: Result<CharacterResult, RickAndMortyDomainError>) {
+        guard case .success(let characters) = result else {
+            handleError(error: result.failureValue as? RickAndMortyDomainError)
+            return
+        }
+        
         let charactersPresentable = characters.result.map {
             CharacterListPresentableItem(id: String($0.id), name: $0.name,
                                          status: $0.status, species: $0.species,
@@ -66,15 +93,12 @@ class CharacterListViewModel: ObservableObject {
             if currentPage == 0 {
                 showLoadingSpinner = false
             }
-            if isSearch {
-                self.characters = charactersPresentable
-                self.filteredCharacters = charactersPresentable
-            } else {
-                self.characters = self.characters + charactersPresentable
-                self.filteredCharacters = self.characters
-                self.lastPage = characters.info.pages
-                currentPage += 1
-            }
+            
+            self.characters = self.characters + charactersPresentable
+            self.filteredCharacters = self.characters
+            self.lastPage = characters.info.pages
+            currentPage += 1
+            
         }
     }
     

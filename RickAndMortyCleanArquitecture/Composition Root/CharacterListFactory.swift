@@ -13,12 +13,16 @@ class CharacterListFactory {
     }
 
     private static func createViewModel() -> CharacterListViewModel {
-        return CharacterListViewModel(getCharacterList: createGetAllCharactersListUseCase(),
+        return CharacterListViewModel(getCharacterList: createGetAllCharactersListUseCase(), searchCharacterList: createSearchCharacterListUseCase(),
                                    errorMapper: RickAndMortyPresentableErrorMapper())
     }
 
     private static func createGetAllCharactersListUseCase() -> GetAllCharactersList {
         return GetAllCharactersList(repository: createRepository())
+    }
+    
+    private static func createSearchCharacterListUseCase() -> SearchCharactersListType {
+        return SearchCharacterList(repository: createRepository())
     }
 
     private static func createRepository() -> AllCharactersListRepository {

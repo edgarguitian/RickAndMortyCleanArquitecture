@@ -9,7 +9,7 @@ import Foundation
 
 class SwiftDataDomainMapper {
     func map(_ charactersList: [CharactersResultData], currentPage: Int) -> CharacterResult {
-        if charactersList.count > currentPage {
+        if charactersList.count > currentPage && currentPage > -1 {
             return CharacterResult(info: InfoResult(count: -1,
                                                     pages: -1,
                                                          next: nil,
