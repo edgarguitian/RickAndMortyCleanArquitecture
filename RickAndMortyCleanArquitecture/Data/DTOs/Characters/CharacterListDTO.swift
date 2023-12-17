@@ -14,8 +14,8 @@ struct CharacterListDTO: Codable {
     let species: String
     let type: String
     let gender: String
-    let origin: LocationDTO
-    let location: LocationDTO
+    let origin: LocationCharacterDTO
+    let location: LocationCharacterDTO
     let image: String
     let episode: [String]
     let url: String

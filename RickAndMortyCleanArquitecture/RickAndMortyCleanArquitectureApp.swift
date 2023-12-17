@@ -13,7 +13,9 @@ struct RickAndMortyCleanArquitectureApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            MainView(characterList: CharacterListFactory.create())
+            MainView(characterList: CharacterListFactory.create(),
+                     locationList: LocationListFactory.create(),
+                     episodeList: EpisodeListFactory.create())
         }
     }
 }
