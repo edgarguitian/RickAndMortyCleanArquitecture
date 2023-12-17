@@ -12,7 +12,8 @@ class CharacterListViewModel: ObservableObject {
     private let errorMapper: RickAndMortyPresentableErrorMapper
     private var currentPage: Int = 1
     private var lastPage: Int = -1
-    @Published var characters: [CharacterListPresentableItem] = []
+    @Published var filteredCharacters: [CharacterListPresentableItem] = []
+    var characters: [CharacterListPresentableItem] = []
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
     @Published var characterDetail: CharacterListPresentableItem?
@@ -22,15 +23,30 @@ class CharacterListViewModel: ObservableObject {
         self.errorMapper = errorMapper
     }
     
-    func onAppear() {
-        if currentPage == 0 {
-            showLoadingSpinner = true
-        }
-        if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
-            Task {
-                let result = await getCharacterList.execute(currentPage: currentPage)
-                handleResult(result, isSearch: false)
+    func onAppear(isSearch: Bool) {
+        if !isSearch {
+            if currentPage == 0 {
+                showLoadingSpinner = true
             }
+            if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
+                Task {
+                    let result = await getCharacterList.execute(currentPage: currentPage)
+                    handleResult(result, isSearch: false)
+                }
+            }
+        }
+    }
+    
+    func search(searchText: String) {
+        showLoadingSpinner = true
+        if searchText.isEmpty {
+            showLoadingSpinner = false
+            filteredCharacters = characters
+        } else {
+            filteredCharacters = characters.filter {
+                $0.name.contains(searchText) || $0.status.contains(searchText) || $0.gender.contains(searchText) || $0.species.contains(searchText) || $0.type.contains(searchText)
+            }
+            showLoadingSpinner = false
         }
     }
     
@@ -52,8 +68,10 @@ class CharacterListViewModel: ObservableObject {
             }
             if isSearch {
                 self.characters = charactersPresentable
+                self.filteredCharacters = charactersPresentable
             } else {
                 self.characters = self.characters + charactersPresentable
+                self.filteredCharacters = self.characters
                 self.lastPage = characters.info.pages
                 currentPage += 1
             }

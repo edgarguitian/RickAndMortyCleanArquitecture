@@ -26,7 +26,7 @@ struct CharacterListView: View {
                 if viewModel.showErrorMessage == nil {
                     NavigationStack {
                         ScrollView {
-                            ForEach(viewModel.characters, id: \.id) { character in
+                            ForEach(viewModel.filteredCharacters, id: \.id) { character in
                                 NavigationLink {
                                     createCharacterDetailView.create(characterId: character.id)
                                 } label: {
@@ -40,21 +40,21 @@ struct CharacterListView: View {
                         .accessibilityIdentifier("listCharacters")
                         
                     }.searchable(text: $searchCharacterText).onChange(of: searchCharacterText) { _, newValue in
-                        //viewModel.search(searchText: newValue)
+                        viewModel.search(searchText: newValue)
                     }
                 } else {
                     Text(viewModel.showErrorMessage!)
                 }
             }
         }.onAppear {
-            viewModel.onAppear()
+            viewModel.onAppear(isSearch: !searchCharacterText.isEmpty)
         }
     }
     
     func loadMoreCharactersIfNeeded(currentCharacter: CharacterListPresentableItem) {
         Task {
             if currentCharacter == viewModel.characters.last {
-                viewModel.onAppear()
+                viewModel.onAppear(isSearch: false)
             }
         }
     }
