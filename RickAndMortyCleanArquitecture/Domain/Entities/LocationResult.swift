@@ -9,5 +9,5 @@ import Foundation
 
 struct LocationResult {
     let info: InfoResult
-    let result: [Location]
+    let result: [LocationCharacter]
 }

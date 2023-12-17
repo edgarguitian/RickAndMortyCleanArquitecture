@@ -33,8 +33,8 @@ class AllCharactersListRepository: AllCharactersListRepositoryType {
         
         let charactersDomain = charactersListInfo.results.map {
             Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
-                      type: $0.type, gender: $0.gender, origin: Location(name: $0.origin.name, url: $0.origin.url),
-                      location: Location(name: $0.location.name, url: $0.location.url), image: $0.image,
+                      type: $0.type, gender: $0.gender, origin: LocationCharacter(name: $0.origin.name, url: $0.origin.url),
+                      location: LocationCharacter(name: $0.location.name, url: $0.location.url), image: $0.image,
                       episode: $0.episode, url: $0.url, created: $0.created)
         }
         let charactersResultDomain = CharacterResult(info:

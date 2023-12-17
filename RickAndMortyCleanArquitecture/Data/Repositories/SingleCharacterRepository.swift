@@ -35,8 +35,8 @@ class SingleCharacterRepository: SingleCharacterRepositoryType {
         let characterDomain = Character(id: characterResponseInfo.id, name: characterResponseInfo.name,
                                         status: characterResponseInfo.status, species: characterResponseInfo.species,
                                         type: characterResponseInfo.type, gender: characterResponseInfo.gender,
-                                        origin: Location(name: characterResponseInfo.origin.name, url: characterResponseInfo.origin.url),
-                                        location: Location(name: characterResponseInfo.location.name, url: characterResponseInfo.location.url),
+                                        origin: LocationCharacter(name: characterResponseInfo.origin.name, url: characterResponseInfo.origin.url),
+                                        location: LocationCharacter(name: characterResponseInfo.location.name, url: characterResponseInfo.location.url),
                                         image: characterResponseInfo.image, episode: characterResponseInfo.episode,
                                         url: characterResponseInfo.url, created: characterResponseInfo.created)
         

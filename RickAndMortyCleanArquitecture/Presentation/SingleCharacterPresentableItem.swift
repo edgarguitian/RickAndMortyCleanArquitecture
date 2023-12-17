@@ -14,8 +14,8 @@ struct SingleCharacterPresentableItem {
     let species: String
     let type: String
     let gender: String
-    let origin: Location
-    let location: Location
+    let origin: LocationCharacter
+    let location: LocationCharacter
     let image: String
     let episode: [String]
     let url: String
@@ -29,15 +29,15 @@ struct SingleCharacterPresentableItem {
         self.species = ""
         self.type = ""
         self.gender = ""
-        self.origin = Location(name: "", url: "")
-        self.location = Location(name: "", url: "")
+        self.origin = LocationCharacter(name: "", url: "")
+        self.location = LocationCharacter(name: "", url: "")
         self.image = ""
         self.episode = []
         self.url = ""
         self.created = ""
     }
     
-    init(id: String, name: String, status: String, species: String, type: String, gender: String, origin: Location, location: Location, image: String, episode: [String], url: String, created: String) {
+    init(id: String, name: String, status: String, species: String, type: String, gender: String, origin: LocationCharacter, location: LocationCharacter, image: String, episode: [String], url: String, created: String) {
         self.id = id
         self.name = name
         self.status = status

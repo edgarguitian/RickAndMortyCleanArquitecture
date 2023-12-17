@@ -14,8 +14,8 @@ struct Character {
     let species: String
     let type: String
     let gender: String
-    let origin: Location
-    let location: Location
+    let origin: LocationCharacter
+    let location: LocationCharacter
     let image: String
     let episode: [String]
     let url: String
