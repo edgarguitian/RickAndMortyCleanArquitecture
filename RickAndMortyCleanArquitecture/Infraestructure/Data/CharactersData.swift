@@ -10,24 +10,24 @@ import SwiftData
 
 @Model
 class CharactersData {
-    @Attribute(.unique) let identifier: UUID
-    let id: Int
+    @Attribute(.unique) let id: Int
     let name: String
     let status: String
     let species: String
     let type: String
     let gender: String
-    let origin: LocationData?
-    let location: LocationData?
+    @Relationship(deleteRule: .cascade, inverse: \LocationData.charactersData) let origin: LocationData?
+    @Relationship(deleteRule: .cascade, inverse: \LocationData.charactersData) let location: LocationData?
     let image: String
     let episode: [String]
     let url: String
     let created: String
+    var charactersResultData: CharactersResultData
 
-    init(identifier: UUID = UUID(), id: Int, name: String, status: String, species: String,
-         type: String, gender: String, origin: LocationData, location: LocationData,
-         image: String, episode: [String], url: String, created: String) {
-        self.identifier = identifier
+    
+    init(id: Int, name: String, status: String, species: String,
+         type: String, gender: String, origin: LocationData?, location: LocationData?,
+         image: String, episode: [String], url: String, created: String, charactersResultData: CharactersResultData) {
         self.id = id
         self.name = name
         self.status = status
@@ -40,5 +40,6 @@ class CharactersData {
         self.episode = episode
         self.url = url
         self.created = created
+        self.charactersResultData = charactersResultData
     }
 }

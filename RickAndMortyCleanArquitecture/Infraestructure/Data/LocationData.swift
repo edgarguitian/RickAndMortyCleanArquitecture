@@ -10,13 +10,15 @@ import SwiftData
 
 @Model
 class LocationData {
-    @Attribute(.unique) let identifier: UUID
+    @Attribute(.unique) let id: UUID
     let name: String
     let url: String
-
-    init(identifier: UUID = UUID(), name: String, url: String) {
-        self.identifier = identifier
+    var charactersData: CharactersData
+    
+    init(id: UUID = UUID(), name: String, url: String, charactersData: CharactersData) {
+        self.id = id
         self.name = name
         self.url = url
+        self.charactersData = charactersData
     }
 }

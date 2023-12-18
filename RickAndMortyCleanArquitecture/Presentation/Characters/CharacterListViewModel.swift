@@ -11,7 +11,7 @@ class CharacterListViewModel: ObservableObject {
     private let getCharacterList: GetAllCharactersList
     private let searchCharacterList: SearchCharactersListType
     private let errorMapper: RickAndMortyPresentableErrorMapper
-    private var currentPage: Int = 1
+    private var currentPage: Int = 41
     private var lastPage: Int = -1
     @Published var filteredCharacters: [CharacterListPresentableItem] = []
     var characters: [CharacterListPresentableItem] = []

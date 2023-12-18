@@ -9,14 +9,12 @@ import Foundation
 import SwiftData
 
 @Model
-class CharactersResultData {
-    @Attribute(.unique) let id: UUID
-    let info: InfoResultData?
-    let result: [CharactersData]
-    let currentPage: Int
+final class CharactersResultData {
+    @Relationship(deleteRule: .cascade, inverse: \InfoResultData.infoResultData) let info: InfoResultData?
+    @Relationship(deleteRule: .cascade, inverse: \CharactersData.charactersResultData) var result: [CharactersData]
+    @Attribute(.unique) let currentPage: Int
 
-    init(id: UUID = UUID(), info: InfoResultData?, result: [CharactersData] = [], currentPage: Int) {
-        self.id = id
+    init(info: InfoResultData?, result: [CharactersData] = [], currentPage: Int) {
         self.info = info
         self.result = result
         self.currentPage = currentPage

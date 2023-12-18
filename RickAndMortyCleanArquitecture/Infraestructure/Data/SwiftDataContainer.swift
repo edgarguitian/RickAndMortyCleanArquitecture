@@ -15,7 +15,7 @@ class SwiftDataContainer: SwiftDataContainerType {
     private let context: ModelContext?
     
     private init() {
-        let scheme = Schema([CharactersResultData.self])
+        let scheme = Schema([CharactersResultData.self, CharactersData.self, LocationData.self, InfoResultData.self])
         do {
             container = try ModelContainer(for: scheme, configurations: [])
             if let container = container {
@@ -49,15 +49,50 @@ class SwiftDataContainer: SwiftDataContainerType {
         
     }
     
-    func insert(_ charactersList: CharactersResultData) async {
+    func insert(charactersResultList: CharactersResultData) async {
         if let context = context {
-            context.insert(charactersList)
-            if let infoResultData = charactersList.info {
-                context.insert(infoResultData)
+            
+            context.insert(charactersResultList)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
             }
-            for result in charactersList.result {
-                context.insert(result)
+        }
+    }
+    
+    func insert(charactersDataList: CharactersData) async {
+        if let context = context {
+            
+            context.insert(charactersDataList)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func insert(locationList: LocationData) async {
+        if let context = context {
+            
+            context.insert(locationList)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func insert(infoResultList: InfoResultData) async {
+        if let context = context {
+            
+            context.insert(infoResultList)
+            
             do {
                 try context.save()
             } catch {

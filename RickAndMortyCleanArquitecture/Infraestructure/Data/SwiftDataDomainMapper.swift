@@ -9,64 +9,60 @@ import Foundation
 
 class SwiftDataDomainMapper {
     func map(_ charactersList: [CharactersResultData], currentPage: Int) -> CharacterResult {
-        if charactersList.count > currentPage && currentPage > -1 {
+        if charactersList.count > currentPage && currentPage == -1 {
             return CharacterResult(info: InfoResult(count: -1,
                                                     pages: -1,
                                                          next: nil,
                                                     prev: nil), result: [])
         } else {
-            print("CharactersListCount: \(charactersList.count)")
-            print("CurrentPage: \(currentPage)")
+            print("--> CharactersListCount: \(charactersList.count)")
+            print("--> CurrentPage: \(currentPage)")
             var characterResult: [Character] = []
+            var lastPage = currentPage
             for character in charactersList {
-                for i in 0..<character.result.count { // TODO: fuera
-                    if character.result[i].origin == nil {
-                        print(i)
-                    }
-                    
-                    if character.result[i].location == nil {
-                        print(i)
-                    }
-                    
-                    if character.result[i] == nil {
-                        print(i)
-                    }
-                }
+                print("Procesando character \(character.id)")
+                print("CharacterList Current Page \(character.currentPage)")
+                lastPage = character.currentPage
                 let characterResultList = character.result.map {
                     Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
                               type: $0.type, gender: $0.gender, origin: LocationCharacter(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
-                              location: LocationCharacter(name: $0.location?.name ?? "", url: $0.location?.url ?? ""), image: $0.image,
+                              location: LocationCharacter(name: "", url: ""), image: $0.image,
                               episode: $0.episode, url: $0.url, created: $0.created)
                 }
                 
                 characterResult.append(contentsOf: characterResultList)
+                print("--> characterResultList Count \(characterResultList.count)")
+
             }
+            print("--> characterResult Count \(characterResult.count)")
             let characterResultSorted = characterResult.sorted(by: { $0.id < $1.id })
+            print("--> characterResultSorted Count \(characterResultSorted.count)")
             return CharacterResult(info: InfoResult(count: characterResult.count,
-                                                    pages: charactersList.count,
+                                                    pages: lastPage,
                                                          next: nil,
                                                          prev: nil),
                                         result: characterResultSorted)
         }
-        
-        
-        
-    }
-    
-    func map(_ charactersList: CharacterResult, currentPage: Int) -> CharactersResultData {
-        let characterResultList = charactersList.result.map {
-            CharactersData(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
-                           type: $0.type, gender: $0.gender, origin: LocationData(name: $0.origin.name, url: $0.origin.url),
-                           location: LocationData(name: $0.location.name, url: $0.location.url), image: $0.image,
-                           episode: $0.episode, url: $0.url, created: $0.created)
+        /*var characterResult: [CharacterResult] = []
+        for characterResultData in charactersList {
+            if let info = characterResultData.info {
+                let characterResultItem = CharacterResult(info: InfoResult(count: info.count,
+                                                                           pages: info.pages,
+                                                                           next: info.next,
+                                                                           prev: info.prev),
+                                                               result: [])
+                characterResult.append(characterResultItem)
+            } else {
+                characterResult.append(CharacterResult(info: InfoResult(count: -1,
+                                                                        pages: charactersList.count,
+                                                                        next: nil,
+                                                                        prev: nil),
+                                                            result: []))
+            }
+            
         }
-        return CharactersResultData(info:
-                                        InfoResultData(count: charactersList.info.count,
-                                                       pages: charactersList.info.pages,
-                                                       next: charactersList.info.next,
-                                                       prev: charactersList.info.prev),
-                                    result: characterResultList,
-                                    currentPage: currentPage)
+        return characterResult*/
+        
         
     }
 }
