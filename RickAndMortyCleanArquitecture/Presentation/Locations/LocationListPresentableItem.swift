@@ -15,6 +15,16 @@ struct LocationListPresentableItem {
     let residents: [String]
     let url: String
     let created: String
+    
+    init(id: String, name: String, type: String, dimension: String, residents: [String], url: String, created: String) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.dimension = dimension
+        self.residents = residents
+        self.url = url
+        self.created = DateFormatterUtils.formatDate(created)
+    }
 }
 
 extension LocationListPresentableItem: Hashable {

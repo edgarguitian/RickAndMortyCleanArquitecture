@@ -15,6 +15,16 @@ struct EpisodeListPresentableItem {
     let characters: [String]
     let url: String
     let created: String
+    
+    init(id: String, name: String, air_date: String, episode: String, characters: [String], url: String, created: String) {
+        self.id = id
+        self.name = name
+        self.air_date = air_date
+        self.episode = episode
+        self.characters = characters
+        self.url = url
+        self.created = DateFormatterUtils.formatDate(created)
+    }
 }
 
 extension EpisodeListPresentableItem: Hashable {

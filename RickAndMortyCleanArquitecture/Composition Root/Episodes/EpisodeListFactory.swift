@@ -10,7 +10,7 @@ import Foundation
 class EpisodeListFactory {
     
     static func create() -> EpisodeListView {
-        return EpisodeListView(viewModel: createViewModel())
+        return EpisodeListView(viewModel: createViewModel(), createEpisodeDetailView: EpisodeDetailFactory())
     }
 
     private static func createViewModel() -> EpisodeListViewModel {

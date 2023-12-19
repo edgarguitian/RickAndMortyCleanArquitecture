@@ -10,7 +10,7 @@ import Foundation
 class LocationListFactory {
     
     static func create() -> LocationListView {
-        return LocationListView(viewModel: createViewModel())
+        return LocationListView(viewModel: createViewModel(), createLocationDetailView: LocationDetailFactory())
     }
 
     private static func createViewModel() -> LocationListViewModel {

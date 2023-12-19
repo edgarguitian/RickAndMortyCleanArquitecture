@@ -26,6 +26,7 @@ struct MainView: View {
             episodeList.tabItem {
                 Label("Episodes", systemImage: "tv.fill")
             }
+            
         }
     }
 }

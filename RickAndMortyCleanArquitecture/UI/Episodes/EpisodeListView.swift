@@ -9,9 +9,11 @@ import SwiftUI
 
 struct EpisodeListView: View {
     @ObservedObject private var viewModel: EpisodeListViewModel
+    private let createEpisodeDetailView: CreateEpisodeDetailView
 
-    init(viewModel: EpisodeListViewModel) {
+    init(viewModel: EpisodeListViewModel, createEpisodeDetailView: CreateEpisodeDetailView) {
         self.viewModel = viewModel
+        self.createEpisodeDetailView = createEpisodeDetailView
     }
     
     var body: some View {
@@ -24,7 +26,7 @@ struct EpisodeListView: View {
                         ScrollView {
                             ForEach(viewModel.filteredEpisodes, id: \.id) { episode in
                                 NavigationLink {
-                                    
+                                    createEpisodeDetailView.create(episodeDetailInfo: episode)
                                 } label: {
                                     EpisodesListItemView(item: episode)
                                 }.onAppear {

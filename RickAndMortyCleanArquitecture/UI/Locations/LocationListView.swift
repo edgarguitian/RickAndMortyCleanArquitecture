@@ -9,9 +9,11 @@ import SwiftUI
 
 struct LocationListView: View {
     @ObservedObject private var viewModel: LocationListViewModel
+    private let createLocationDetailView: CreateLocationDetailView
 
-    init(viewModel: LocationListViewModel) {
+    init(viewModel: LocationListViewModel, createLocationDetailView: CreateLocationDetailView) {
         self.viewModel = viewModel
+        self.createLocationDetailView = createLocationDetailView
     }
     
     var body: some View {
@@ -24,7 +26,7 @@ struct LocationListView: View {
                         ScrollView {
                             ForEach(viewModel.filteredLocations, id: \.id) { location in
                                 NavigationLink {
-                                    
+                                    createLocationDetailView.create(locationDetailInfo: location)
                                 } label: {
                                     LocationListItemView(item: location)
                                 }.onAppear {
