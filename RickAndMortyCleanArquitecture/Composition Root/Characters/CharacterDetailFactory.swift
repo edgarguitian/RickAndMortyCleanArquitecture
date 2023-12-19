@@ -25,7 +25,7 @@ class CharacterDetailFactory: CreateCharacterDetailView {
     }
     
     static func createCacheDataSource() -> CacheCharacterDataSourceType {
-        return SwiftDataCacheDataSource(container: SwiftDataContainer.shared, mapper: SwiftDataDomainMapper())
+        return SwiftDataCacheCharactersDataSource(container: SwiftDataCharactersContainer.shared, mapper: SwiftDataCharactersDomainMapper())
     }
     
     private func createAPIDataSource() -> APISingleCharacterDataSourceType {

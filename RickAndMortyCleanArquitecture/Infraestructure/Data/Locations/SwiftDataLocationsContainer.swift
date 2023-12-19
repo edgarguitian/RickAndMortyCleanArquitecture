@@ -1,23 +1,26 @@
 //
-//  SwiftDataContainer.swift
+//  SwiftDataLocationsContainer.swift
 //  RickAndMortyCleanArquitecture
 //
-//  Created by Edgar Guitian Rey on 15/12/23.
+//  Created by Edgar Guitian Rey on 19/12/23.
 //
 
 import Foundation
 import SwiftData
 
-class SwiftDataContainer: SwiftDataContainerType {
-    static let shared = SwiftDataContainer()
+class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
+
+    static let shared = SwiftDataLocationsContainer()
     
     private let container: ModelContainer?
     private let context: ModelContext?
     
     private init() {
-        let scheme = Schema([CharactersResultData.self, CharactersData.self, LocationData.self, InfoResultData.self])
+        let scheme = Schema([LocationsResultData.self, LocationsData.self, InfoResultLocationsData.self])
         do {
-            container = try ModelContainer(for: scheme, configurations: [])
+            let storeURL = URL.documentsDirectory.appending(path: "dbLocations.sqlite")
+            let config = ModelConfiguration(url: storeURL)
+            container = try ModelContainer(for: scheme, configurations: config)
             if let container = container {
                 context = ModelContext(container)
                 context?.autosaveEnabled = true
@@ -31,52 +34,42 @@ class SwiftDataContainer: SwiftDataContainerType {
         }
     }
     
-    func fetchCharacters() -> [CharactersResultData] {
-        let descriptor = FetchDescriptor<CharactersResultData>()
+    func fetchLocations() -> [LocationsResultData] {
+        let descriptor = FetchDescriptor<LocationsResultData>()
         
         
         do {
             guard let context = context else {
                 return []
             }
-            let characters = try context.fetch(descriptor)
-            return characters
+            let locations = try context.fetch(descriptor)
+            return locations
         } catch {
             print("Error al realizar la consulta: \(error)")
             return []
         }
         
-        
     }
     
-    func insert(charactersResultList: CharactersResultData) async {
+    func insert(locationsResultList: LocationsResultData) async {
         if let context = context {
             
-            context.insert(charactersResultList)
+            context.insert(locationsResultList)
             
             
         }
     }
     
-    func insert(charactersDataList: CharactersData) async {
+    func insert(locationsDataList: LocationsData) async {
         if let context = context {
             
-            context.insert(charactersDataList)
+            context.insert(locationsDataList)
             
             
         }
     }
     
-    func insert(locationList: LocationData) async {
-        if let context = context {
-            
-            context.insert(locationList)
-            
-            
-        }
-    }
-    
-    func insert(infoResultList: InfoResultData) async {
+    func insert(infoResultList: InfoResultLocationsData) async {
         if let context = context {
             
             context.insert(infoResultList)
@@ -94,4 +87,5 @@ class SwiftDataContainer: SwiftDataContainerType {
             }
         }
     }
+
 }

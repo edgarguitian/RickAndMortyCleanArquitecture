@@ -98,12 +98,24 @@ class CharacterListViewModel: ObservableObject {
         
         Task { @MainActor in
             
-            self.characters = self.characters + charactersPresentable
-            self.filteredCharacters = self.characters
-            self.lastPage = characters.info.pages
-            showLoadingSpinner = false
             
-            currentPage += 1
+            showLoadingSpinner = false
+            lastPage = characters.info.pages
+
+            if lastPage > currentPage {
+                if characters.info.count > charactersPresentable.count {
+                    self.characters = self.characters + charactersPresentable
+                    filteredCharacters = self.characters
+                    currentPage += 1
+                } else {
+                    currentPage = lastPage + 1
+                    self.characters = charactersPresentable
+                    filteredCharacters = self.characters
+                }
+            } else {
+                self.characters = self.characters + charactersPresentable
+                filteredCharacters = self.characters
+            }
             
         }
     }

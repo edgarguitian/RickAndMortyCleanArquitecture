@@ -17,7 +17,6 @@ class EpisodeListViewModel: ObservableObject {
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
     
-    @Published var isShowingFilters: Bool = false
 
     
     init(getEpisodeList: GetAllEpisodesList, errorMapper: RickAndMortyPresentableErrorMapper) {
@@ -25,16 +24,14 @@ class EpisodeListViewModel: ObservableObject {
         self.errorMapper = errorMapper
     }
     
-    func onAppear(isSearch: Bool) {
-        if !isSearch {
-            if currentPage == 0 {
-                showLoadingSpinner = true
-            }
-            if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
-                Task {
-                    let result = await getEpisodeList.execute(currentPage: currentPage)
-                    handleResult(result)
-                }
+    func onAppear() {
+        if currentPage == 1 {
+            showLoadingSpinner = true
+        }
+        if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
+            Task {
+                let result = await getEpisodeList.execute(currentPage: currentPage)
+                handleResult(result)
             }
         }
     }
@@ -56,14 +53,20 @@ class EpisodeListViewModel: ObservableObject {
         }
         
         Task { @MainActor in
-            if currentPage == 0 {
-                showLoadingSpinner = false
-            }
             
-            self.episodes = self.episodes + episodesPresentable
-            self.filteredEpisodes = self.episodes
-            self.lastPage = episodes.info.pages
-            currentPage += 1
+            showLoadingSpinner = false
+            
+            
+            lastPage = episodes.info.pages
+            self.episodes = episodesPresentable
+            filteredEpisodes = self.episodes
+            if lastPage > currentPage {
+                if episodes.info.count > episodesPresentable.count {
+                    currentPage += 1
+                } else {
+                    currentPage = lastPage + 1
+                }
+            } 
             
         }
     }

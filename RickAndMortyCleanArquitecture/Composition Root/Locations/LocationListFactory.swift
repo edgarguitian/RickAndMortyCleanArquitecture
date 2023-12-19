@@ -29,8 +29,8 @@ class LocationListFactory {
                                                  cacheDataSource: createCacheDataSource())
     }
 
-    static func createCacheDataSource() -> CacheCharacterDataSourceType {
-        return SwiftDataCacheDataSource(container: SwiftDataContainer.shared, mapper: SwiftDataDomainMapper())
+    static func createCacheDataSource() -> CacheLocationsDataSourceType {
+        return SwiftDataCacheLocationsDataSource(container: SwiftDataLocationsContainer.shared, mapper: SwiftDataLocationsDomainMapper())
     }
 
     private static func createAPIDataSource() -> APILocationsDataSourceType {

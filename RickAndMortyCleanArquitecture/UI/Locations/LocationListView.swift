@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LocationListView: View {
     @ObservedObject private var viewModel: LocationListViewModel
-    @State private var searchLocationText: String = ""
 
     init(viewModel: LocationListViewModel) {
         self.viewModel = viewModel
@@ -33,38 +32,23 @@ struct LocationListView: View {
                                 }
                             }
                         }
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) { // Boton de filtros
-                                Button {
-                                    viewModel.isShowingFilters.toggle()
-                                } label: {
-                                    Image(systemName: "slider.horizontal.3")
-                                }
-                            }
-                        }
-                        .navigationTitle("Characters")
-                        .accessibilityIdentifier("listCharacters")
+                        .navigationTitle("Locations")
+                        .accessibilityIdentifier("listLocations")
                         
-                    }
-                    
-                    .searchable(text: $searchLocationText).onChange(of: searchLocationText) { _, newValue in
-                        //viewModel.search(searchText: newValue)
-                    }.sheet(isPresented: $viewModel.isShowingFilters) {
-                        //createFilterView
                     }
                 } else {
                     Text(viewModel.showErrorMessage!)
                 }
             }
         }.onAppear {
-            viewModel.onAppear(isSearch: !searchLocationText.isEmpty)
+            viewModel.onAppear()
         }
     }
     
     func loadMoreLocationsIfNeeded(currentLocation: LocationListPresentableItem) {
         Task {
             if currentLocation == viewModel.locations.last {
-                viewModel.onAppear(isSearch: false)
+                viewModel.onAppear()
             }
         }
     }

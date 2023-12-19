@@ -14,6 +14,7 @@ struct MainView: View {
 
     var body: some View {
         TabView {
+            
             characterList.tabItem {
                 Label("Characters", systemImage: "person.3.fill")
             }

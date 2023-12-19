@@ -11,20 +11,20 @@ class AllEpisodesListRepository: AllEpisodesListRepositoryType {
     
     private let apiDataSource: APIEpisodesDataSourceType
     private let errorMapper: RickAndMortyDomainErrorMapper
-    private let cacheDataSource: CacheCharacterDataSourceType
+    private let cacheDataSource: CacheEpisodesDataSourceType
     
-    init(apiDataSource: APIEpisodesDataSourceType, errorMapper: RickAndMortyDomainErrorMapper, cacheDataSource: CacheCharacterDataSourceType) {
+    init(apiDataSource: APIEpisodesDataSourceType, errorMapper: RickAndMortyDomainErrorMapper, cacheDataSource: CacheEpisodesDataSourceType) {
         self.apiDataSource = apiDataSource
         self.errorMapper = errorMapper
         self.cacheDataSource = cacheDataSource
     }
     
     func getAllEpisodesList(currentPage: Int) async -> Result<EpisodeResult, RickAndMortyDomainError> {
-        /*let charactersListCache = await cacheDataSource.getCharactersList(currentPage: currentPage)
+        let episodesListCache = await cacheDataSource.getEpisodesList(currentPage: currentPage)
         
-        if charactersListCache.info.pages > currentPage || currentPage == -1 {
-            return .success(charactersListCache)
-        }*/
+        if episodesListCache.info.pages >= currentPage || currentPage == -1 {
+            return .success(episodesListCache)
+        }
         
         let episodesList = await apiDataSource.getEpisodesList(currentPage: currentPage)
         
@@ -43,7 +43,7 @@ class AllEpisodesListRepository: AllEpisodesListRepositoryType {
                                                                    prev: episodesListInfo.info.prev),
                                                      result: episodesDomain)
         
-        //await cacheDataSource.saveCharactersList(charactersResultDomain, currentPage: currentPage)
+        await cacheDataSource.saveEpisodesList(episodesResultDomain, currentPage: currentPage)
         
         return .success(episodesResultDomain)
     }

@@ -29,8 +29,8 @@ class EpisodeListFactory {
                                                  cacheDataSource: createCacheDataSource())
     }
 
-    static func createCacheDataSource() -> CacheCharacterDataSourceType {
-        return SwiftDataCacheDataSource(container: SwiftDataContainer.shared, mapper: SwiftDataDomainMapper())
+    static func createCacheDataSource() -> CacheEpisodesDataSourceType {
+        return SwiftDataCacheEpisodesDataSource(container: SwiftDataEpisodesContainer.shared, mapper: SwiftDataEpisodesDomainMapper())
     }
 
     private static func createAPIDataSource() -> APIEpisodesDataSourceType {

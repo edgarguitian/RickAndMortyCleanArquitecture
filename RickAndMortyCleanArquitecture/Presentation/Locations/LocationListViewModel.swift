@@ -17,24 +17,20 @@ class LocationListViewModel: ObservableObject {
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
     
-    @Published var isShowingFilters: Bool = false
-
     
     init(getLocationList: GetAllLocationsList, errorMapper: RickAndMortyPresentableErrorMapper) {
         self.getLocationList = getLocationList
         self.errorMapper = errorMapper
     }
     
-    func onAppear(isSearch: Bool) {
-        if !isSearch {
-            if currentPage == 0 {
-                showLoadingSpinner = true
-            }
-            if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
-                Task {
-                    let result = await getLocationList.execute(currentPage: currentPage)
-                    handleResult(result)
-                }
+    func onAppear() {
+        if currentPage == 1 {
+            showLoadingSpinner = true
+        }
+        if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
+            Task {
+                let result = await getLocationList.execute(currentPage: currentPage)
+                handleResult(result)
             }
         }
     }
@@ -56,14 +52,25 @@ class LocationListViewModel: ObservableObject {
         }
         
         Task { @MainActor in
-            if currentPage == 0 {
-                showLoadingSpinner = false
-            }
             
-            self.locations = self.locations + locationsPresentable
-            self.filteredLocations = self.locations
-            self.lastPage = locations.info.pages
-            currentPage += 1
+            showLoadingSpinner = false
+            
+            lastPage = locations.info.pages
+            
+            if lastPage > currentPage {
+                if locations.info.count > locationsPresentable.count {
+                    self.locations = self.locations + locationsPresentable
+                    filteredLocations = self.locations
+                    currentPage += 1
+                } else {
+                    currentPage = lastPage + 1
+                    self.locations = locationsPresentable
+                    filteredLocations = self.locations
+                }
+            } else {
+                self.locations = self.locations + locationsPresentable
+                filteredLocations = self.locations
+            }
             
         }
     }

@@ -1,5 +1,5 @@
 //
-//  InfoResultData.swift
+//  InfoResultCharactersData.swift
 //  RickAndMortyCleanArquitecture
 //
 //  Created by Edgar Guitian Rey on 16/12/23.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class InfoResultData {
+class InfoResultCharactersData {
     @Attribute(.unique) let currentPage: Int
     let count: Int
     let pages: Int

@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class LocationData {
+class LocationCharacterData {
     @Attribute(.unique) let id: UUID
     let name: String
     let url: String

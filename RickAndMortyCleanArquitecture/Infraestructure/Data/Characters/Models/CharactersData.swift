@@ -16,8 +16,8 @@ class CharactersData {
     let species: String
     let type: String
     let gender: String
-    @Relationship(deleteRule: .cascade, inverse: \LocationData.charactersData) let origin: LocationData?
-    @Relationship(deleteRule: .cascade, inverse: \LocationData.charactersData) let location: LocationData?
+    @Relationship(deleteRule: .cascade, inverse: \LocationCharacterData.charactersData) let origin: LocationCharacterData?
+    @Relationship(deleteRule: .cascade, inverse: \LocationCharacterData.charactersData) let location: LocationCharacterData?
     let image: String
     let episode: [String]
     let url: String
@@ -26,7 +26,7 @@ class CharactersData {
 
     
     init(id: Int, name: String, status: String, species: String,
-         type: String, gender: String, origin: LocationData?, location: LocationData?,
+         type: String, gender: String, origin: LocationCharacterData?, location: LocationCharacterData?,
          image: String, episode: [String], url: String, created: String, charactersResultData: CharactersResultData) {
         self.id = id
         self.name = name

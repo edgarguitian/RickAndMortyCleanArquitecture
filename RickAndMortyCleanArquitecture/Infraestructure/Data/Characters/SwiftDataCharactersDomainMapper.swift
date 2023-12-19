@@ -1,5 +1,5 @@
 //
-//  SwiftDataDomainMapper.swift
+//  SwiftDataCharactersDomainMapper.swift
 //  RickAndMortyCleanArquitecture
 //
 //  Created by Edgar Guitian Rey on 16/12/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SwiftDataDomainMapper {
+class SwiftDataCharactersDomainMapper {
     func map(_ charactersList: [CharactersResultData], currentPage: Int) -> CharacterResult {
         if charactersList.count > currentPage && currentPage == -1 {
             return CharacterResult(info: InfoResult(count: -1,
@@ -21,8 +21,8 @@ class SwiftDataDomainMapper {
             for character in charactersList {
                 
 
-                lastPage = character.currentPage
                 if character.info.count > 0 {
+                    lastPage = character.info[character.info.count - 1].count
                     pages = character.info[character.info.count - 1].pages
                 }
                 let characterResultList = character.result.map {

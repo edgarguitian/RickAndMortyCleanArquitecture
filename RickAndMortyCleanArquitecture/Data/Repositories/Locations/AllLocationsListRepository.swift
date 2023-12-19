@@ -11,20 +11,20 @@ class AllLocationsListRepository: AllLocationsListRepositoryType {
     
     private let apiDataSource: APILocationsDataSourceType
     private let errorMapper: RickAndMortyDomainErrorMapper
-    private let cacheDataSource: CacheCharacterDataSourceType
+    private let cacheDataSource: CacheLocationsDataSourceType
     
-    init(apiDataSource: APILocationsDataSourceType, errorMapper: RickAndMortyDomainErrorMapper, cacheDataSource: CacheCharacterDataSourceType) {
+    init(apiDataSource: APILocationsDataSourceType, errorMapper: RickAndMortyDomainErrorMapper, cacheDataSource: CacheLocationsDataSourceType) {
         self.apiDataSource = apiDataSource
         self.errorMapper = errorMapper
         self.cacheDataSource = cacheDataSource
     }
     
     func getAllLocationsList(currentPage: Int) async -> Result<LocationResult, RickAndMortyDomainError> {
-        /*let charactersListCache = await cacheDataSource.getCharactersList(currentPage: currentPage)
+        let locationsListCache = await cacheDataSource.getLocationsList(currentPage: currentPage)
         
-        if charactersListCache.info.pages > currentPage || currentPage == -1 {
-            return .success(charactersListCache)
-        }*/
+        if locationsListCache.info.pages > currentPage || currentPage == -1 {
+            return .success(locationsListCache)
+        }
         
         let locationsList = await apiDataSource.getLocationsList(currentPage: currentPage)
         
@@ -43,7 +43,7 @@ class AllLocationsListRepository: AllLocationsListRepositoryType {
                                                                    prev: locationsListInfo.info.prev),
                                                      result: locationsDomain)
         
-        //await cacheDataSource.saveCharactersList(charactersResultDomain, currentPage: currentPage)
+        await cacheDataSource.saveLocationsList(locationResultDomain, currentPage: currentPage)
         
         return .success(locationResultDomain)
     }
