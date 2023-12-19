@@ -37,12 +37,12 @@ struct CharacterDetailView: View {
                         
                         Spacer()
                         
-                        CharacterDetailItemView(title: "Status", value: viewModel.characterDetailInfo.status)
-                        CharacterDetailItemView(title: "Species", value: viewModel.characterDetailInfo.species)
-                        CharacterDetailItemView(title: "Type", value: viewModel.characterDetailInfo.type)
-                        CharacterDetailItemView(title: "Gender", value: viewModel.characterDetailInfo.gender)
-                        CharacterDetailItemView(title: "Origin", value: viewModel.characterDetailInfo.origin.name)
-                        CharacterDetailItemView(title: "Location", value: viewModel.characterDetailInfo.location.name)
+                        CharacterDetailItemView(title: "🟢 Status", value: viewModel.characterDetailInfo.status)
+                        CharacterDetailItemView(title: "🧬 Species", value: viewModel.characterDetailInfo.species)
+                        CharacterDetailItemView(title: "🌱 Type", value: viewModel.characterDetailInfo.type)
+                        CharacterDetailItemView(title: "👤 Gender", value: viewModel.characterDetailInfo.gender)
+                        CharacterDetailItemView(title: "📍 Origin", value: viewModel.characterDetailInfo.origin.name)
+                        CharacterDetailItemView(title: "🗺 Location", value: viewModel.characterDetailInfo.location.name)
                         CharacterDetailItemView(title: "Created", value: viewModel.characterDetailInfo.created)
                         
                         Spacer()

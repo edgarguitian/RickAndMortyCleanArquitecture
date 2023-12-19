@@ -20,7 +20,8 @@ class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
         do {
             let storeURL = URL.documentsDirectory.appending(path: "dbLocations.sqlite")
             let config = ModelConfiguration(url: storeURL)
-            container = try ModelContainer(for: scheme, configurations: config)
+            let configMemory = ModelConfiguration(isStoredInMemoryOnly: false)
+            container = try ModelContainer(for: scheme, configurations: [config, configMemory])
             if let container = container {
                 context = ModelContext(container)
                 context?.autosaveEnabled = true

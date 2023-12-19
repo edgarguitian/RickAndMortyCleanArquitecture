@@ -24,11 +24,6 @@ struct EpisodesListItemView: View {
                     .fontWeight(.medium)
                     .padding(.vertical, 2)
 
-                Text("# \(item.id)")
-                    .font(.caption2)
-                    .foregroundColor(.gray)
-                    .fontWeight(.medium)
-                    .padding(.vertical, 2)
             }
 
             Spacer()
@@ -38,7 +33,7 @@ struct EpisodesListItemView: View {
                 Spacer().frame(width: 10)
             }
         }
-        .padding(.leading)
+        .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color("CellBackgroundColor"))
         .cornerRadius(15)

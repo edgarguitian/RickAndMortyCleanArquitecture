@@ -27,8 +27,8 @@ struct EpisodeDetailView: View {
                         
                         Spacer()
                         
-                        CharacterDetailItemView(title: "Episode", value: viewModel.episodeDetailInfo.episode)
-                        CharacterDetailItemView(title: "Air Date", value: viewModel.episodeDetailInfo.air_date)
+                        CharacterDetailItemView(title: "📺 Episode", value: viewModel.episodeDetailInfo.episode)
+                        CharacterDetailItemView(title: "📅 Air Date", value: viewModel.episodeDetailInfo.air_date)
                         CharacterDetailItemView(title: "Created", value: viewModel.episodeDetailInfo.created)
                         
                         Spacer()

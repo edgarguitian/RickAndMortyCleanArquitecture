@@ -27,8 +27,8 @@ struct LocationDetailView: View {
                         
                         Spacer()
                         
-                        CharacterDetailItemView(title: "Type", value: viewModel.locationDetailInfo.type)
-                        CharacterDetailItemView(title: "Dimension", value: viewModel.locationDetailInfo.dimension)
+                        CharacterDetailItemView(title: "🪐 Type", value: viewModel.locationDetailInfo.type)
+                        CharacterDetailItemView(title: "✨ Dimension", value: viewModel.locationDetailInfo.dimension)
                         CharacterDetailItemView(title: "Created", value: viewModel.locationDetailInfo.created)
                         
                         Spacer()

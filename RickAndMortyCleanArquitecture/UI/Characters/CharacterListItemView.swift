@@ -37,7 +37,7 @@ struct CharacterListItemView: View {
                     .fontWeight(.medium)
                     .padding(.vertical, 2)
 
-                Text("# \(item.id)")
+                Text(item.species)
                     .font(.caption2)
                     .foregroundColor(.gray)
                     .fontWeight(.medium)
@@ -48,6 +48,7 @@ struct CharacterListItemView: View {
 
             HStack {
                 Image(systemName: "chevron.right")
+                    
                 Spacer().frame(width: 10)
             }
         }

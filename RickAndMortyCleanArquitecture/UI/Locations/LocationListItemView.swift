@@ -19,17 +19,12 @@ struct LocationListItemView: View {
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.leading)
 
-                Text(item.type)
+                Text(item.dimension)
                     .font(.caption)
                     .foregroundColor(.gray)
                     .fontWeight(.medium)
                     .padding(.vertical, 2)
 
-                Text("# \(item.id)")
-                    .font(.caption2)
-                    .foregroundColor(.gray)
-                    .fontWeight(.medium)
-                    .padding(.vertical, 2)
             }
 
             Spacer()
@@ -39,7 +34,7 @@ struct LocationListItemView: View {
                 Spacer().frame(width: 10)
             }
         }
-        .padding(.leading)
+        .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color("CellBackgroundColor"))
         .cornerRadius(15)
