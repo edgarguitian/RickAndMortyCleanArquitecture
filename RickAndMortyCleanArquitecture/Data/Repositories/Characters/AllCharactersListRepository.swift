@@ -21,7 +21,7 @@ class AllCharactersListRepository: AllCharactersListRepositoryType {
     func getAllCharactersList(currentPage: Int) async -> Result<CharacterResult, RickAndMortyDomainError> {        
         let charactersListCache = await cacheDataSource.getCharactersList(currentPage: currentPage)
         
-        if charactersListCache.info.pages >= currentPage || currentPage == -1 {
+        if (charactersListCache.info.count >= currentPage) || currentPage == -1 {
             return .success(charactersListCache)
         } 
         

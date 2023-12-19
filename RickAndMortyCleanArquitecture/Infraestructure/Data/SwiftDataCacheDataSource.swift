@@ -49,10 +49,11 @@ class SwiftDataCacheDataSource: CacheCharacterDataSourceType {
         await container.insert(charactersResultList: charactersResult)
         */
         
-        let charactersResult = CharactersResultData(info: nil, result: [], currentPage: currentPage)
+        let charactersResult = CharactersResultData(info: [], result: [], currentPage: currentPage)
         await container.insert(charactersResultList: charactersResult)
         
-        let infoResultData = InfoResultData(count: charactersList.info.count,
+        let infoResultData = InfoResultData(currentPage: currentPage,
+                                            count: charactersList.info.count,
                                             pages: charactersList.info.pages,
                                             next: charactersList.info.next,
                                             prev: charactersList.info.prev, infoResultData: charactersResult)
@@ -73,6 +74,10 @@ class SwiftDataCacheDataSource: CacheCharacterDataSourceType {
             let locationLocation = LocationData(name: character.location.name, url: character.location.url, charactersData: characterData)
             await container.insert(locationList: locationOrigin)
             await container.insert(locationList: locationLocation)
+        }
+        
+        if currentPage == charactersList.info.pages {
+            await container.saveData()
         }
         
     }

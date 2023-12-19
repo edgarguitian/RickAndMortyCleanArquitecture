@@ -15,14 +15,16 @@ class SwiftDataDomainMapper {
                                                          next: nil,
                                                     prev: nil), result: [])
         } else {
-            print("--> CharactersListCount: \(charactersList.count)")
-            print("--> CurrentPage: \(currentPage)")
             var characterResult: [Character] = []
-            var lastPage = currentPage
+            var lastPage = -1
+            var pages = -1
             for character in charactersList {
-                print("Procesando character \(character.id)")
-                print("CharacterList Current Page \(character.currentPage)")
+                
+
                 lastPage = character.currentPage
+                if character.info.count > 0 {
+                    pages = character.info[character.info.count - 1].pages
+                }
                 let characterResultList = character.result.map {
                     Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
                               type: $0.type, gender: $0.gender, origin: LocationCharacter(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
@@ -31,38 +33,14 @@ class SwiftDataDomainMapper {
                 }
                 
                 characterResult.append(contentsOf: characterResultList)
-                print("--> characterResultList Count \(characterResultList.count)")
 
             }
-            print("--> characterResult Count \(characterResult.count)")
             let characterResultSorted = characterResult.sorted(by: { $0.id < $1.id })
-            print("--> characterResultSorted Count \(characterResultSorted.count)")
-            return CharacterResult(info: InfoResult(count: characterResult.count,
-                                                    pages: lastPage,
+            return CharacterResult(info: InfoResult(count: lastPage,
+                                                    pages: pages,
                                                          next: nil,
                                                          prev: nil),
                                         result: characterResultSorted)
         }
-        /*var characterResult: [CharacterResult] = []
-        for characterResultData in charactersList {
-            if let info = characterResultData.info {
-                let characterResultItem = CharacterResult(info: InfoResult(count: info.count,
-                                                                           pages: info.pages,
-                                                                           next: info.next,
-                                                                           prev: info.prev),
-                                                               result: [])
-                characterResult.append(characterResultItem)
-            } else {
-                characterResult.append(CharacterResult(info: InfoResult(count: -1,
-                                                                        pages: charactersList.count,
-                                                                        next: nil,
-                                                                        prev: nil),
-                                                            result: []))
-            }
-            
-        }
-        return characterResult*/
-        
-        
     }
 }

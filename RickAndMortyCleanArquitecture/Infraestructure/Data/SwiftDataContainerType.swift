@@ -13,4 +13,5 @@ protocol SwiftDataContainerType {
     func insert(charactersDataList: CharactersData) async
     func insert(locationList: LocationData) async 
     func insert(infoResultList: InfoResultData) async
+    func saveData() async
 }

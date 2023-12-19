@@ -11,7 +11,7 @@ class CharacterListViewModel: ObservableObject {
     private let getCharacterList: GetAllCharactersList
     private let searchCharacterList: SearchCharactersListType
     private let errorMapper: RickAndMortyPresentableErrorMapper
-    private var currentPage: Int = 41
+    private var currentPage: Int = 1
     private var lastPage: Int = -1
     @Published var filteredCharacters: [CharacterListPresentableItem] = []
     var characters: [CharacterListPresentableItem] = []
@@ -34,7 +34,7 @@ class CharacterListViewModel: ObservableObject {
     
     func onAppear(isSearch: Bool) {
         if !isSearch {
-            if currentPage == 0 {
+            if currentPage == 1 {
                 showLoadingSpinner = true
             }
             if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
@@ -97,13 +97,12 @@ class CharacterListViewModel: ObservableObject {
         }
         
         Task { @MainActor in
-            if currentPage == 0 {
-                showLoadingSpinner = false
-            }
             
             self.characters = self.characters + charactersPresentable
             self.filteredCharacters = self.characters
             self.lastPage = characters.info.pages
+            showLoadingSpinner = false
+            
             currentPage += 1
             
         }

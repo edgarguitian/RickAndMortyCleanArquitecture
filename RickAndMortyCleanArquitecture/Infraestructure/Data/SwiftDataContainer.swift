@@ -54,11 +54,7 @@ class SwiftDataContainer: SwiftDataContainerType {
             
             context.insert(charactersResultList)
             
-            do {
-                try context.save()
-            } catch {
-                print("Error \(error.localizedDescription)")
-            }
+            
         }
     }
     
@@ -67,11 +63,7 @@ class SwiftDataContainer: SwiftDataContainerType {
             
             context.insert(charactersDataList)
             
-            do {
-                try context.save()
-            } catch {
-                print("Error \(error.localizedDescription)")
-            }
+            
         }
     }
     
@@ -80,11 +72,7 @@ class SwiftDataContainer: SwiftDataContainerType {
             
             context.insert(locationList)
             
-            do {
-                try context.save()
-            } catch {
-                print("Error \(error.localizedDescription)")
-            }
+            
         }
     }
     
@@ -93,10 +81,16 @@ class SwiftDataContainer: SwiftDataContainerType {
             
             context.insert(infoResultList)
             
+            
+        }
+    }
+    
+    func saveData() async {
+        if let context = context {
             do {
                 try context.save()
             } catch {
-                print("Error \(error.localizedDescription)")
+                print("Error saveData \(error.localizedDescription)")
             }
         }
     }
