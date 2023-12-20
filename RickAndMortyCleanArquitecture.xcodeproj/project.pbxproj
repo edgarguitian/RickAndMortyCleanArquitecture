@@ -153,6 +153,12 @@
 		6DB216BA2B31E5FB007FF4FF /* DateFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB216B92B31E5FB007FF4FF /* DateFormatterUtils.swift */; };
 		6DD3ACC92B32F3A8007A9A04 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */; };
 		6DD3ACCB2B32F7DC007A9A04 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */; };
+		6DD3ACCD2B331591007A9A04 /* GetSingleEpisodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACCC2B331591007A9A04 /* GetSingleEpisodeType.swift */; };
+		6DD3ACCF2B331714007A9A04 /* GetSingleEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACCE2B331714007A9A04 /* GetSingleEpisode.swift */; };
+		6DD3ACD12B331761007A9A04 /* SingleEpisodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACD02B331761007A9A04 /* SingleEpisodeRepositoryType.swift */; };
+		6DD3ACD32B3317FA007A9A04 /* SingleEpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACD22B3317FA007A9A04 /* SingleEpisodeRepository.swift */; };
+		6DD3ACD52B3318DF007A9A04 /* APISingleEpisodeDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACD42B3318DF007A9A04 /* APISingleEpisodeDataSourceType.swift */; };
+		6DD3ACD72B331914007A9A04 /* APISingleEpisodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACD62B331914007A9A04 /* APISingleEpisodeDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,6 +284,12 @@
 		6DB216B92B31E5FB007FF4FF /* DateFormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtils.swift; sourceTree = "<group>"; };
 		6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
+		6DD3ACCC2B331591007A9A04 /* GetSingleEpisodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSingleEpisodeType.swift; sourceTree = "<group>"; };
+		6DD3ACCE2B331714007A9A04 /* GetSingleEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSingleEpisode.swift; sourceTree = "<group>"; };
+		6DD3ACD02B331761007A9A04 /* SingleEpisodeRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEpisodeRepositoryType.swift; sourceTree = "<group>"; };
+		6DD3ACD22B3317FA007A9A04 /* SingleEpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEpisodeRepository.swift; sourceTree = "<group>"; };
+		6DD3ACD42B3318DF007A9A04 /* APISingleEpisodeDataSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISingleEpisodeDataSourceType.swift; sourceTree = "<group>"; };
+		6DD3ACD62B331914007A9A04 /* APISingleEpisodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISingleEpisodeDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +701,7 @@
 			isa = PBXGroup;
 			children = (
 				6D92C5282B2F5A550040FB91 /* GetAllEpisodesList.swift */,
+				6DD3ACCE2B331714007A9A04 /* GetSingleEpisode.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -697,7 +710,9 @@
 			isa = PBXGroup;
 			children = (
 				6D92C52B2B2F5A780040FB91 /* GetAllEpisodesListType.swift */,
+				6DD3ACCC2B331591007A9A04 /* GetSingleEpisodeType.swift */,
 				6D92C52D2B2F5A840040FB91 /* AllEpisodesListRepositoryType.swift */,
+				6DD3ACD02B331761007A9A04 /* SingleEpisodeRepositoryType.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -723,6 +738,7 @@
 			isa = PBXGroup;
 			children = (
 				6D92C5342B2F5B290040FB91 /* AllEpisodesListRepository.swift */,
+				6DD3ACD22B3317FA007A9A04 /* SingleEpisodeRepository.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -752,6 +768,8 @@
 			children = (
 				6D92C53D2B2F5CD70040FB91 /* APIEpisodesDataSourceType.swift */,
 				6D92C53F2B2F5CDC0040FB91 /* APIEpisodesDataSource.swift */,
+				6DD3ACD42B3318DF007A9A04 /* APISingleEpisodeDataSourceType.swift */,
+				6DD3ACD62B331914007A9A04 /* APISingleEpisodeDataSource.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -1005,6 +1023,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DB216AC2B31DFB6007FF4FF /* CreateLocationDetailView.swift in Sources */,
+				6DD3ACD52B3318DF007A9A04 /* APISingleEpisodeDataSourceType.swift in Sources */,
 				6D1A00432B2C5FD400783DD0 /* RickAndMortyDomainErrorMapper.swift in Sources */,
 				6D1E69BF2B31A35300D691E2 /* CacheEpisodesDataSourceType.swift in Sources */,
 				6D34EDD32B2F0A5900E90E0F /* CharacterDetailViewModel.swift in Sources */,
@@ -1015,11 +1034,13 @@
 				6DB216AA2B31DF12007FF4FF /* LocationDetailViewModel.swift in Sources */,
 				6D4433B62B2DD77500AFBB56 /* SwiftDataCharactersDomainMapper.swift in Sources */,
 				6D1E69BB2B31A19A00D691E2 /* SwiftDataEpisodesContainer.swift in Sources */,
+				6DD3ACD32B3317FA007A9A04 /* SingleEpisodeRepository.swift in Sources */,
 				6D34EDEB2B2F43F800E90E0F /* SearchCharactersListType.swift in Sources */,
 				6D1E69CA2B31B1F400D691E2 /* SwiftDataLocationsContainer.swift in Sources */,
 				6D1A00732B2C71FE00783DD0 /* MainView.swift in Sources */,
 				6D1A00672B2C67A900783DD0 /* LoadingSpinnerView.swift in Sources */,
 				6D92C55A2B2F60CD0040FB91 /* LocationListPresentableItem.swift in Sources */,
+				6DD3ACCF2B331714007A9A04 /* GetSingleEpisode.swift in Sources */,
 				6D92C5402B2F5CDC0040FB91 /* APIEpisodesDataSource.swift in Sources */,
 				6D1E69AE2B31A0EA00D691E2 /* SwiftDataLocationsContainerType.swift in Sources */,
 				6D92C5602B2F62D80040FB91 /* LocationListItemView.swift in Sources */,
@@ -1031,6 +1052,7 @@
 				6D1E69AB2B319F8A00D691E2 /* LocationsResultData.swift in Sources */,
 				6D1A004B2B2C626100783DD0 /* HTTPClient.swift in Sources */,
 				6D92C5472B2F5DA50040FB91 /* EpisodeResponseDTO.swift in Sources */,
+				6DD3ACD72B331914007A9A04 /* APISingleEpisodeDataSource.swift in Sources */,
 				6D92C52E2B2F5A840040FB91 /* AllEpisodesListRepositoryType.swift in Sources */,
 				6D1A00292B2C5B0600783DD0 /* CharacterResult.swift in Sources */,
 				6D92C5192B2F58BB0040FB91 /* Location.swift in Sources */,
@@ -1041,6 +1063,7 @@
 				6D92C5582B2F60BE0040FB91 /* EpisodeListViewModel.swift in Sources */,
 				6D1A006D2B2C6A5200783DD0 /* LocationCharacterData.swift in Sources */,
 				6D1A00692B2C67CD00783DD0 /* CharacterListItemView.swift in Sources */,
+				6DD3ACD12B331761007A9A04 /* SingleEpisodeRepositoryType.swift in Sources */,
 				6DB216B82B31E305007FF4FF /* EpisodeDetailFactory.swift in Sources */,
 				6D1A00592B2C655000783DD0 /* URLSessionErrorResolver.swift in Sources */,
 				6D1A005B2B2C655F00783DD0 /* URLSessionRequestMaker.swift in Sources */,
@@ -1111,6 +1134,7 @@
 				6D4433B42B2DD6A500AFBB56 /* InfoResultCharactersData.swift in Sources */,
 				6DB216B22B31E236007FF4FF /* EpisodeDetailViewModel.swift in Sources */,
 				6D1A00472B2C624700783DD0 /* Endpoint.swift in Sources */,
+				6DD3ACCD2B331591007A9A04 /* GetSingleEpisodeType.swift in Sources */,
 				6D92C5132B2F4ED00040FB91 /* FilterView.swift in Sources */,
 				6D34EDEF2B2F45B000E90E0F /* SearchCharactersListRepositoryType.swift in Sources */,
 				6D92C5492B2F5DC00040FB91 /* LocationListDTO.swift in Sources */,

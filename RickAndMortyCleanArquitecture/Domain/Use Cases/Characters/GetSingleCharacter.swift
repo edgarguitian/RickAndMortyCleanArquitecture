@@ -19,7 +19,7 @@ class GetSingleCharacter: GetSingleCharacterType {
     func execute(characterId: String) async -> Result<Character, RickAndMortyDomainError> {
         let result = await repository.getSingleCharacter(characterId: characterId)
         
-        guard let charactersList = try? result.get() else {
+        guard let character = try? result.get() else {
             guard case .failure(let error) = result else {
                 return .failure(.generic)
             }
@@ -27,13 +27,13 @@ class GetSingleCharacter: GetSingleCharacterType {
             return .failure(error)
         }
 
-        return .success(charactersList)
+        return .success(character)
     }
     
     func execute(url: URL) async -> Result<Character, RickAndMortyDomainError> {
         let result = await repository.getSingleCharacter(url: url)
         
-        guard let charactersList = try? result.get() else {
+        guard let character = try? result.get() else {
             guard case .failure(let error) = result else {
                 return .failure(.generic)
             }
@@ -41,7 +41,7 @@ class GetSingleCharacter: GetSingleCharacterType {
             return .failure(error)
         }
 
-        return .success(charactersList)
+        return .success(character)
     }
     
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     @ObservedObject private var viewModel: CharacterDetailViewModel
-    
-    init(viewModel: CharacterDetailViewModel) {
+    private let createEpisodeDetailView: CreateEpisodeDetailView
+
+    init(viewModel: CharacterDetailViewModel,
+         createEpisodeDetailView: CreateEpisodeDetailView) {
         self.viewModel = viewModel
+        self.createEpisodeDetailView = createEpisodeDetailView
     }
     
     var body: some View {
@@ -20,7 +23,7 @@ struct CharacterDetailView: View {
                 LoadingSpinnerView()
             } else {
                 if viewModel.showErrorMessage == nil {
-                    ScrollView {
+                    List {
                         
                         CachedAsyncImage(url: URL(string: viewModel.characterDetailInfo.image), urlCache: .imageCache) { phase in
                                     switch phase {
@@ -63,6 +66,29 @@ struct CharacterDetailView: View {
                         CharacterDetailItemView(title: "Created", value: viewModel.characterDetailInfo.created)
                         
                         Spacer()
+                        
+                        if viewModel.episodes.count > 0 {
+                            Section(header:
+                                        Text("Episodes (\(viewModel.episodes.count))")
+                                .font(.title2)
+                            ) {
+                               
+                                ForEach(viewModel.episodes, id: \.self) { episode in
+                                    NavigationLink {
+                                        createEpisodeDetailView.create(episodeDetailInfo: episode)
+                                    } label: {
+                                        VStack(alignment: .leading) {
+                                            Text(episode.name)
+                                                .font(.title3)
+                                            Text(episode.episode)
+                                                .font(.subheadline)
+                                        }
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
                     }
                 } else {
                     Text(viewModel.showErrorMessage!)

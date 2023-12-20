@@ -9,7 +9,7 @@ import Foundation
 
 class LocationDetailFactory: CreateLocationDetailView {
     func create(locationDetailInfo: LocationListPresentableItem) -> LocationDetailView {
-        return LocationDetailView(viewModel: createViewModel(locationDetailInfo: locationDetailInfo))
+        return LocationDetailView(viewModel: createViewModel(locationDetailInfo: locationDetailInfo), createCharacterDetailView: CharacterDetailFactory())
     }
     
     private func createViewModel(locationDetailInfo: LocationListPresentableItem) -> LocationDetailViewModel {

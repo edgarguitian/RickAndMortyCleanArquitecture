@@ -17,7 +17,7 @@ class GetAllEpisodesList: GetAllEpisodesListType {
     func execute(currentPage: Int) async -> Result<EpisodeResult, RickAndMortyDomainError> {
         let result = await repository.getAllEpisodesList(currentPage: currentPage)
         
-        guard let locationsList = try? result.get() else {
+        guard let episodesList = try? result.get() else {
             guard case .failure(let error) = result else {
                 return .failure(.generic)
             }
@@ -25,7 +25,7 @@ class GetAllEpisodesList: GetAllEpisodesListType {
             return .failure(error)
         }
 
-        return .success(locationsList)
+        return .success(episodesList)
     }
     
 }

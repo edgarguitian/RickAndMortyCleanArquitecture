@@ -12,15 +12,20 @@ class CharacterDetailViewModel: ObservableObject {
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
     @Published var characterDetailInfo: SingleCharacterPresentableItem
+    @Published var episodes: [EpisodeListPresentableItem] = []
 
     private let getSingleCharacter: GetSingleCharacterType
+    private let getSingleEpisode: GetSingleEpisodeType
+
     private let errorMapper: RickAndMortyPresentableErrorMapper
     let characterId: String
     
     init(getSingleCharacter: GetSingleCharacterType,
+         getSingleEpisode: GetSingleEpisodeType,
          errorMapper: RickAndMortyPresentableErrorMapper,
          characterId: String) {
         self.getSingleCharacter = getSingleCharacter
+        self.getSingleEpisode = getSingleEpisode
         self.errorMapper = errorMapper
         self.characterId = characterId
         self.characterDetailInfo = SingleCharacterPresentableItem()
@@ -41,8 +46,29 @@ class CharacterDetailViewModel: ObservableObject {
             let singleCharacterPresentable = SingleCharacterPresentableItem(character: singleCharacter)
             print("")
             Task { @MainActor in
-                showLoadingSpinner = false
                 self.characterDetailInfo = singleCharacterPresentable
+                
+                let numEpisodes = characterDetailInfo.episode.count
+                for i in 0..<numEpisodes {
+                    Task {
+                        let result = await getSingleEpisode.execute(url: URL(string: characterDetailInfo.episode[i])!)
+                        
+                        guard case .success(let singleCharacter) = result else {
+                            handleError(error: result.failureValue as? RickAndMortyDomainError)
+                            return
+                        }
+                        
+                        let singleEpisodePresentable = EpisodeListPresentableItem(id: String(singleCharacter.id), name: singleCharacter.name, air_date: singleCharacter.air_date, episode: singleCharacter.episode, characters: singleCharacter.characters, url: singleCharacter.url, created: singleCharacter.created)
+                        print("")
+                        Task { @MainActor in
+                            if i == numEpisodes - 1 {
+                                showLoadingSpinner = false
+                            }
+                            self.episodes.append(singleEpisodePresentable)
+                        }
+
+                    }
+                }
             }
 
         }
