@@ -19,7 +19,6 @@ class SwiftDataCharactersDomainMapper {
             var lastPage = -1
             var pages = -1
             for character in charactersList {
-                
 
                 if character.info.count > 0 {
                     lastPage = character.info[character.info.count - 1].count
@@ -27,11 +26,12 @@ class SwiftDataCharactersDomainMapper {
                 }
                 let characterResultList = character.result.map {
                     Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
-                              type: $0.type, gender: $0.gender, origin: LocationCharacter(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
+                              type: $0.type, gender: $0.gender,
+                              origin: LocationCharacter(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
                               location: LocationCharacter(name: "", url: ""), image: $0.image,
                               episode: $0.episode, url: $0.url, created: $0.created)
                 }
-                
+
                 characterResult.append(contentsOf: characterResultList)
 
             }

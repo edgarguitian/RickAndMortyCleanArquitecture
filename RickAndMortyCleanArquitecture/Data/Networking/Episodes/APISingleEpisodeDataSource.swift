@@ -10,12 +10,11 @@ import Foundation
 class APISingleEpisodeDataSource: APISingleEpisodeDataSourceType {
 
     private let httpClient: HTTPClient
-    
+
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
 
-    
     func getSingleEpisode(url: URL) async -> Result<EpisodeListDTO, HTTPClientError> {
         let endpoint = Endpoint(path: "",
                                 queryParameters: [:],
@@ -32,7 +31,7 @@ class APISingleEpisodeDataSource: APISingleEpisodeDataSourceType {
         }
         return .success(singleEpisodeResponse)
     }
-    
+
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else {
             return .generic

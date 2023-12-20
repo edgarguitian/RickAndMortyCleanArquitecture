@@ -15,7 +15,7 @@ struct LocationListView: View {
         self.viewModel = viewModel
         self.createLocationDetailView = createLocationDetailView
     }
-    
+
     var body: some View {
         VStack {
             if viewModel.showLoadingSpinner {
@@ -36,7 +36,7 @@ struct LocationListView: View {
                         }
                         .navigationTitle("Locations")
                         .accessibilityIdentifier("listLocations")
-                        
+
                     }
                 } else {
                     Text(viewModel.showErrorMessage!)
@@ -46,7 +46,7 @@ struct LocationListView: View {
             viewModel.onAppear()
         }
     }
-    
+
     func loadMoreLocationsIfNeeded(currentLocation: LocationListPresentableItem) {
         Task {
             if currentLocation == viewModel.locations.last {

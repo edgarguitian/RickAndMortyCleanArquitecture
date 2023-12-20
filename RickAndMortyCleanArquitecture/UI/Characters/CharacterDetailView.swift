@@ -16,7 +16,7 @@ struct CharacterDetailView: View {
         self.viewModel = viewModel
         self.createEpisodeDetailView = createEpisodeDetailView
     }
-    
+
     var body: some View {
         VStack {
             if viewModel.showLoadingSpinner {
@@ -24,8 +24,9 @@ struct CharacterDetailView: View {
             } else {
                 if viewModel.showErrorMessage == nil {
                     List {
-                        
-                        CachedAsyncImage(url: URL(string: viewModel.characterDetailInfo.image), urlCache: .imageCache) { phase in
+
+                        CachedAsyncImage(url: URL(string: viewModel.characterDetailInfo.image),
+                                         urlCache: .imageCache) { phase in
                                     switch phase {
                                     case .empty:
                                         ProgressView()
@@ -50,36 +51,38 @@ struct CharacterDetailView: View {
                                          .padding(.vertical)
                                     }
                                 }
-                            
-                        
-                       
-                        
+
                         Section(header: Text("INFO")
                                             .font(.title2)
                         ) {
-                            CharacterDetailItemView(title: "🟢 Status", value: viewModel.characterDetailInfo.status)
-                            CharacterDetailItemView(title: "🧬 Species", value: viewModel.characterDetailInfo.species)
+                            CharacterDetailItemView(title: "🟢 Status",
+                                                    value: viewModel.characterDetailInfo.status)
+                            CharacterDetailItemView(title: "🧬 Species",
+                                                    value: viewModel.characterDetailInfo.species)
                             if !viewModel.characterDetailInfo.type.isEmpty {
-                                CharacterDetailItemView(title: "🌱 Type", value: viewModel.characterDetailInfo.type)
+                                CharacterDetailItemView(title: "🌱 Type",
+                                                        value: viewModel.characterDetailInfo.type)
                             }
-                            CharacterDetailItemView(title: "👤 Gender", value: viewModel.characterDetailInfo.gender)
+                            CharacterDetailItemView(title: "👤 Gender",
+                                                    value: viewModel.characterDetailInfo.gender)
                         }
-                        
+
                         Section(header: Text("LOCATION")
                                             .font(.title2)
                         ) {
-                            CharacterDetailItemView(title: "📍 Origin", value: viewModel.characterDetailInfo.origin.name)
-                            CharacterDetailItemView(title: "🗺 Location", value: viewModel.characterDetailInfo.location.name)
+                            CharacterDetailItemView(title: "📍 Origin",
+                                                    value: viewModel.characterDetailInfo.origin.name)
+                            CharacterDetailItemView(title: "🗺 Location",
+                                                    value: viewModel.characterDetailInfo.location.name)
                             // CharacterDetailItemView(title: "Created", value: viewModel.characterDetailInfo.created)
                         }
-                        
-                        
+
                         if viewModel.episodes.count > 0 {
                             Section(header:
                                         Text("EPISODES (\(viewModel.episodes.count))")
                                             .font(.title2)
                             ) {
-                               
+
                                 ForEach(viewModel.episodes, id: \.self) { episode in
                                     NavigationLink {
                                         createEpisodeDetailView.create(episodeDetailInfo: episode)
@@ -91,9 +94,9 @@ struct CharacterDetailView: View {
                                                 .font(.subheadline)
                                         }
                                     }
-                                    
+
                                 }
-                                
+
                             }
                         }
                     }

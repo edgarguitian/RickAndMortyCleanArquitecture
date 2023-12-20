@@ -11,10 +11,10 @@ import SwiftData
 class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
 
     static let shared = SwiftDataLocationsContainer()
-    
+
     private let container: ModelContainer?
     private let context: ModelContext?
-    
+
     private init() {
         let scheme = Schema([LocationsResultData.self, LocationsData.self, InfoResultLocationsData.self])
         do {
@@ -34,11 +34,10 @@ class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
             context = nil
         }
     }
-    
+
     func fetchLocations() -> [LocationsResultData] {
         let descriptor = FetchDescriptor<LocationsResultData>()
-        
-        
+
         do {
             guard let context = context else {
                 return []
@@ -49,36 +48,27 @@ class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
             print("Error al realizar la consulta: \(error)")
             return []
         }
-        
+
     }
-    
+
     func insert(locationsResultList: LocationsResultData) async {
         if let context = context {
-            
             context.insert(locationsResultList)
-            
-            
         }
     }
-    
+
     func insert(locationsDataList: LocationsData) async {
         if let context = context {
-            
             context.insert(locationsDataList)
-            
-            
         }
     }
-    
+
     func insert(infoResultList: InfoResultLocationsData) async {
         if let context = context {
-            
             context.insert(infoResultList)
-            
-            
         }
     }
-    
+
     func saveData() async {
         if let context = context {
             do {

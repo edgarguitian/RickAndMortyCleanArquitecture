@@ -36,7 +36,7 @@ struct CharacterListItemView: View {
                             .padding(.vertical)
                         }
                     }
-            
+
             Spacer()
                     .frame(width: 20)
             VStack(alignment: .leading) {
@@ -62,7 +62,7 @@ struct CharacterListItemView: View {
 
             HStack {
                 Image(systemName: "chevron.right")
-                    
+
                 Spacer().frame(width: 10)
             }
         }
@@ -77,7 +77,12 @@ struct CharacterListItemView: View {
 }
 
 #Preview {
-    CharacterListItemView(item: 
-        CharacterListPresentableItem(id: "1", name: "Test Name 1", status: "Test Status 1", species: "Test Species 1", type: "Test Type 1", gender: "Test Gender 1", image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")
+    CharacterListItemView(item: CharacterListPresentableItem(id: "1",
+                                     name: "Test Name 1",
+                                     status: "Test Status 1",
+                                     species: "Test Species 1",
+                                     type: "Test Type 1",
+                                     gender: "Test Gender 1",
+                                     image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")
     )
 }

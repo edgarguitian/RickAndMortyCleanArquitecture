@@ -8,7 +8,7 @@
 import Foundation
 
 class EpisodeListFactory {
-    
+
     static func create() -> EpisodeListView {
         return EpisodeListView(viewModel: createViewModel(), createEpisodeDetailView: EpisodeDetailFactory())
     }
@@ -21,16 +21,16 @@ class EpisodeListFactory {
     private static func createGetAllEpisodesListUseCase() -> GetAllEpisodesList {
         return GetAllEpisodesList(repository: createRepository())
     }
-    
 
     private static func createRepository() -> AllEpisodesListRepository {
         return AllEpisodesListRepository(apiDataSource: createAPIDataSource(),
-                                                 errorMapper: RickAndMortyDomainErrorMapper(),
-                                                 cacheDataSource: createCacheDataSource())
+                                         errorMapper: RickAndMortyDomainErrorMapper(),
+                                         cacheDataSource: createCacheDataSource())
     }
 
     static func createCacheDataSource() -> CacheEpisodesDataSourceType {
-        return SwiftDataCacheEpisodesDataSource(container: SwiftDataEpisodesContainer.shared, mapper: SwiftDataEpisodesDomainMapper())
+        return SwiftDataCacheEpisodesDataSource(container: SwiftDataEpisodesContainer.shared,
+                                                mapper: SwiftDataEpisodesDomainMapper())
     }
 
     private static func createAPIDataSource() -> APIEpisodesDataSourceType {

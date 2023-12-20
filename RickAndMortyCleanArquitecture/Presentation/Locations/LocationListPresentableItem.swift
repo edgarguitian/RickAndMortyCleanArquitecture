@@ -15,7 +15,7 @@ struct LocationListPresentableItem {
     let residents: [String]
     let url: String
     let created: String
-    
+
     init(id: String, name: String, type: String, dimension: String, residents: [String], url: String, created: String) {
         self.id = id
         self.name = name

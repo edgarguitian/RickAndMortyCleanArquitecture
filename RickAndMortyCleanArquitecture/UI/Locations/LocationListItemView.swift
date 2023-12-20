@@ -45,5 +45,11 @@ struct LocationListItemView: View {
 }
 
 #Preview {
-    LocationListItemView(item: LocationListPresentableItem(id: "1", name: "Earth", type: "Planet", dimension: "Dimension C-137", residents: [], url: "", created: ""))
+    LocationListItemView(item: LocationListPresentableItem(id: "1",
+                                                           name: "Earth",
+                                                           type: "Planet",
+                                                           dimension: "Dimension C-137",
+                                                           residents: [],
+                                                           url: "",
+                                                           created: ""))
 }

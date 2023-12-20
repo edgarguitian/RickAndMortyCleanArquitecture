@@ -18,14 +18,14 @@ class CharacterListViewModel: ObservableObject {
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
     @Published var characterDetail: CharacterListPresentableItem?
-    
+
     // MARK: Filters
     @Published var isShowingFilters: Bool = false
     var selectedStatusIndex: Int?
     var selectedGenderIndex: Int?
     let charactersStatus: [String] = ["alive", "dead", "unknown"]
     let charactersGender: [String] = ["female", "male", "genderless", "unknown"]
-    
+
     init(getCharacterList: GetAllCharactersList,
          searchCharacterList: SearchCharactersListType,
          errorMapper: RickAndMortyPresentableErrorMapper) {
@@ -33,13 +33,13 @@ class CharacterListViewModel: ObservableObject {
         self.searchCharacterList = searchCharacterList
         self.errorMapper = errorMapper
     }
-    
+
     func onAppear(isSearch: Bool) {
         if !isSearch {
             if currentPage == 1 {
                 showLoadingSpinner = true
             }
-            if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
+            if lastPage == -1 || lastPage > -1 && currentPage <= lastPage {
                 Task {
                     let result = await getCharacterList.execute(currentPage: currentPage)
                     handleResult(result)
@@ -47,9 +47,9 @@ class CharacterListViewModel: ObservableObject {
             }
         }
     }
-    
+
     func search(searchText: String) {
-        
+
         if searchText.isEmpty {
             showLoadingSpinner = false
             filteredCharacters = characters
@@ -62,52 +62,49 @@ class CharacterListViewModel: ObservableObject {
             }
         }
     }
-    
-    
+
     private func handleResult(_ result: Result<[Character], RickAndMortyDomainError>) {
         guard case .success(let characters) = result else {
             handleError(error: result.failureValue as? RickAndMortyDomainError)
             return
         }
-        
+
         let charactersPresentable = characters.map {
             CharacterListPresentableItem(id: String($0.id), name: $0.name,
                                          status: $0.status, species: $0.species,
                                          type: $0.type, gender: $0.gender, image: $0.image)
         }
-        
+
         Task { @MainActor in
-            
+
             showLoadingSpinner = false
-            
-            
+
             self.characters = charactersPresentable
             self.filteredCharacters = charactersPresentable
-            
+
         }
     }
-    
+
     private func handleResult(_ result: Result<CharacterResult, RickAndMortyDomainError>) {
         guard case .success(let characters) = result else {
             handleError(error: result.failureValue as? RickAndMortyDomainError)
             return
         }
-        
+
         let charactersPresentable = characters.result.map {
             CharacterListPresentableItem(id: String($0.id), name: $0.name,
                                          status: $0.status, species: $0.species,
                                          type: $0.type, gender: $0.gender, image: $0.image)
         }
-        
+
         Task { @MainActor in
-            
-            
+
             showLoadingSpinner = false
             lastPage = characters.info.pages
 
             if lastPage > currentPage {
                 if characters.info.count > charactersPresentable.count {
-                    self.characters = self.characters + charactersPresentable
+                    self.characters += charactersPresentable
                     filteredCharacters = self.characters
                     currentPage += 1
                 } else {
@@ -116,20 +113,20 @@ class CharacterListViewModel: ObservableObject {
                     filteredCharacters = self.characters
                 }
             } else {
-                self.characters = self.characters + charactersPresentable
+                self.characters += charactersPresentable
                 filteredCharacters = self.characters
             }
-            
+
         }
     }
-    
+
     private func handleError(error: RickAndMortyDomainError?) {
         Task { @MainActor in
             showLoadingSpinner = false
             showErrorMessage = errorMapper.map(error: error)
         }
     }
-    
+
     func filterCharacters() {
         let hasStatusFilter = selectedStatusIndex != nil
         let hasGenderFilter = selectedGenderIndex != nil
@@ -143,7 +140,7 @@ class CharacterListViewModel: ObservableObject {
 
         isShowingFilters = false
     }
-    
+
     func resetFilters() {
         selectedStatusIndex = nil
         selectedGenderIndex = nil

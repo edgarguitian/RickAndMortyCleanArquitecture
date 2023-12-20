@@ -15,7 +15,7 @@ struct EpisodeListView: View {
         self.viewModel = viewModel
         self.createEpisodeDetailView = createEpisodeDetailView
     }
-    
+
     var body: some View {
         VStack {
             if viewModel.showLoadingSpinner {
@@ -36,7 +36,7 @@ struct EpisodeListView: View {
                         }
                         .navigationTitle("Episodes")
                         .accessibilityIdentifier("listEpisodes")
-                        
+
                     }
                 } else {
                     Text(viewModel.showErrorMessage!)
@@ -46,7 +46,7 @@ struct EpisodeListView: View {
             viewModel.onAppear()
         }
     }
-    
+
     func loadMoreEpisodesIfNeeded(currentEpisode: EpisodeListPresentableItem) {
         Task {
             if currentEpisode == viewModel.episodes.last {
@@ -59,4 +59,3 @@ struct EpisodeListView: View {
 #Preview {
     EpisodeListFactory.create()
 }
-

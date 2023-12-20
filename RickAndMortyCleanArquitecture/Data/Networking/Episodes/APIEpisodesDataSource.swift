@@ -9,14 +9,14 @@ import Foundation
 
 class APIEpisodesDataSource: APIEpisodesDataSourceType {
     private let httpClient: HTTPClient
-    
+
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
-    
+
     func getEpisodesList(currentPage: Int) async -> Result<EpisodeResponseDTO, HTTPClientError> {
         let queryParameters: [String: Any] = ["page": currentPage]
-        
+
         let endpoint = Endpoint(path: "episode",
                                 queryParameters: queryParameters,
                                 method: .get)
@@ -32,7 +32,7 @@ class APIEpisodesDataSource: APIEpisodesDataSourceType {
         }
         return .success(episodesListResponse)
     }
-    
+
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else {
             return .generic

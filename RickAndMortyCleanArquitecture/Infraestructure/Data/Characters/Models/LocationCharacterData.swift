@@ -14,7 +14,7 @@ class LocationCharacterData {
     let name: String
     let url: String
     var charactersData: CharactersData
-    
+
     init(id: UUID = UUID(), name: String, url: String, charactersData: CharactersData) {
         self.id = id
         self.name = name

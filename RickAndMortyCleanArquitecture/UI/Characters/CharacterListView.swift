@@ -13,14 +13,15 @@ struct CharacterListView: View {
     private let createFilterView: FilterView
 
     @State private var searchCharacterText: String = ""
-    
-    
-    init(viewModel: CharacterListViewModel, createCharacterDetailView: CreateCharacterDetailView, createFilterView: FilterView) {
+
+    init(viewModel: CharacterListViewModel,
+         createCharacterDetailView: CreateCharacterDetailView,
+         createFilterView: FilterView) {
         self.viewModel = viewModel
         self.createCharacterDetailView = createCharacterDetailView
         self.createFilterView = createFilterView
     }
-    
+
     var body: some View {
         VStack {
             if viewModel.showLoadingSpinner {
@@ -56,9 +57,8 @@ struct CharacterListView: View {
                         }
                         .navigationTitle("Characters")
                         .accessibilityIdentifier("listCharacters")
-                        
+
                     }
-                    
                     .searchable(text: $searchCharacterText).onChange(of: searchCharacterText) { _, newValue in
                         viewModel.search(searchText: newValue)
                     }.sheet(isPresented: $viewModel.isShowingFilters) {
@@ -72,7 +72,7 @@ struct CharacterListView: View {
             viewModel.onAppear(isSearch: !searchCharacterText.isEmpty)
         }
     }
-    
+
     func loadMoreCharactersIfNeeded(currentCharacter: CharacterListPresentableItem) {
         Task {
             if currentCharacter == viewModel.characters.last {

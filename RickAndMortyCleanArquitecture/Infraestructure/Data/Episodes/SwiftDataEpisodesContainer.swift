@@ -11,10 +11,10 @@ import SwiftData
 class SwiftDataEpisodesContainer: SwiftDataEpisodesContainerType {
 
     static let shared = SwiftDataEpisodesContainer()
-    
+
     private let container: ModelContainer?
     private let context: ModelContext?
-    
+
     private init() {
         let scheme = Schema([EpisodesResultData.self, EpisodesData.self, InfoResultEpisodesData.self])
         do {
@@ -33,11 +33,10 @@ class SwiftDataEpisodesContainer: SwiftDataEpisodesContainerType {
             context = nil
         }
     }
-    
+
     func fetchEpisodes() -> [EpisodesResultData] {
         let descriptor = FetchDescriptor<EpisodesResultData>()
-        
-        
+
         do {
             guard let context = context else {
                 return []
@@ -48,36 +47,27 @@ class SwiftDataEpisodesContainer: SwiftDataEpisodesContainerType {
             print("Error al realizar la consulta: \(error)")
             return []
         }
-        
+
     }
-    
+
     func insert(episodesResultList: EpisodesResultData) async {
         if let context = context {
-            
             context.insert(episodesResultList)
-            
-            
         }
     }
-    
+
     func insert(episodesDataList: EpisodesData) async {
         if let context = context {
-            
             context.insert(episodesDataList)
-            
-            
         }
     }
-    
+
     func insert(infoResultList: InfoResultEpisodesData) async {
         if let context = context {
-            
             context.insert(infoResultList)
-            
-            
         }
     }
-    
+
     func saveData() async {
         if let context = context {
             do {

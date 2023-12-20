@@ -19,7 +19,7 @@ class CharacterDetailViewModel: ObservableObject {
 
     private let errorMapper: RickAndMortyPresentableErrorMapper
     let characterId: String
-    
+
     init(getSingleCharacter: GetSingleCharacterType,
          getSingleEpisode: GetSingleEpisodeType,
          errorMapper: RickAndMortyPresentableErrorMapper,
@@ -30,38 +30,46 @@ class CharacterDetailViewModel: ObservableObject {
         self.characterId = characterId
         self.characterDetailInfo = SingleCharacterPresentableItem()
     }
-    
+
     func onAppear() {
         showLoadingSpinner = true
         showErrorMessage = nil
-        
+
         Task {
             let result = await getSingleCharacter.execute(characterId: characterId)
-            
+
             guard case .success(let singleCharacter) = result else {
                 handleError(error: result.failureValue as? RickAndMortyDomainError)
                 return
             }
-            
+
             let singleCharacterPresentable = SingleCharacterPresentableItem(character: singleCharacter)
             print("")
             Task { @MainActor in
                 self.characterDetailInfo = singleCharacterPresentable
-                
+
                 let numEpisodes = characterDetailInfo.episode.count
-                for i in 0..<numEpisodes {
+                for numEpisode in 0..<numEpisodes {
                     Task {
-                        let result = await getSingleEpisode.execute(url: URL(string: characterDetailInfo.episode[i])!)
-                        
+                        let urlEpisode = URL(string: characterDetailInfo.episode[numEpisode])!
+                        let result = await getSingleEpisode.execute(url: urlEpisode)
+
                         guard case .success(let singleCharacter) = result else {
                             handleError(error: result.failureValue as? RickAndMortyDomainError)
                             return
                         }
-                        
-                        let singleEpisodePresentable = EpisodeListPresentableItem(id: String(singleCharacter.id), name: singleCharacter.name, air_date: singleCharacter.air_date, episode: singleCharacter.episode, characters: singleCharacter.characters, url: singleCharacter.url, created: singleCharacter.created)
+
+                        let charactersEpisode = singleCharacter.characters
+                        let singleEpisodePresentable = EpisodeListPresentableItem(id: String(singleCharacter.id),
+                                                                                  name: singleCharacter.name,
+                                                                                  airDate: singleCharacter.airDate,
+                                                                                  episode: singleCharacter.episode,
+                                                                                  characters: charactersEpisode,
+                                                                                  url: singleCharacter.url,
+                                                                                  created: singleCharacter.created)
                         print("")
                         Task { @MainActor in
-                            if i == numEpisodes - 1 {
+                            if numEpisode == numEpisodes - 1 {
                                 showLoadingSpinner = false
                             }
                             self.episodes.append(singleEpisodePresentable)
@@ -73,12 +81,12 @@ class CharacterDetailViewModel: ObservableObject {
 
         }
     }
-    
+
     private func handleError(error: RickAndMortyDomainError?) {
         Task { @MainActor in
             showLoadingSpinner = false
             showErrorMessage = errorMapper.map(error: error)
         }
     }
-    
+
 }

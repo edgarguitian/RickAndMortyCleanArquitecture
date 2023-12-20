@@ -12,7 +12,6 @@ struct InfoDTO: Codable {
     let pages: Int
     let next: String?
     let prev: String?
-    
 
     enum CodingKeys: String, CodingKey {
         case count, pages, next, prev

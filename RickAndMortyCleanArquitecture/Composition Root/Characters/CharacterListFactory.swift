@@ -9,20 +9,23 @@ import Foundation
 
 class CharacterListFactory {
     static let viewModel: CharacterListViewModel = createViewModel()
-    
+
     static func create() -> CharacterListView {
-        return CharacterListView(viewModel: viewModel, createCharacterDetailView: CharacterDetailFactory(), createFilterView: FilterView(viewModel: viewModel))
+        return CharacterListView(viewModel: viewModel,
+                                 createCharacterDetailView: CharacterDetailFactory(),
+                                 createFilterView: FilterView(viewModel: viewModel))
     }
 
     private static func createViewModel() -> CharacterListViewModel {
-        return CharacterListViewModel(getCharacterList: createGetAllCharactersListUseCase(), searchCharacterList: createSearchCharacterListUseCase(),
-                                   errorMapper: RickAndMortyPresentableErrorMapper())
+        return CharacterListViewModel(getCharacterList: createGetAllCharactersListUseCase(),
+                                      searchCharacterList: createSearchCharacterListUseCase(),
+                                      errorMapper: RickAndMortyPresentableErrorMapper())
     }
 
     private static func createGetAllCharactersListUseCase() -> GetAllCharactersList {
         return GetAllCharactersList(repository: createRepository())
     }
-    
+
     private static func createSearchCharacterListUseCase() -> SearchCharactersListType {
         return SearchCharacterList(repository: createRepository())
     }
@@ -34,7 +37,8 @@ class CharacterListFactory {
     }
 
     static func createCacheDataSource() -> CacheCharacterDataSourceType {
-        return SwiftDataCacheCharactersDataSource(container: SwiftDataCharactersContainer.shared, mapper: SwiftDataCharactersDomainMapper())
+        return SwiftDataCacheCharactersDataSource(container: SwiftDataCharactersContainer.shared,
+                                                  mapper: SwiftDataCharactersDomainMapper())
     }
 
     private static func createAPIDataSource() -> APICharactersDataSourceType {

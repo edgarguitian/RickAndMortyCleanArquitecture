@@ -10,12 +10,15 @@ import SwiftData
 
 class SwiftDataCharactersContainer: SwiftDataCharactersContainerType {
     static let shared = SwiftDataCharactersContainer()
-    
+
     private let container: ModelContainer?
     private let context: ModelContext?
-    
+
     private init() {
-        let scheme = Schema([CharactersResultData.self, CharactersData.self, LocationCharacterData.self, InfoResultCharactersData.self])
+        let scheme = Schema([CharactersResultData.self,
+                             CharactersData.self,
+                             LocationCharacterData.self,
+                             InfoResultCharactersData.self])
         do {
             let storeURL = URL.documentsDirectory.appending(path: "dbCharacters.sqlite")
             let config = ModelConfiguration(url: storeURL)
@@ -33,11 +36,10 @@ class SwiftDataCharactersContainer: SwiftDataCharactersContainerType {
             context = nil
         }
     }
-    
+
     func fetchCharacters() -> [CharactersResultData] {
         let descriptor = FetchDescriptor<CharactersResultData>()
-        
-        
+
         do {
             guard let context = context else {
                 return []
@@ -48,46 +50,33 @@ class SwiftDataCharactersContainer: SwiftDataCharactersContainerType {
             print("Error al realizar la consulta: \(error)")
             return []
         }
-        
-        
+
     }
-    
+
     func insert(charactersResultList: CharactersResultData) async {
         if let context = context {
-            
             context.insert(charactersResultList)
-            
-            
         }
     }
-    
+
     func insert(charactersDataList: CharactersData) async {
         if let context = context {
-            
             context.insert(charactersDataList)
-            
-            
         }
     }
-    
+
     func insert(locationList: LocationCharacterData) async {
         if let context = context {
-            
             context.insert(locationList)
-            
-            
         }
     }
-    
+
     func insert(infoResultList: InfoResultCharactersData) async {
         if let context = context {
-            
             context.insert(infoResultList)
-            
-            
         }
     }
-    
+
     func saveData() async {
         if let context = context {
             do {

@@ -9,14 +9,14 @@ import Foundation
 
 class APICharactersDataSource: APICharactersDataSourceType {
     private let httpClient: HTTPClient
-    
+
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
-    
+
     func getCharactersList(currentPage: Int) async -> Result<CharacterResponseDTO, HTTPClientError> {
         let queryParameters: [String: Any] = ["page": currentPage]
-        
+
         let endpoint = Endpoint(path: "character",
                                 queryParameters: queryParameters,
                                 method: .get)
@@ -32,7 +32,7 @@ class APICharactersDataSource: APICharactersDataSourceType {
         }
         return .success(charactersListResponse)
     }
-    
+
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else {
             return .generic

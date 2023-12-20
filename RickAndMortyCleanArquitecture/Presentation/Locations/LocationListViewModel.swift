@@ -16,31 +16,30 @@ class LocationListViewModel: ObservableObject {
     var locations: [LocationListPresentableItem] = []
     @Published var showLoadingSpinner: Bool = false
     @Published var showErrorMessage: String?
-    
-    
+
     init(getLocationList: GetAllLocationsList, errorMapper: RickAndMortyPresentableErrorMapper) {
         self.getLocationList = getLocationList
         self.errorMapper = errorMapper
     }
-    
+
     func onAppear() {
         if currentPage == 1 {
             showLoadingSpinner = true
         }
-        if(lastPage == -1 || lastPage > -1 && currentPage <= lastPage) {
+        if lastPage == -1 || lastPage > -1 && currentPage <= lastPage {
             Task {
                 let result = await getLocationList.execute(currentPage: currentPage)
                 handleResult(result)
             }
         }
     }
-    
+
     private func handleResult(_ result: Result<LocationResult, RickAndMortyDomainError>) {
         guard case .success(let locations) = result else {
             handleError(error: result.failureValue as? RickAndMortyDomainError)
             return
         }
-        
+
         let locationsPresentable = locations.result.map {
             LocationListPresentableItem(id: String($0.id),
                                         name: $0.name,
@@ -50,16 +49,16 @@ class LocationListViewModel: ObservableObject {
                                         url: $0.url,
                                         created: $0.created)
         }
-        
+
         Task { @MainActor in
-            
+
             showLoadingSpinner = false
-            
+
             lastPage = locations.info.pages
-            
+
             if lastPage > currentPage {
                 if locations.info.count > locationsPresentable.count {
-                    self.locations = self.locations + locationsPresentable
+                    self.locations += locationsPresentable
                     filteredLocations = self.locations
                     currentPage += 1
                 } else {
@@ -68,15 +67,13 @@ class LocationListViewModel: ObservableObject {
                     filteredLocations = self.locations
                 }
             } else {
-                self.locations = self.locations + locationsPresentable
+                self.locations += locationsPresentable
                 filteredLocations = self.locations
             }
-            
+
         }
     }
-    
-    
-    
+
     private func handleError(error: RickAndMortyDomainError?) {
         Task { @MainActor in
             showLoadingSpinner = false

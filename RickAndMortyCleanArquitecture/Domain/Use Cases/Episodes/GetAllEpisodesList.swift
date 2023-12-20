@@ -9,14 +9,14 @@ import Foundation
 
 class GetAllEpisodesList: GetAllEpisodesListType {
     private let repository: AllEpisodesListRepositoryType
-    
+
     init(repository: AllEpisodesListRepositoryType) {
         self.repository = repository
     }
-    
+
     func execute(currentPage: Int) async -> Result<EpisodeResult, RickAndMortyDomainError> {
         let result = await repository.getAllEpisodesList(currentPage: currentPage)
-        
+
         guard let episodesList = try? result.get() else {
             guard case .failure(let error) = result else {
                 return .failure(.generic)
@@ -27,5 +27,5 @@ class GetAllEpisodesList: GetAllEpisodesListType {
 
         return .success(episodesList)
     }
-    
+
 }

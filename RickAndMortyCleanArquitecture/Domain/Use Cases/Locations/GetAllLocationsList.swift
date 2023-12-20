@@ -9,14 +9,14 @@ import Foundation
 
 class GetAllLocationsList: GetAllLocationsListType {
     private let repository: AllLocationsListRepositoryType
-    
+
     init(repository: AllLocationsListRepositoryType) {
         self.repository = repository
     }
-    
+
     func execute(currentPage: Int) async -> Result<LocationResult, RickAndMortyDomainError> {
         let result = await repository.getAllLocationsList(currentPage: currentPage)
-        
+
         guard let locationsList = try? result.get() else {
             guard case .failure(let error) = result else {
                 return .failure(.generic)
@@ -27,5 +27,5 @@ class GetAllLocationsList: GetAllLocationsListType {
 
         return .success(locationsList)
     }
-    
+
 }

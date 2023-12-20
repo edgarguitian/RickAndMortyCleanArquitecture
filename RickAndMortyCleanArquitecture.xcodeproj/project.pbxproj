@@ -906,7 +906,7 @@
 				6D1AFFF92B2C57B000783DD0 /* Sources */,
 				6D1AFFFA2B2C57B000783DD0 /* Frameworks */,
 				6D1AFFFB2B2C57B000783DD0 /* Resources */,
-				6D66F0152B2E293E001FDF6D /* ShellScript */,
+				6D66F0152B2E293E001FDF6D /* Run Script Firebase */,
 			);
 			buildRules = (
 			);
@@ -996,7 +996,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6D66F0152B2E293E001FDF6D /* ShellScript */ = {
+		6D66F0152B2E293E001FDF6D /* Run Script Firebase */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1007,6 +1007,7 @@
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Script Firebase";
 			outputFileListPaths = (
 			);
 			outputPaths = (

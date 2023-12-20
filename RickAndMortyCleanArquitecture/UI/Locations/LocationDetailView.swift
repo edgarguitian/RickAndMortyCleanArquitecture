@@ -16,7 +16,7 @@ struct LocationDetailView: View {
         self.viewModel = viewModel
         self.createCharacterDetailView = createCharacterDetailView
     }
-    
+
     var body: some View {
         VStack {
             if viewModel.showLoadingSpinner {
@@ -24,16 +24,18 @@ struct LocationDetailView: View {
             } else {
                 if viewModel.showErrorMessage == nil {
                     List {
-                        
+
                         Section(header: Text("INFO")
                                             .font(.title2)
                         ) {
-                            
-                            CharacterDetailItemView(title: "🪐 Type", value: viewModel.locationDetailInfo.type)
-                            CharacterDetailItemView(title: "✨ Dimension", value: viewModel.locationDetailInfo.dimension)
+
+                            CharacterDetailItemView(title: "🪐 Type",
+                                                    value: viewModel.locationDetailInfo.type)
+                            CharacterDetailItemView(title: "✨ Dimension",
+                                                    value: viewModel.locationDetailInfo.dimension)
                             // CharacterDetailItemView(title: "Created", value: viewModel.locationDetailInfo.created)
                         }
-                        
+
                         if viewModel.residents.count > 0 {
                             Section(header:
                                         Text("RESIDENTS")
@@ -44,7 +46,8 @@ struct LocationDetailView: View {
                                         createCharacterDetailView.create(characterId: resident.id)
                                     } label: {
                                         HStack {
-                                            CachedAsyncImage(url: URL(string: resident.image), urlCache: .imageCache) { phase in
+                                            CachedAsyncImage(url: URL(string: resident.image),
+                                                             urlCache: .imageCache) { phase in
                                                 switch phase {
                                                 case .empty:
                                                     ProgressView()
@@ -69,17 +72,16 @@ struct LocationDetailView: View {
                                                     .padding(.vertical)
                                                 }
                                             }
-                                            
+
                                             Text(resident.name)
                                                 .font(.title3)
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
-                        
-                        
+
                     }
                     .listStyle(GroupedListStyle())
                 } else {
@@ -95,5 +97,11 @@ struct LocationDetailView: View {
 }
 
 #Preview {
-    LocationDetailFactory().create(locationDetailInfo: LocationListPresentableItem(id: "1", name: "Test Location", type: "Test Type", dimension: "Test Dimension", residents: [], url: "", created: "11-12-23 11:23"))
+    LocationDetailFactory().create(locationDetailInfo: LocationListPresentableItem(id: "1",
+                                                                                   name: "Test Location",
+                                                                                   type: "Test Type",
+                                                                                   dimension: "Test Dimension",
+                                                                                   residents: [],
+                                                                                   url: "",
+                                                                                   created: "11-12-23 11:23"))
 }

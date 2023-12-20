@@ -44,5 +44,11 @@ struct EpisodesListItemView: View {
 }
 
 #Preview {
-    EpisodesListItemView(item: EpisodeListPresentableItem(id: "1", name: "Pilot", air_date: "December 2, 2013", episode: "S01E01", characters: [], url: "", created: ""))
+    EpisodesListItemView(item: EpisodeListPresentableItem(id: "1",
+                                                          name: "Pilot",
+                                                          airDate: "December 2, 2013",
+                                                          episode: "S01E01",
+                                                          characters: [],
+                                                          url: "",
+                                                          created: ""))
 }

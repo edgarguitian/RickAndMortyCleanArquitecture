@@ -19,16 +19,17 @@ class SwiftDataLocationsDomainMapper {
             var lastPage = -1
             var pages = -1
             for location in locationsList {
-                
 
                 if location.info.count > 0 {
                     lastPage = location.info[location.info.count - 1].count
                     pages = location.info[location.info.count - 1].pages
                 }
                 let locationResultList = location.result.map {
-                    Location(id: $0.id, name: $0.name, type: $0.type, dimension: $0.dimension, residents: $0.residents, url: $0.url, created: $0.created)
+                    Location(id: $0.id, name: $0.name, type: $0.type,
+                             dimension: $0.dimension, residents: $0.residents,
+                             url: $0.url, created: $0.created)
                 }
-                
+
                 locationResult.append(contentsOf: locationResultList)
 
             }
@@ -39,6 +40,6 @@ class SwiftDataLocationsDomainMapper {
                                                          prev: nil),
                                         result: locationResultSorted)
         }
-        
+
     }
 }

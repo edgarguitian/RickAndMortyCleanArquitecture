@@ -24,7 +24,7 @@ class CharactersData {
     let created: String
     var charactersResultData: CharactersResultData
 
-    
+
     init(id: Int, name: String, status: String, species: String,
          type: String, gender: String, origin: LocationCharacterData?, location: LocationCharacterData?,
          image: String, episode: [String], url: String, created: String, charactersResultData: CharactersResultData) {

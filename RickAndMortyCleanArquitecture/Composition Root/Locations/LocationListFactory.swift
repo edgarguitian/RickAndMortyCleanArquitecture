@@ -8,7 +8,7 @@
 import Foundation
 
 class LocationListFactory {
-    
+
     static func create() -> LocationListView {
         return LocationListView(viewModel: createViewModel(), createLocationDetailView: LocationDetailFactory())
     }
@@ -21,16 +21,16 @@ class LocationListFactory {
     private static func createGetAllLocationsListUseCase() -> GetAllLocationsList {
         return GetAllLocationsList(repository: createRepository())
     }
-    
 
     private static func createRepository() -> AllLocationsListRepository {
         return AllLocationsListRepository(apiDataSource: createAPIDataSource(),
-                                                 errorMapper: RickAndMortyDomainErrorMapper(),
-                                                 cacheDataSource: createCacheDataSource())
+                                          errorMapper: RickAndMortyDomainErrorMapper(),
+                                          cacheDataSource: createCacheDataSource())
     }
 
     static func createCacheDataSource() -> CacheLocationsDataSourceType {
-        return SwiftDataCacheLocationsDataSource(container: SwiftDataLocationsContainer.shared, mapper: SwiftDataLocationsDomainMapper())
+        return SwiftDataCacheLocationsDataSource(container: SwiftDataLocationsContainer.shared,
+                                                 mapper: SwiftDataLocationsDomainMapper())
     }
 
     private static func createAPIDataSource() -> APILocationsDataSourceType {

@@ -17,7 +17,7 @@ struct EpisodeDetailView: View {
         self.createCharacterDetailView = createCharacterDetailView
 
     }
-    
+
     var body: some View {
         VStack {
             if viewModel.showLoadingSpinner {
@@ -28,11 +28,13 @@ struct EpisodeDetailView: View {
                         Section(header: Text("INFO")
                                             .font(.title2)
                         ) {
-                            CharacterDetailItemView(title: "📺 Episode", value: viewModel.episodeDetailInfo.episode)
-                            CharacterDetailItemView(title: "📅 Air Date", value: viewModel.episodeDetailInfo.air_date)
+                            CharacterDetailItemView(title: "📺 Episode",
+                                                    value: viewModel.episodeDetailInfo.episode)
+                            CharacterDetailItemView(title: "📅 Air Date",
+                                                    value: viewModel.episodeDetailInfo.airDate)
                             // CharacterDetailItemView(title: "Created", value: viewModel.episodeDetailInfo.created)
                         }
-                        
+
                         if viewModel.characters.count > 0 {
                             Section(header:
                                         Text("CHARACTERS")
@@ -43,7 +45,8 @@ struct EpisodeDetailView: View {
                                         createCharacterDetailView.create(characterId: character.id)
                                     } label: {
                                         HStack {
-                                            CachedAsyncImage(url: URL(string: character.image), urlCache: .imageCache) { phase in
+                                            CachedAsyncImage(url: URL(string: character.image),
+                                                             urlCache: .imageCache) { phase in
                                                 switch phase {
                                                 case .empty:
                                                     ProgressView()
@@ -68,12 +71,12 @@ struct EpisodeDetailView: View {
                                                     .padding(.vertical)
                                                 }
                                             }
-                                            
+
                                             Text(character.name)
                                                 .font(.title3)
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
@@ -92,5 +95,11 @@ struct EpisodeDetailView: View {
 }
 
 #Preview {
-    EpisodeDetailFactory().create(episodeDetailInfo: EpisodeListPresentableItem(id: "1", name: "Test Name 1", air_date: "September 10, 2017", episode: "S03E07", characters: [], url: "", created: "11-12-23 11:23"))
+    EpisodeDetailFactory().create(episodeDetailInfo: EpisodeListPresentableItem(id: "1",
+                                                                                name: "Test Name 1",
+                                                                                airDate: "September 10, 2017",
+                                                                                episode: "S03E07",
+                                                                                characters: [],
+                                                                                url: "",
+                                                                                created: "11-12-23 11:23"))
 }

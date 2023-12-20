@@ -9,14 +9,14 @@ import Foundation
 
 class GetAllCharactersList: GetAllCharactersListType {
     private let repository: AllCharactersListRepositoryType
-    
+
     init(repository: AllCharactersListRepositoryType) {
         self.repository = repository
     }
-    
+
     func execute(currentPage: Int) async -> Result<CharacterResult, RickAndMortyDomainError> {
         let result = await repository.getAllCharactersList(currentPage: currentPage)
-        
+
         guard let charactersList = try? result.get() else {
             guard case .failure(let error) = result else {
                 return .failure(.generic)
@@ -27,5 +27,5 @@ class GetAllCharactersList: GetAllCharactersListType {
 
         return .success(charactersList)
     }
-    
+
 }

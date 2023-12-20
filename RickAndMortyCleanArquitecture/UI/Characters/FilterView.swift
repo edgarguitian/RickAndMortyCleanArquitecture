@@ -13,7 +13,7 @@ struct FilterView: View {
     init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         Form {
             statusPicker

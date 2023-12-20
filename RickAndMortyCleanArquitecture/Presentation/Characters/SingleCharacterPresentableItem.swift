@@ -20,8 +20,7 @@ struct SingleCharacterPresentableItem {
     let episode: [String]
     let url: String
     let created: String
-    
-    
+
     init() {
         self.id = ""
         self.name = ""
@@ -36,8 +35,10 @@ struct SingleCharacterPresentableItem {
         self.url = ""
         self.created = ""
     }
-    
-    init(id: String, name: String, status: String, species: String, type: String, gender: String, origin: LocationCharacter, location: LocationCharacter, image: String, episode: [String], url: String, created: String) {
+
+    init(id: String, name: String, status: String, species: String,
+         type: String, gender: String, origin: LocationCharacter,
+         location: LocationCharacter, image: String, episode: [String], url: String, created: String) {
         self.id = id
         self.name = name
         self.status = status
@@ -51,7 +52,7 @@ struct SingleCharacterPresentableItem {
         self.url = url
         self.created = created
     }
-    
+
     init(character: Character) {
         self.id = String(character.id)
         self.name = character.name
@@ -66,20 +67,16 @@ struct SingleCharacterPresentableItem {
         self.url = character.url
         self.created = DateFormatterUtils.formatDate(character.created)
     }
-    
-    
+
 }
 
 extension SingleCharacterPresentableItem: Hashable {
     static func == (lhs: SingleCharacterPresentableItem, rhs: SingleCharacterPresentableItem) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
-    
-    
+
 }

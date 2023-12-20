@@ -8,14 +8,13 @@
 import Foundation
 
 class APISingleCharacterDataSource: APISingleCharacterDataSourceType {
-    
-    
+
     private let httpClient: HTTPClient
-    
+
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
-    
+
     func getSingleCharacter(characterId: String) async -> Result<CharacterListDTO, HTTPClientError> {
         let endpoint = Endpoint(path: "character/"+characterId,
                                 queryParameters: [:],
@@ -32,7 +31,7 @@ class APISingleCharacterDataSource: APISingleCharacterDataSourceType {
         }
         return .success(singleCharacterResponse)
     }
-    
+
     func getSingleCharacter(url: URL) async -> Result<CharacterListDTO, HTTPClientError> {
         let endpoint = Endpoint(path: "",
                                 queryParameters: [:],
@@ -49,7 +48,7 @@ class APISingleCharacterDataSource: APISingleCharacterDataSourceType {
         }
         return .success(singleCharacterResponse)
     }
-    
+
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else {
             return .generic

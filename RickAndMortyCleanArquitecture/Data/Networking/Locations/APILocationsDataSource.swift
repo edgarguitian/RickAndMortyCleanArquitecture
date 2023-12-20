@@ -9,14 +9,14 @@ import Foundation
 
 class APILocationsDataSource: APILocationsDataSourceType {
     private let httpClient: HTTPClient
-    
+
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
     }
-    
+
     func getLocationsList(currentPage: Int) async -> Result<LocationResponseDTO, HTTPClientError> {
         let queryParameters: [String: Any] = ["page": currentPage]
-        
+
         let endpoint = Endpoint(path: "location",
                                 queryParameters: queryParameters,
                                 method: .get)
@@ -32,7 +32,7 @@ class APILocationsDataSource: APILocationsDataSourceType {
         }
         return .success(locationsListResponse)
     }
-    
+
     private func handleError(error: HTTPClientError?) -> HTTPClientError {
         guard let error = error else {
             return .generic
