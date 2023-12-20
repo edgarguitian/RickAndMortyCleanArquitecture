@@ -151,6 +151,8 @@
 		6DB216B62B31E299007FF4FF /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB216B52B31E299007FF4FF /* EpisodeDetailView.swift */; };
 		6DB216B82B31E305007FF4FF /* EpisodeDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB216B72B31E305007FF4FF /* EpisodeDetailFactory.swift */; };
 		6DB216BA2B31E5FB007FF4FF /* DateFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB216B92B31E5FB007FF4FF /* DateFormatterUtils.swift */; };
+		6DD3ACC92B32F3A8007A9A04 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */; };
+		6DD3ACCB2B32F7DC007A9A04 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,6 +276,8 @@
 		6DB216B52B31E299007FF4FF /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		6DB216B72B31E305007FF4FF /* EpisodeDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailFactory.swift; sourceTree = "<group>"; };
 		6DB216B92B31E5FB007FF4FF /* DateFormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtils.swift; sourceTree = "<group>"; };
+		6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +331,7 @@
 			children = (
 				6D1A000F2B2C586B00783DD0 /* Foundation+Extensions.swift */,
 				6DB216B92B31E5FB007FF4FF /* DateFormatterUtils.swift */,
+				6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				6D1A00662B2C67A900783DD0 /* LoadingSpinnerView.swift */,
+				6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */,
 				6D92C54F2B2F603E0040FB91 /* Characters */,
 				6D92C5502B2F60440040FB91 /* Locations */,
 				6D92C5512B2F604A0040FB91 /* Episodes */,
@@ -1004,6 +1010,7 @@
 				6D34EDD32B2F0A5900E90E0F /* CharacterDetailViewModel.swift in Sources */,
 				6D92C5622B2F62E10040FB91 /* EpisodeListView.swift in Sources */,
 				6D1E69B32B31A16900D691E2 /* SwiftDataCacheEpisodesDataSource.swift in Sources */,
+				6DD3ACC92B32F3A8007A9A04 /* CachedAsyncImage.swift in Sources */,
 				6D1A005D2B2C657F00783DD0 /* CharacterListViewModel.swift in Sources */,
 				6DB216AA2B31DF12007FF4FF /* LocationDetailViewModel.swift in Sources */,
 				6D4433B62B2DD77500AFBB56 /* SwiftDataCharactersDomainMapper.swift in Sources */,
@@ -1018,6 +1025,7 @@
 				6D92C5602B2F62D80040FB91 /* LocationListItemView.swift in Sources */,
 				6D1A00412B2C5F7E00783DD0 /* LocationCharacterDTO.swift in Sources */,
 				6D1A00612B2C664700783DD0 /* CharacterListPresentableItem.swift in Sources */,
+				6DD3ACCB2B32F7DC007A9A04 /* URLCache+imageCache.swift in Sources */,
 				6D34EDD52B2F0AFC00E90E0F /* GetSingleCharacterType.swift in Sources */,
 				6D92C5152B2F4FCB0040FB91 /* CreateFilterView.swift in Sources */,
 				6D1E69AB2B319F8A00D691E2 /* LocationsResultData.swift in Sources */,

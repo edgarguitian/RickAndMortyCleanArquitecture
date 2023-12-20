@@ -14,14 +14,15 @@ struct MainView: View {
 
     var body: some View {
         TabView {
+            locationList.tabItem {
+                Label("Locations", systemImage: "location.fill")
+            }
             
             characterList.tabItem {
                 Label("Characters", systemImage: "person.3.fill")
             }
             
-            locationList.tabItem {
-                Label("Locations", systemImage: "location.fill")
-            }
+            
             
             episodeList.tabItem {
                 Label("Episodes", systemImage: "tv.fill")

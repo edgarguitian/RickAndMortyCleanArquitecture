@@ -75,6 +75,8 @@ class LocationListViewModel: ObservableObject {
         }
     }
     
+    
+    
     private func handleError(error: RickAndMortyDomainError?) {
         Task { @MainActor in
             showLoadingSpinner = false

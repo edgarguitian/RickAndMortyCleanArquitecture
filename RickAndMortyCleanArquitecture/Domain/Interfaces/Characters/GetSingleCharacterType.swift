@@ -9,4 +9,5 @@ import Foundation
 
 protocol GetSingleCharacterType {
     func execute(characterId: String) async -> Result<Character, RickAndMortyDomainError>
+    func execute(url: URL) async -> Result<Character, RickAndMortyDomainError>
 }

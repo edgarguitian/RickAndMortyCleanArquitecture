@@ -26,7 +26,9 @@ class CharacterListViewModel: ObservableObject {
     let charactersStatus: [String] = ["alive", "dead", "unknown"]
     let charactersGender: [String] = ["female", "male", "genderless", "unknown"]
     
-    init(getCharacterList: GetAllCharactersList, searchCharacterList: SearchCharactersListType, errorMapper: RickAndMortyPresentableErrorMapper) {
+    init(getCharacterList: GetAllCharactersList,
+         searchCharacterList: SearchCharactersListType,
+         errorMapper: RickAndMortyPresentableErrorMapper) {
         self.getCharacterList = getCharacterList
         self.searchCharacterList = searchCharacterList
         self.errorMapper = errorMapper
@@ -60,6 +62,7 @@ class CharacterListViewModel: ObservableObject {
             }
         }
     }
+    
     
     private func handleResult(_ result: Result<[Character], RickAndMortyDomainError>) {
         guard case .success(let characters) = result else {

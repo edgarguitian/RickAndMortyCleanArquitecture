@@ -12,17 +12,31 @@ struct CharacterListItemView: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: item.image)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100)
-            } placeholder: {
-                ProgressView()
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 35))
-            .padding(.vertical)
-
+            CachedAsyncImage(url: URL(string: item.image), urlCache: .imageCache) { phase in
+                        switch phase {
+                        case .empty:
+                            ProgressView()
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 35))
+                                .padding(.vertical)
+                        case .failure:
+                            AsyncImage(url: URL(string: item.image)) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 100, height: 100)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .clipShape(RoundedRectangle(cornerRadius: 35))
+                            .padding(.vertical)
+                        }
+                    }
+            
             Spacer()
                     .frame(width: 20)
             VStack(alignment: .leading) {

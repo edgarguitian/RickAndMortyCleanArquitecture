@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CharacterDetailViewModel: ObservableObject {
     @Published var showLoadingSpinner: Bool = false
@@ -16,7 +17,9 @@ class CharacterDetailViewModel: ObservableObject {
     private let errorMapper: RickAndMortyPresentableErrorMapper
     let characterId: String
     
-    init(getSingleCharacter: GetSingleCharacterType, errorMapper: RickAndMortyPresentableErrorMapper, characterId: String) {
+    init(getSingleCharacter: GetSingleCharacterType,
+         errorMapper: RickAndMortyPresentableErrorMapper,
+         characterId: String) {
         self.getSingleCharacter = getSingleCharacter
         self.errorMapper = errorMapper
         self.characterId = characterId

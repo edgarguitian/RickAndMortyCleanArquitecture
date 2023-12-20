@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterDetailView: View {
     @ObservedObject private var viewModel: CharacterDetailViewModel
-
+    
     init(viewModel: CharacterDetailViewModel) {
         self.viewModel = viewModel
     }
@@ -21,16 +21,33 @@ struct CharacterDetailView: View {
             } else {
                 if viewModel.showErrorMessage == nil {
                     ScrollView {
-                        AsyncImage(url: URL(string: viewModel.characterDetailInfo.image)) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 300, height: 300)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .clipShape(RoundedRectangle(cornerRadius: 35))
-                        .padding(.vertical)
+                        
+                        CachedAsyncImage(url: URL(string: viewModel.characterDetailInfo.image), urlCache: .imageCache) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        ProgressView()
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 300, height: 300)
+                                            .clipShape(RoundedRectangle(cornerRadius: 35))
+                                            .padding(.vertical)
+                                    case .failure:
+                                        // Handle failure, you might want to show an error view here
+                                        AsyncImage(url: URL(string: viewModel.characterDetailInfo.image)) { image in
+                                         image
+                                         .resizable()
+                                         .scaledToFill()
+                                         .frame(width: 300, height: 300)
+                                         } placeholder: {
+                                         ProgressView()
+                                         }
+                                         .clipShape(RoundedRectangle(cornerRadius: 35))
+                                         .padding(.vertical)
+                                    }
+                                }
+                            
                         
                         Text(viewModel.characterDetailInfo.name)
                             .font(.title)

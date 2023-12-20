@@ -8,6 +8,8 @@
 import Foundation
 
 class GetSingleCharacter: GetSingleCharacterType {
+    
+    
     private let repository: SingleCharacterRepositoryType
     
     init(repository: SingleCharacterRepositoryType) {
@@ -16,6 +18,20 @@ class GetSingleCharacter: GetSingleCharacterType {
     
     func execute(characterId: String) async -> Result<Character, RickAndMortyDomainError> {
         let result = await repository.getSingleCharacter(characterId: characterId)
+        
+        guard let charactersList = try? result.get() else {
+            guard case .failure(let error) = result else {
+                return .failure(.generic)
+            }
+
+            return .failure(error)
+        }
+
+        return .success(charactersList)
+    }
+    
+    func execute(url: URL) async -> Result<Character, RickAndMortyDomainError> {
+        let result = await repository.getSingleCharacter(url: url)
         
         guard let charactersList = try? result.get() else {
             guard case .failure(let error) = result else {
