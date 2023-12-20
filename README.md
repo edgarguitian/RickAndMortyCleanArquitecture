@@ -21,4 +21,4 @@ App en Clean Arquitecture con Clean Code a partir del API de RickAndMorty, utili
 ## Funcionalidades extra
 
 - Caché con SwiftData del listado de characters y cacheo de su imagen.
-
+- Tests con XCTest
