@@ -52,25 +52,32 @@ struct CharacterDetailView: View {
                                 }
                             
                         
-                        Text(viewModel.characterDetailInfo.name)
-                            .font(.title)
+                       
                         
-                        Spacer()
+                        Section(header: Text("INFO")
+                                            .font(.title2)
+                        ) {
+                            CharacterDetailItemView(title: "🟢 Status", value: viewModel.characterDetailInfo.status)
+                            CharacterDetailItemView(title: "🧬 Species", value: viewModel.characterDetailInfo.species)
+                            if !viewModel.characterDetailInfo.type.isEmpty {
+                                CharacterDetailItemView(title: "🌱 Type", value: viewModel.characterDetailInfo.type)
+                            }
+                            CharacterDetailItemView(title: "👤 Gender", value: viewModel.characterDetailInfo.gender)
+                        }
                         
-                        CharacterDetailItemView(title: "🟢 Status", value: viewModel.characterDetailInfo.status)
-                        CharacterDetailItemView(title: "🧬 Species", value: viewModel.characterDetailInfo.species)
-                        CharacterDetailItemView(title: "🌱 Type", value: viewModel.characterDetailInfo.type)
-                        CharacterDetailItemView(title: "👤 Gender", value: viewModel.characterDetailInfo.gender)
-                        CharacterDetailItemView(title: "📍 Origin", value: viewModel.characterDetailInfo.origin.name)
-                        CharacterDetailItemView(title: "🗺 Location", value: viewModel.characterDetailInfo.location.name)
-                        CharacterDetailItemView(title: "Created", value: viewModel.characterDetailInfo.created)
+                        Section(header: Text("LOCATION")
+                                            .font(.title2)
+                        ) {
+                            CharacterDetailItemView(title: "📍 Origin", value: viewModel.characterDetailInfo.origin.name)
+                            CharacterDetailItemView(title: "🗺 Location", value: viewModel.characterDetailInfo.location.name)
+                            // CharacterDetailItemView(title: "Created", value: viewModel.characterDetailInfo.created)
+                        }
                         
-                        Spacer()
                         
                         if viewModel.episodes.count > 0 {
                             Section(header:
-                                        Text("Episodes (\(viewModel.episodes.count))")
-                                .font(.title2)
+                                        Text("EPISODES (\(viewModel.episodes.count))")
+                                            .font(.title2)
                             ) {
                                
                                 ForEach(viewModel.episodes, id: \.self) { episode in
@@ -95,6 +102,7 @@ struct CharacterDetailView: View {
                 }
             }
         }
+        .navigationTitle(viewModel.characterDetailInfo.name)
         .onAppear {
             viewModel.onAppear()
         }
