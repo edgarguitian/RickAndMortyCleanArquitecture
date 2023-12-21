@@ -157,6 +157,21 @@
 		6DC79BA42B344186001FB758 /* SearchCharactersListRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BA32B344186001FB758 /* SearchCharactersListRepositoryStub.swift */; };
 		6DC79BA72B3442B8001FB758 /* GetAllLocationsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BA62B3442B8001FB758 /* GetAllLocationsListTests.swift */; };
 		6DC79BAA2B344696001FB758 /* AllLocationsListRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BA92B344696001FB758 /* AllLocationsListRepositoryStub.swift */; };
+		6DC79BAD2B344891001FB758 /* GetAllEpisodesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BAC2B344891001FB758 /* GetAllEpisodesListTests.swift */; };
+		6DC79BB02B3448D5001FB758 /* AllEpisodesListRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BAF2B3448D5001FB758 /* AllEpisodesListRepositoryStub.swift */; };
+		6DC79BB22B3449F7001FB758 /* GetSingleEpisodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BB12B3449F7001FB758 /* GetSingleEpisodeTests.swift */; };
+		6DC79BB42B344A64001FB758 /* SingleEpisodeRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BB32B344A64001FB758 /* SingleEpisodeRepositoryStub.swift */; };
+		6DC79BBF2B344C3E001FB758 /* APICharactersDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BBE2B344C3E001FB758 /* APICharactersDataSourceTests.swift */; };
+		6DC79BC12B344C4F001FB758 /* APISingleCharacterDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BC02B344C4F001FB758 /* APISingleCharacterDataSourceTests.swift */; };
+		6DC79BC32B344C5E001FB758 /* APILocationsDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BC22B344C5E001FB758 /* APILocationsDataSourceTests.swift */; };
+		6DC79BC52B344C6E001FB758 /* APIEpisodesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BC42B344C6E001FB758 /* APIEpisodesDataSourceTests.swift */; };
+		6DC79BC72B344C7D001FB758 /* APISingleEpisodeDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BC62B344C7D001FB758 /* APISingleEpisodeDataSourceTests.swift */; };
+		6DC79BC92B344CA3001FB758 /* AllCharactersListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BC82B344CA3001FB758 /* AllCharactersListRepositoryTests.swift */; };
+		6DC79BCB2B344CB5001FB758 /* SingleCharacterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BCA2B344CB5001FB758 /* SingleCharacterRepositoryTests.swift */; };
+		6DC79BCD2B344CC3001FB758 /* AllLocationsListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BCC2B344CC3001FB758 /* AllLocationsListRepositoryTests.swift */; };
+		6DC79BCF2B344CD2001FB758 /* AllEpisodesListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BCE2B344CD2001FB758 /* AllEpisodesListRepositoryTests.swift */; };
+		6DC79BD12B344CE4001FB758 /* SingleEpisodeRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BD02B344CE4001FB758 /* SingleEpisodeRepositoryTests.swift */; };
+		6DC79BD32B344CFE001FB758 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC79BD22B344CFE001FB758 /* MockHTTPClient.swift */; };
 		6DD3ACC92B32F3A8007A9A04 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */; };
 		6DD3ACCB2B32F7DC007A9A04 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */; };
 		6DD3ACCD2B331591007A9A04 /* GetSingleEpisodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD3ACCC2B331591007A9A04 /* GetSingleEpisodeType.swift */; };
@@ -307,6 +322,21 @@
 		6DC79BA32B344186001FB758 /* SearchCharactersListRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCharactersListRepositoryStub.swift; sourceTree = "<group>"; };
 		6DC79BA62B3442B8001FB758 /* GetAllLocationsListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllLocationsListTests.swift; sourceTree = "<group>"; };
 		6DC79BA92B344696001FB758 /* AllLocationsListRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocationsListRepositoryStub.swift; sourceTree = "<group>"; };
+		6DC79BAC2B344891001FB758 /* GetAllEpisodesListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllEpisodesListTests.swift; sourceTree = "<group>"; };
+		6DC79BAF2B3448D5001FB758 /* AllEpisodesListRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesListRepositoryStub.swift; sourceTree = "<group>"; };
+		6DC79BB12B3449F7001FB758 /* GetSingleEpisodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSingleEpisodeTests.swift; sourceTree = "<group>"; };
+		6DC79BB32B344A64001FB758 /* SingleEpisodeRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEpisodeRepositoryStub.swift; sourceTree = "<group>"; };
+		6DC79BBE2B344C3E001FB758 /* APICharactersDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICharactersDataSourceTests.swift; sourceTree = "<group>"; };
+		6DC79BC02B344C4F001FB758 /* APISingleCharacterDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISingleCharacterDataSourceTests.swift; sourceTree = "<group>"; };
+		6DC79BC22B344C5E001FB758 /* APILocationsDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILocationsDataSourceTests.swift; sourceTree = "<group>"; };
+		6DC79BC42B344C6E001FB758 /* APIEpisodesDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEpisodesDataSourceTests.swift; sourceTree = "<group>"; };
+		6DC79BC62B344C7D001FB758 /* APISingleEpisodeDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISingleEpisodeDataSourceTests.swift; sourceTree = "<group>"; };
+		6DC79BC82B344CA3001FB758 /* AllCharactersListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharactersListRepositoryTests.swift; sourceTree = "<group>"; };
+		6DC79BCA2B344CB5001FB758 /* SingleCharacterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCharacterRepositoryTests.swift; sourceTree = "<group>"; };
+		6DC79BCC2B344CC3001FB758 /* AllLocationsListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocationsListRepositoryTests.swift; sourceTree = "<group>"; };
+		6DC79BCE2B344CD2001FB758 /* AllEpisodesListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodesListRepositoryTests.swift; sourceTree = "<group>"; };
+		6DC79BD02B344CE4001FB758 /* SingleEpisodeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEpisodeRepositoryTests.swift; sourceTree = "<group>"; };
+		6DC79BD22B344CFE001FB758 /* MockHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHTTPClient.swift; sourceTree = "<group>"; };
 		6DD3ACC82B32F3A8007A9A04 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		6DD3ACCA2B32F7DC007A9A04 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
 		6DD3ACCC2B331591007A9A04 /* GetSingleEpisodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSingleEpisodeType.swift; sourceTree = "<group>"; };
@@ -960,12 +990,112 @@
 			path = Locations;
 			sourceTree = "<group>";
 		};
+		6DC79BAB2B34486F001FB758 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BAC2B344891001FB758 /* GetAllEpisodesListTests.swift */,
+				6DC79BB12B3449F7001FB758 /* GetSingleEpisodeTests.swift */,
+			);
+			path = Episodes;
+			sourceTree = "<group>";
+		};
+		6DC79BAE2B3448AC001FB758 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BAF2B3448D5001FB758 /* AllEpisodesListRepositoryStub.swift */,
+				6DC79BB32B344A64001FB758 /* SingleEpisodeRepositoryStub.swift */,
+			);
+			path = Episodes;
+			sourceTree = "<group>";
+		};
+		6DC79BB52B344BB7001FB758 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BB62B344BCB001FB758 /* Networking */,
+				6DC79BB72B344BD2001FB758 /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		6DC79BB62B344BCB001FB758 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BB82B344BEE001FB758 /* Characters */,
+				6DC79BB92B344BF4001FB758 /* Locations */,
+				6DC79BBA2B344BF9001FB758 /* Episodes */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		6DC79BB72B344BD2001FB758 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BBB2B344C06001FB758 /* Characters */,
+				6DC79BBC2B344C0B001FB758 /* Locations */,
+				6DC79BBD2B344C10001FB758 /* Episodes */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		6DC79BB82B344BEE001FB758 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BBE2B344C3E001FB758 /* APICharactersDataSourceTests.swift */,
+				6DC79BC02B344C4F001FB758 /* APISingleCharacterDataSourceTests.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		6DC79BB92B344BF4001FB758 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BC22B344C5E001FB758 /* APILocationsDataSourceTests.swift */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		6DC79BBA2B344BF9001FB758 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BC42B344C6E001FB758 /* APIEpisodesDataSourceTests.swift */,
+				6DC79BC62B344C7D001FB758 /* APISingleEpisodeDataSourceTests.swift */,
+			);
+			path = Episodes;
+			sourceTree = "<group>";
+		};
+		6DC79BBB2B344C06001FB758 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BC82B344CA3001FB758 /* AllCharactersListRepositoryTests.swift */,
+				6DC79BCA2B344CB5001FB758 /* SingleCharacterRepositoryTests.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		6DC79BBC2B344C0B001FB758 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BCC2B344CC3001FB758 /* AllLocationsListRepositoryTests.swift */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		6DC79BBD2B344C10001FB758 /* Episodes */ = {
+			isa = PBXGroup;
+			children = (
+				6DC79BCE2B344CD2001FB758 /* AllEpisodesListRepositoryTests.swift */,
+				6DC79BD02B344CE4001FB758 /* SingleEpisodeRepositoryTests.swift */,
+			);
+			path = Episodes;
+			sourceTree = "<group>";
+		};
 		6DD3ACE52B3366D4007A9A04 /* RickAndMortyCleanArquitectureTests */ = {
 			isa = PBXGroup;
 			children = (
 				6DD3ACE62B3366D4007A9A04 /* RickAndMortyCleanArquitectureTests.swift */,
 				6DD3ACF12B336865007A9A04 /* Helpers */,
 				6DD3ACED2B33672A007A9A04 /* Domain */,
+				6DC79BB52B344BB7001FB758 /* Data */,
 			);
 			path = RickAndMortyCleanArquitectureTests;
 			sourceTree = "<group>";
@@ -975,6 +1105,7 @@
 			children = (
 				6DD3ACEE2B336744007A9A04 /* Characters */,
 				6DC79BA52B344296001FB758 /* Locations */,
+				6DC79BAB2B34486F001FB758 /* Episodes */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -992,8 +1123,10 @@
 		6DD3ACF12B336865007A9A04 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6DC79BD22B344CFE001FB758 /* MockHTTPClient.swift */,
 				6DC79BA02B343EA7001FB758 /* Characters */,
 				6DC79BA82B344680001FB758 /* Locations */,
+				6DC79BAE2B3448AC001FB758 /* Episodes */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1284,15 +1417,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DC79BC32B344C5E001FB758 /* APILocationsDataSourceTests.swift in Sources */,
+				6DC79BC72B344C7D001FB758 /* APISingleEpisodeDataSourceTests.swift in Sources */,
+				6DC79BB02B3448D5001FB758 /* AllEpisodesListRepositoryStub.swift in Sources */,
+				6DC79BD12B344CE4001FB758 /* SingleEpisodeRepositoryTests.swift in Sources */,
+				6DC79BCF2B344CD2001FB758 /* AllEpisodesListRepositoryTests.swift in Sources */,
+				6DC79BAD2B344891001FB758 /* GetAllEpisodesListTests.swift in Sources */,
 				6DD3ACF02B33675B007A9A04 /* GetAllCharactersListTests.swift in Sources */,
 				6DD3ACF32B336873007A9A04 /* AllCharactersListRepositoryStub.swift in Sources */,
+				6DC79BD32B344CFE001FB758 /* MockHTTPClient.swift in Sources */,
+				6DC79BC52B344C6E001FB758 /* APIEpisodesDataSourceTests.swift in Sources */,
+				6DC79BC92B344CA3001FB758 /* AllCharactersListRepositoryTests.swift in Sources */,
 				6DC79B9D2B343E16001FB758 /* GetSingleCharacterTests.swift in Sources */,
+				6DC79BCB2B344CB5001FB758 /* SingleCharacterRepositoryTests.swift in Sources */,
 				6DD3ACE72B3366D4007A9A04 /* RickAndMortyCleanArquitectureTests.swift in Sources */,
 				6DC79B9F2B343E50001FB758 /* SingleCharacterRepositoryStub.swift in Sources */,
 				6DC79BA72B3442B8001FB758 /* GetAllLocationsListTests.swift in Sources */,
+				6DC79BB42B344A64001FB758 /* SingleEpisodeRepositoryStub.swift in Sources */,
+				6DC79BB22B3449F7001FB758 /* GetSingleEpisodeTests.swift in Sources */,
 				6DC79BA22B344115001FB758 /* SearchCharacterListTests.swift in Sources */,
 				6DC79BA42B344186001FB758 /* SearchCharactersListRepositoryStub.swift in Sources */,
 				6DC79BAA2B344696001FB758 /* AllLocationsListRepositoryStub.swift in Sources */,
+				6DC79BC12B344C4F001FB758 /* APISingleCharacterDataSourceTests.swift in Sources */,
+				6DC79BBF2B344C3E001FB758 /* APICharactersDataSourceTests.swift in Sources */,
+				6DC79BCD2B344CC3001FB758 /* AllLocationsListRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
