@@ -6,30 +6,44 @@
 //
 
 import XCTest
+@testable import RickAndMortyCleanArquitecture
 
 final class AllCharactersListRepositoryTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_getAllCharactersList() async throws {
+        // GIVEN
+        let mockApiDataSource = MockApiCharactersDataSource()
+        let mockErrorMapper = MockRickAndMortyDomainErrorMapper()
+        let repository = AllCharactersListRepository(apiDataSource: mockApiDataSource, errorMapper: mockErrorMapper, cacheDataSource: CharacterListFactory.createCacheDataSource())
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        // WHEN
+        let result = await repository.getAllCharactersList(currentPage: -1)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        // THEN
+        switch result {
+        case .success(let listCharacters):
+            XCTAssertEqual(listCharacters.result.count, 1)
+            XCTAssertEqual(listCharacters.result.first!.id, 1)
+            XCTAssertEqual(listCharacters.result.first!.name, "testName1")
+            XCTAssertEqual(listCharacters.result.first!.status, "testCharacterStatus")
+            XCTAssertEqual(listCharacters.result.first!.species, "testCharacterSpecie")
+            XCTAssertEqual(listCharacters.result.first!.type, "testCharacterType")
+            XCTAssertEqual(listCharacters.result.first!.gender, "testCharacterGender")
+            XCTAssertEqual(listCharacters.result.first!.origin.name, "testNameLocation")
+            XCTAssertEqual(listCharacters.result.first!.origin.url, "testURLLocation")
+            XCTAssertEqual(listCharacters.result.first!.location.name, "testNameLocation")
+            XCTAssertEqual(listCharacters.result.first!.location.url, "testURLLocation")
+            XCTAssertEqual(listCharacters.result.first!.image, "testCharacterImage")
+            XCTAssertEqual(listCharacters.result.first!.episode.first, "testEpisodeCharacter")
+            XCTAssertEqual(listCharacters.result.first!.url, "testCharacterURL")
+            XCTAssertEqual(listCharacters.result.first!.created, "testCharacterCreated")
+        case .failure(let error):
+            XCTFail("Error: \(error)")
         }
+    }
+    
+    func test_search() async throws {
+        
     }
 
 }

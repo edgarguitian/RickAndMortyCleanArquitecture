@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import RickAndMortyCleanArquitecture
 
 final class APISingleEpisodeDataSourceTests: XCTestCase {
 
