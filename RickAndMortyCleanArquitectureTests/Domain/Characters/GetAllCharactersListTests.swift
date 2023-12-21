@@ -10,7 +10,7 @@ import XCTest
 
 final class GetAllCharactersListTests: XCTestCase {
 
-    func test_execute_sucesfully_returns_character_result() async throws {
+    func test_execute_sucesfully_returns_character_list_result() async throws {
         // GIVEN
         let mockInfoCharacterResult = InfoResult(count: 1, pages: 2, next: "testNext", prev: "testPrev")
         let mockLocationCharacter = LocationCharacter(name: "testLocationName", url: "testLocationUrl")

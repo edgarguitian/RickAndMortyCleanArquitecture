@@ -6,30 +6,43 @@
 //
 
 import XCTest
-
+@testable import RickAndMortyCleanArquitecture
 final class GetAllLocationsListTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_execute_sucesfully_returns_locations_list_result() async throws {
+        // GIVEN
+        let mockInfoLocationResult = InfoResult(count: 1, pages: 2, next: "testNext", prev: "testPrev")
+        let mockResidentsLocation = [
+            "testResidentLocation"
+        ]
+        
+        let mockLocations = [
+        Location(id: 1, name: "testLocationName", type: "testLocationType", dimension: "testLocationDimension", residents: mockResidentsLocation, url: "testLocationUrl", created: "testLocationCreated")
+        ]
+        let mockLocationResult = LocationResult(info: mockInfoLocationResult, result: mockLocations)
+        let result: Result<LocationResult, RickAndMortyDomainError> = .success(mockLocationResult)
+        let stub = AllLocationsListRepositoryStub(result: result)
+        let sut = GetAllLocationsList(repository: stub)
+        
+        // WHEN
+        let capturedResult = await sut.execute(currentPage: -1)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        // THEN
+        let capturedAllLocationsList = try XCTUnwrap(capturedResult.get())
+        XCTAssertEqual(capturedAllLocationsList.result.count, mockLocations.count)
+        XCTAssertEqual(capturedAllLocationsList.info.count, 1)
+        XCTAssertEqual(capturedAllLocationsList.info.pages, 2)
+        XCTAssertEqual(capturedAllLocationsList.info.next, "testNext")
+        XCTAssertEqual(capturedAllLocationsList.info.prev, "testPrev")
+        XCTAssertEqual(capturedAllLocationsList.result.first!.id, 1)
+        XCTAssertEqual(capturedAllLocationsList.result.first!.name, "testLocationName")
+        XCTAssertEqual(capturedAllLocationsList.result.first!.type, "testLocationType")
+        XCTAssertEqual(capturedAllLocationsList.result.first!.dimension, "testLocationDimension")
+        XCTAssertEqual(capturedAllLocationsList.result.first!.residents.first, "testResidentLocation")
+        XCTAssertEqual(capturedAllLocationsList.result.first!.url, "testLocationUrl")
+        XCTAssertEqual(capturedAllLocationsList.result.first!.created, "testLocationCreated")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        
     }
 
 }
