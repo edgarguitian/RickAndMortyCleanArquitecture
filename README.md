@@ -18,6 +18,11 @@ App en Clean Arquitecture con Clean Code a partir del API de RickAndMorty, utili
 - Listado de los episodes.
 - Obtención de los datos de un episode específico.
 
+## Diagrama
+
+![rickandmortycleanarquitecture drawio](https://github.com/edgarguitian/RickAndMortyCleanArquitecture/assets/6595032/9e6109dd-cacf-4fea-adb8-ebf03043e96e)
+
+
 ## Funcionalidades extra
 
 - Caché con SwiftData del listado de characters y cacheo de su imagen.
