@@ -10,27 +10,51 @@ import XCTest
 
 final class APILocationsDataSourceTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_getLocationsList_success() async throws {
+        // GIVEN
+        let mockHttpClient = MockHTTPClient()
+        let apiLocationsDataSource = APILocationsDataSource(httpClient: mockHttpClient)
+        let mockInfo = InfoDTO(count: 1, pages: 2, next: "testInfoNext", prev: "testInfoPrev")
+        let mockResidentsLocation = [
+            "testResidentLocation"
+        ]
+        let mockLocations = [
+            LocationListDTO(id: 1, name: "testLocationName", type: "testLocationType", dimension: "testLocationDimension", residents: mockResidentsLocation, url: "testLocationUrl", created: "testLocationCreated")
+        ]
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let mockData = [ LocationResponseDTO(info: mockInfo, results: mockLocations)
+        ]
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let jsonData = try encoder.encode(mockData)
+            
+            mockHttpClient.mockResult = .success(jsonData)
+            
+            // WHEN
+            let result = await apiLocationsDataSource.getLocationsList(currentPage: -1)
+            
+            // THEN
+            switch result {
+            case .success(let listLocations):
+                XCTAssertEqual(listLocations.results.count, 1)
+                XCTAssertEqual(listLocations.results.first!.id, 1)
+                XCTAssertEqual(listLocations.results.first!.name, "testLocationName")
+                XCTAssertEqual(listLocations.results.first!.type, "testLocationType")
+                XCTAssertEqual(listLocations.results.first!.dimension, "testLocationDimension")
+                XCTAssertEqual(listLocations.results.first!.residents.first, "testResidentLocation")
+                XCTAssertEqual(listLocations.results.first!.url, "testLocationUrl")
+                XCTAssertEqual(listLocations.results.first!.created, "testLocationCreated")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            case .failure(let error):
+                XCTFail("Error: \(error)")
+            }
+        } catch {
+            XCTFail("Error: \(error)")
         }
+        
+        
     }
+
 
 }

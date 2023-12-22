@@ -10,26 +10,65 @@ import XCTest
 
 final class SingleCharacterRepositoryTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_getSingleCharacter_by_characterId_success() async throws {
+        // GIVEN
+        let mockApiDataSource = MockApiSingleCharacterDataSource()
+        let mockErrorMapper = MockRickAndMortyDomainErrorMapper()
+        let repository = SingleCharacterRepository(apiDataSource: mockApiDataSource, errorMapper: mockErrorMapper, cacheDataSource: CharacterListFactory.createCacheDataSource())
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        // WHEN
+        let result = await repository.getSingleCharacter(characterId: "1")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        // THEN
+        switch result {
+        case .success(let singleCharacter):
+            XCTAssertEqual(singleCharacter.id, 1)
+            XCTAssertEqual(singleCharacter.name, "testCharacterName")
+            XCTAssertEqual(singleCharacter.status, "testCharacterStatus")
+            XCTAssertEqual(singleCharacter.species, "testCharacterSpecie")
+            XCTAssertEqual(singleCharacter.type, "testCharacterType")
+            XCTAssertEqual(singleCharacter.gender, "testCharacterGender")
+            XCTAssertEqual(singleCharacter.origin.name, "testNameLocation")
+            XCTAssertEqual(singleCharacter.origin.url, "testURLLocation")
+            XCTAssertEqual(singleCharacter.location.name, "testNameLocation")
+            XCTAssertEqual(singleCharacter.location.url, "testURLLocation")
+            XCTAssertEqual(singleCharacter.image, "testCharacterImage")
+            XCTAssertEqual(singleCharacter.episode.first, "testEpisodeCharacter")
+            XCTAssertEqual(singleCharacter.url, "testCharacterURL")
+            XCTAssertEqual(singleCharacter.created, "testCharacterCreated")
+        case .failure(let error):
+            XCTFail("Error: \(error)")
+        }
     }
+    
+    func test_getSingleCharacter_by_url_success() async throws {
+        // GIVEN
+        let mockApiDataSource = MockApiSingleCharacterDataSource()
+        let mockErrorMapper = MockRickAndMortyDomainErrorMapper()
+        let repository = SingleCharacterRepository(apiDataSource: mockApiDataSource, errorMapper: mockErrorMapper, cacheDataSource: CharacterListFactory.createCacheDataSource())
+        let url = URL(string: "https://rickandmortyapi.com/api/character/2")!
+        // WHEN
+        let result = await repository.getSingleCharacter(url: url)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        // THEN
+        switch result {
+        case .success(let singleCharacter):
+            XCTAssertEqual(singleCharacter.id, 1)
+            XCTAssertEqual(singleCharacter.name, "testCharacterName")
+            XCTAssertEqual(singleCharacter.status, "testCharacterStatus")
+            XCTAssertEqual(singleCharacter.species, "testCharacterSpecie")
+            XCTAssertEqual(singleCharacter.type, "testCharacterType")
+            XCTAssertEqual(singleCharacter.gender, "testCharacterGender")
+            XCTAssertEqual(singleCharacter.origin.name, "testNameLocation")
+            XCTAssertEqual(singleCharacter.origin.url, "testURLLocation")
+            XCTAssertEqual(singleCharacter.location.name, "testNameLocation")
+            XCTAssertEqual(singleCharacter.location.url, "testURLLocation")
+            XCTAssertEqual(singleCharacter.image, "testCharacterImage")
+            XCTAssertEqual(singleCharacter.episode.first, "testEpisodeCharacter")
+            XCTAssertEqual(singleCharacter.url, "testCharacterURL")
+            XCTAssertEqual(singleCharacter.created, "testCharacterCreated")
+        case .failure(let error):
+            XCTFail("Error: \(error)")
         }
     }
 

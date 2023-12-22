@@ -10,27 +10,50 @@ import XCTest
 
 final class APIEpisodesDataSourceTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_getEpisodesList_success() async throws {
+        // GIVEN
+        let mockHttpClient = MockHTTPClient()
+        let apiEpisodesDataSource = APIEpisodesDataSource(httpClient: mockHttpClient)
+        let mockInfo = InfoDTO(count: 1, pages: 2, next: "testInfoNext", prev: "testInfoPrev")
+        let mockCharactersEpisode = [
+            "testCharacterEpisode"
+        ]
+        let mockEpisodes = [
+            EpisodeListDTO(id: 1, name: "testEpisodeName", airDate: "testEpisodeAirDate", episode: "testEpisode", characters: mockCharactersEpisode, url: "testEpisodeUrl", created: "testEpisodeCreated")
+        ]
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let mockData = [ EpisodeResponseDTO(info: mockInfo, results: mockEpisodes)
+        ]
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let jsonData = try encoder.encode(mockData)
+            
+            mockHttpClient.mockResult = .success(jsonData)
+            
+            // WHEN
+            let result = await apiEpisodesDataSource.getEpisodesList(currentPage: -1)
+            
+            // THEN
+            switch result {
+            case .success(let listEpisodes):
+                XCTAssertEqual(listEpisodes.results.count, 1)
+                XCTAssertEqual(listEpisodes.results.first!.id, 1)
+                XCTAssertEqual(listEpisodes.results.first!.name, "testEpisodeName")
+                XCTAssertEqual(listEpisodes.results.first!.airDate, "testEpisodeAirDate")
+                XCTAssertEqual(listEpisodes.results.first!.episode, "testEpisode")
+                XCTAssertEqual(listEpisodes.results.first!.characters.first, "testCharacterEpisode")
+                XCTAssertEqual(listEpisodes.results.first!.url, "testEpisodeUrl")
+                XCTAssertEqual(listEpisodes.results.first!.created, "testEpisodeCreated")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            case .failure(let error):
+                XCTFail("Error: \(error)")
+            }
+        } catch {
+            XCTFail("Error: \(error)")
         }
+        
+        
     }
 
 }

@@ -113,6 +113,10 @@
 		6D66F0102B2E28DD001FDF6D /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6D66F00F2B2E28DD001FDF6D /* FirebaseRemoteConfigSwift */; };
 		6D66F0122B2E28DD001FDF6D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6D66F0112B2E28DD001FDF6D /* FirebaseStorage */; };
 		6D66F0142B2E28DD001FDF6D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6D66F0132B2E28DD001FDF6D /* FirebaseStorageCombine-Community */; };
+		6D6CA7F22B35886D00D46E6C /* MockApiSingleCharacterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7F12B35886D00D46E6C /* MockApiSingleCharacterDataSource.swift */; };
+		6D6CA7F42B358A7900D46E6C /* MockApiLocationsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7F32B358A7900D46E6C /* MockApiLocationsDataSource.swift */; };
+		6D6CA7F62B358BD800D46E6C /* MockApiEpisodesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7F52B358BD800D46E6C /* MockApiEpisodesDataSource.swift */; };
+		6D6CA7F82B358D4F00D46E6C /* MockApiSingleEpisodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CA7F72B358D4F00D46E6C /* MockApiSingleEpisodeDataSource.swift */; };
 		6D92C5132B2F4ED00040FB91 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92C5122B2F4ED00040FB91 /* FilterView.swift */; };
 		6D92C5152B2F4FCB0040FB91 /* CreateFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92C5142B2F4FCB0040FB91 /* CreateFilterView.swift */; };
 		6D92C5192B2F58BB0040FB91 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92C5182B2F58BB0040FB91 /* Location.swift */; };
@@ -279,6 +283,10 @@
 		6D4433B32B2DD6A500AFBB56 /* InfoResultCharactersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoResultCharactersData.swift; sourceTree = "<group>"; };
 		6D4433B52B2DD77500AFBB56 /* SwiftDataCharactersDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataCharactersDomainMapper.swift; sourceTree = "<group>"; };
 		6D66EFDC2B2E28A7001FDF6D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6D6CA7F12B35886D00D46E6C /* MockApiSingleCharacterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiSingleCharacterDataSource.swift; sourceTree = "<group>"; };
+		6D6CA7F32B358A7900D46E6C /* MockApiLocationsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiLocationsDataSource.swift; sourceTree = "<group>"; };
+		6D6CA7F52B358BD800D46E6C /* MockApiEpisodesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiEpisodesDataSource.swift; sourceTree = "<group>"; };
+		6D6CA7F72B358D4F00D46E6C /* MockApiSingleEpisodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiSingleEpisodeDataSource.swift; sourceTree = "<group>"; };
 		6D92C5122B2F4ED00040FB91 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		6D92C5142B2F4FCB0040FB91 /* CreateFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFilterView.swift; sourceTree = "<group>"; };
 		6D92C5182B2F58BB0040FB91 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -975,6 +983,7 @@
 				6DC79B9E2B343E50001FB758 /* SingleCharacterRepositoryStub.swift */,
 				6DC79BA32B344186001FB758 /* SearchCharactersListRepositoryStub.swift */,
 				6DC79BD42B349A8C001FB758 /* MockApiCharactersDataSource.swift */,
+				6D6CA7F12B35886D00D46E6C /* MockApiSingleCharacterDataSource.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -991,6 +1000,7 @@
 			isa = PBXGroup;
 			children = (
 				6DC79BA92B344696001FB758 /* AllLocationsListRepositoryStub.swift */,
+				6D6CA7F32B358A7900D46E6C /* MockApiLocationsDataSource.swift */,
 			);
 			path = Locations;
 			sourceTree = "<group>";
@@ -1009,6 +1019,8 @@
 			children = (
 				6DC79BAF2B3448D5001FB758 /* AllEpisodesListRepositoryStub.swift */,
 				6DC79BB32B344A64001FB758 /* SingleEpisodeRepositoryStub.swift */,
+				6D6CA7F52B358BD800D46E6C /* MockApiEpisodesDataSource.swift */,
+				6D6CA7F72B358D4F00D46E6C /* MockApiSingleEpisodeDataSource.swift */,
 			);
 			path = Episodes;
 			sourceTree = "<group>";
@@ -1431,6 +1443,8 @@
 				6DC79BD52B349A8C001FB758 /* MockApiCharactersDataSource.swift in Sources */,
 				6DC79BAD2B344891001FB758 /* GetAllEpisodesListTests.swift in Sources */,
 				6DD3ACF02B33675B007A9A04 /* GetAllCharactersListTests.swift in Sources */,
+				6D6CA7F42B358A7900D46E6C /* MockApiLocationsDataSource.swift in Sources */,
+				6D6CA7F82B358D4F00D46E6C /* MockApiSingleEpisodeDataSource.swift in Sources */,
 				6DD3ACF32B336873007A9A04 /* AllCharactersListRepositoryStub.swift in Sources */,
 				6DC79BD32B344CFE001FB758 /* MockHTTPClient.swift in Sources */,
 				6DC79BC52B344C6E001FB758 /* APIEpisodesDataSourceTests.swift in Sources */,
@@ -1443,12 +1457,14 @@
 				6DC79BA72B3442B8001FB758 /* GetAllLocationsListTests.swift in Sources */,
 				6DC79BB42B344A64001FB758 /* SingleEpisodeRepositoryStub.swift in Sources */,
 				6DC79BB22B3449F7001FB758 /* GetSingleEpisodeTests.swift in Sources */,
+				6D6CA7F22B35886D00D46E6C /* MockApiSingleCharacterDataSource.swift in Sources */,
 				6DC79BA22B344115001FB758 /* SearchCharacterListTests.swift in Sources */,
 				6DC79BA42B344186001FB758 /* SearchCharactersListRepositoryStub.swift in Sources */,
 				6DC79BAA2B344696001FB758 /* AllLocationsListRepositoryStub.swift in Sources */,
 				6DC79BC12B344C4F001FB758 /* APISingleCharacterDataSourceTests.swift in Sources */,
 				6DC79BBF2B344C3E001FB758 /* APICharactersDataSourceTests.swift in Sources */,
 				6DC79BCD2B344CC3001FB758 /* AllLocationsListRepositoryTests.swift in Sources */,
+				6D6CA7F62B358BD800D46E6C /* MockApiEpisodesDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

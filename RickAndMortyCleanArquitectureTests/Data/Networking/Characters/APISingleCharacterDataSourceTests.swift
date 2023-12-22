@@ -10,26 +10,98 @@ import XCTest
 
 final class APISingleCharacterDataSourceTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_getSingleCharacter_by_characterId_success() async throws {
+        // GIVEN
+        let mockHttpClient = MockHTTPClient()
+        let apiCharactersDataSource = APISingleCharacterDataSource(httpClient: mockHttpClient)
+        let mockInfo = InfoDTO(count: 1, pages: 2, next: "testInfoNext", prev: "testInfoPrev")
+        let mockLocationCharacter = LocationCharacterDTO(name: "testNameLocation", url: "testURLLocation")
+        let mockEpisodeCharacter = ["testEpisodeCharacter"]
+        let mockCharacterListDTO = CharacterListDTO(id: 1, name: "testCharacterName", status: "testCharacterStatus", species: "testCharacterSpecie", type: "testCharacterType", gender: "testCharacterGender", origin: mockLocationCharacter, location: mockLocationCharacter, image: "testCharacterImage", episode: mockEpisodeCharacter, url: "testCharacterURL", created: "testCharacterCreated")
+        
+        
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let jsonData = try encoder.encode(mockCharacterListDTO)
+            
+            mockHttpClient.mockResult = .success(jsonData)
+            
+            // WHEN
+            let result = await apiCharactersDataSource.getSingleCharacter(characterId: "1")
+            
+            // THEN
+            switch result {
+            case .success(let singleCharacter):
+                XCTAssertEqual(singleCharacter.id, 1)
+                XCTAssertEqual(singleCharacter.name, "testCharacterName")
+                XCTAssertEqual(singleCharacter.status, "testCharacterStatus")
+                XCTAssertEqual(singleCharacter.species, "testCharacterSpecie")
+                XCTAssertEqual(singleCharacter.type, "testCharacterType")
+                XCTAssertEqual(singleCharacter.gender, "testCharacterGender")
+                XCTAssertEqual(singleCharacter.origin.name, "testNameLocation")
+                XCTAssertEqual(singleCharacter.origin.url, "testURLLocation")
+                XCTAssertEqual(singleCharacter.location.name, "testNameLocation")
+                XCTAssertEqual(singleCharacter.location.url, "testURLLocation")
+                XCTAssertEqual(singleCharacter.image, "testCharacterImage")
+                XCTAssertEqual(singleCharacter.episode.first, "testEpisodeCharacter")
+                XCTAssertEqual(singleCharacter.url, "testCharacterURL")
+                XCTAssertEqual(singleCharacter.created, "testCharacterCreated")
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+            case .failure(let error):
+                XCTFail("Error: \(error)")
+            }
+        } catch {
+            XCTFail("Error: \(error)")
+        }
+        
+        
     }
+    
+    func test_getSingleCharacter_by_url_success() async throws {
+        // GIVEN
+        let mockHttpClient = MockHTTPClient()
+        let apiCharactersDataSource = APISingleCharacterDataSource(httpClient: mockHttpClient)
+        let mockInfo = InfoDTO(count: 1, pages: 2, next: "testInfoNext", prev: "testInfoPrev")
+        let mockLocationCharacter = LocationCharacterDTO(name: "testNameLocation", url: "testURLLocation")
+        let mockEpisodeCharacter = ["testEpisodeCharacter"]
+        let mockCharacterListDTO = CharacterListDTO(id: 1, name: "testCharacterName", status: "testCharacterStatus", species: "testCharacterSpecie", type: "testCharacterType", gender: "testCharacterGender", origin: mockLocationCharacter, location: mockLocationCharacter, image: "testCharacterImage", episode: mockEpisodeCharacter, url: "testCharacterURL", created: "testCharacterCreated")
+        
+        
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let jsonData = try encoder.encode(mockCharacterListDTO)
+            
+            mockHttpClient.mockResult = .success(jsonData)
+            let url = URL(string: "https://rickandmortyapi.com/api/character/2")!
+            
+            // WHEN
+            let result = await apiCharactersDataSource.getSingleCharacter(url: url)
+            
+            // THEN
+            switch result {
+            case .success(let singleCharacter):
+                XCTAssertEqual(singleCharacter.id, 1)
+                XCTAssertEqual(singleCharacter.name, "testCharacterName")
+                XCTAssertEqual(singleCharacter.status, "testCharacterStatus")
+                XCTAssertEqual(singleCharacter.species, "testCharacterSpecie")
+                XCTAssertEqual(singleCharacter.type, "testCharacterType")
+                XCTAssertEqual(singleCharacter.gender, "testCharacterGender")
+                XCTAssertEqual(singleCharacter.origin.name, "testNameLocation")
+                XCTAssertEqual(singleCharacter.origin.url, "testURLLocation")
+                XCTAssertEqual(singleCharacter.location.name, "testNameLocation")
+                XCTAssertEqual(singleCharacter.location.url, "testURLLocation")
+                XCTAssertEqual(singleCharacter.image, "testCharacterImage")
+                XCTAssertEqual(singleCharacter.episode.first, "testEpisodeCharacter")
+                XCTAssertEqual(singleCharacter.url, "testCharacterURL")
+                XCTAssertEqual(singleCharacter.created, "testCharacterCreated")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            case .failure(let error):
+                XCTFail("Error: \(error)")
+            }
+        } catch {
+            XCTFail("Error: \(error)")
         }
     }
 

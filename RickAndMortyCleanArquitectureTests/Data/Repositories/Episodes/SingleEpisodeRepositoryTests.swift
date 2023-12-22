@@ -10,26 +10,27 @@ import XCTest
 
 final class SingleEpisodeRepositoryTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_getSingleEpisode_by_url_success() async throws {
+        // GIVEN
+        let mockApiDataSource = MockApiSingleEpisodeDataSource()
+        let mockErrorMapper = MockRickAndMortyDomainErrorMapper()
+        let repository = SingleEpisodeRepository(apiDataSource: mockApiDataSource, errorMapper: mockErrorMapper, cacheDataSource: EpisodeListFactory.createCacheDataSource())
+        let url = URL(string: "https://rickandmortyapi.com/api/episode/28")!
+        // WHEN
+        let result = await repository.getSingleEpisode(url: url)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        // THEN
+        switch result {
+        case .success(let singleEpisode):
+            XCTAssertEqual(singleEpisode.id, 1)
+            XCTAssertEqual(singleEpisode.name, "testEpisodeName")
+            XCTAssertEqual(singleEpisode.airDate, "testEpisodeAirDate")
+            XCTAssertEqual(singleEpisode.episode, "testEpisode")
+            XCTAssertEqual(singleEpisode.characters.first, "testCharacterEpisode")
+            XCTAssertEqual(singleEpisode.url, "testEpisodeURL")
+            XCTAssertEqual(singleEpisode.created, "testEpisodeCreated")
+        case .failure(let error):
+            XCTFail("Error: \(error)")
         }
     }
 

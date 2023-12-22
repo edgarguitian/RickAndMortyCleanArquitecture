@@ -36,7 +36,7 @@ final class APICharactersDataSourceTests: XCTestCase {
             case .success(let listCharacters):
                 XCTAssertEqual(listCharacters.results.count, 1)
                 XCTAssertEqual(listCharacters.results.first!.id, 1)
-                XCTAssertEqual(listCharacters.results.first!.name, "testName1")
+                XCTAssertEqual(listCharacters.results.first!.name, "testCharacterName")
                 XCTAssertEqual(listCharacters.results.first!.status, "testCharacterStatus")
                 XCTAssertEqual(listCharacters.results.first!.species, "testCharacterSpecie")
                 XCTAssertEqual(listCharacters.results.first!.type, "testCharacterType")

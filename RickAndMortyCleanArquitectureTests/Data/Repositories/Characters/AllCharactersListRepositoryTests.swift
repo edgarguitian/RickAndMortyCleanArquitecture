@@ -24,7 +24,7 @@ final class AllCharactersListRepositoryTests: XCTestCase {
         case .success(let listCharacters):
             XCTAssertEqual(listCharacters.result.count, 1)
             XCTAssertEqual(listCharacters.result.first!.id, 1)
-            XCTAssertEqual(listCharacters.result.first!.name, "testName1")
+            XCTAssertEqual(listCharacters.result.first!.name, "testCharacterName")
             XCTAssertEqual(listCharacters.result.first!.status, "testCharacterStatus")
             XCTAssertEqual(listCharacters.result.first!.species, "testCharacterSpecie")
             XCTAssertEqual(listCharacters.result.first!.type, "testCharacterType")
@@ -43,7 +43,35 @@ final class AllCharactersListRepositoryTests: XCTestCase {
     }
     
     func test_search() async throws {
-        
+        // GIVEN
+        let mockApiDataSource = MockApiCharactersDataSource()
+        let mockErrorMapper = MockRickAndMortyDomainErrorMapper()
+        let repository = AllCharactersListRepository(apiDataSource: mockApiDataSource, errorMapper: mockErrorMapper, cacheDataSource: CharacterListFactory.createCacheDataSource())
+
+        // WHEN
+        let result = await repository.search(searchText: "")
+
+        // THEN
+        switch result {
+        case .success(let listCharacters):
+            XCTAssertEqual(listCharacters.count, 1)
+            XCTAssertEqual(listCharacters.first!.id, 1)
+            XCTAssertEqual(listCharacters.first!.name, "testCharacterName")
+            XCTAssertEqual(listCharacters.first!.status, "testCharacterStatus")
+            XCTAssertEqual(listCharacters.first!.species, "testCharacterSpecie")
+            XCTAssertEqual(listCharacters.first!.type, "testCharacterType")
+            XCTAssertEqual(listCharacters.first!.gender, "testCharacterGender")
+            XCTAssertEqual(listCharacters.first!.origin.name, "testNameLocation")
+            XCTAssertEqual(listCharacters.first!.origin.url, "testURLLocation")
+            XCTAssertEqual(listCharacters.first!.location.name, "testNameLocation")
+            XCTAssertEqual(listCharacters.first!.location.url, "testURLLocation")
+            XCTAssertEqual(listCharacters.first!.image, "testCharacterImage")
+            XCTAssertEqual(listCharacters.first!.episode.first, "testEpisodeCharacter")
+            XCTAssertEqual(listCharacters.first!.url, "testCharacterURL")
+            XCTAssertEqual(listCharacters.first!.created, "testCharacterCreated")
+        case .failure(let error):
+            XCTFail("Error: \(error)")
+        }
     }
 
 }
