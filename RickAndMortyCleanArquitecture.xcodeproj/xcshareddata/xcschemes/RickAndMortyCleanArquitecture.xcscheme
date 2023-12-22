@@ -40,6 +40,17 @@
                ReferencedContainer = "container:RickAndMortyCleanArquitecture.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6D6CA7FC2B3591CF00D46E6C"
+               BuildableName = "RickAndMortyCleanArquitectureUITests.xctest"
+               BlueprintName = "RickAndMortyCleanArquitectureUITests"
+               ReferencedContainer = "container:RickAndMortyCleanArquitecture.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

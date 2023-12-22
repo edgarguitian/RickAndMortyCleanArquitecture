@@ -400,5 +400,180 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E94C6CE4-B5CC-40D0-B313-A0DF61E857F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "test_characters_list_scrolls()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2ED95AFB-97F1-4560-B154-9D53D7882FC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "test_characters_list_scrolls()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2ED95AFB-97F1-4560-B154-9D53D7882FC2 - 24acc18901c323c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyCleanArquitectureUITests.RickAndMortyCleanArquitectureUITests.test_characters_list_has_correct_number_of_items() -&gt; ()"
+                  moduleName = "RickAndMortyCleanArquitectureUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "1560">
+               </Location>
+               <Location
+                  uuid = "2ED95AFB-97F1-4560-B154-9D53D7882FC2 - 24acc18901c323a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyCleanArquitectureUITests.RickAndMortyCleanArquitectureUITests.test_characters_list_has_correct_number_of_items() -&gt; ()"
+                  moduleName = "RickAndMortyCleanArquitectureUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "1440">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F017C47-F5EB-444C-83D9-F128E469ECBF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "test_characters_list_scrolls()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AC81286-E570-4B60-AA2C-AC018E51D4E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "test_characters_list_scrolls()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77502B91-12EC-4673-AF36-0BE8428DE76B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "test_search()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "77502B91-12EC-4673-AF36-0BE8428DE76B - 2b11eb3df39ce2ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__C.XCUIElement.isAtBottom.getter : Swift.Bool"
+                  moduleName = "RickAndMortyCleanArquitectureUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "77502B91-12EC-4673-AF36-0BE8428DE76B - 9a44e146be07b62b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyCleanArquitectureUITests.RickAndMortyCleanArquitectureUITests.test_search() -&gt; ()"
+                  moduleName = "RickAndMortyCleanArquitectureUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1096">
+               </Location>
+               <Location
+                  uuid = "77502B91-12EC-4673-AF36-0BE8428DE76B - 9a44e146be07b62b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RickAndMortyCleanArquitectureUITests.RickAndMortyCleanArquitectureUITests.test_search() -&gt; ()"
+                  moduleName = "RickAndMortyCleanArquitectureUITests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edgar/Documents/RickAndMortyCleanArquitecture/RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B502004-9152-40D7-B774-8D47A80CFC6A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RickAndMortyCleanArquitectureUITests/RickAndMortyCleanArquitectureUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "test_filter()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

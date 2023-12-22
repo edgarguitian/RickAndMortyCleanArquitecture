@@ -39,6 +39,7 @@ struct CharacterListView: View {
                                     loadMoreCharactersIfNeeded(currentCharacter: character)
                                 }
                             }
+                            .accessibilityIdentifier("forEachCharacters")
                         }
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) { // Boton de filtros

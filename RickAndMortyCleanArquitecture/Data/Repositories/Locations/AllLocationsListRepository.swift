@@ -22,11 +22,11 @@ class AllLocationsListRepository: AllLocationsListRepositoryType {
     }
 
     func getAllLocationsList(currentPage: Int) async -> Result<LocationResult, RickAndMortyDomainError> {
-        let locationsListCache = await cacheDataSource.getLocationsList(currentPage: currentPage)
+        /*let locationsListCache = await cacheDataSource.getLocationsList(currentPage: currentPage)
 
         if locationsListCache.info.pages > currentPage || currentPage == -1 {
             return .success(locationsListCache)
-        }
+        }*/
 
         let locationsList = await apiDataSource.getLocationsList(currentPage: currentPage)
 
@@ -47,7 +47,7 @@ class AllLocationsListRepository: AllLocationsListRepositoryType {
                                                                    prev: locationsListInfo.info.prev),
                                                      result: locationsDomain)
 
-        await cacheDataSource.saveLocationsList(locationResultDomain, currentPage: currentPage)
+        //await cacheDataSource.saveLocationsList(locationResultDomain, currentPage: currentPage)
 
         return .success(locationResultDomain)
     }

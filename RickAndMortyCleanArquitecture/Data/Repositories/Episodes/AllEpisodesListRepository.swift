@@ -22,11 +22,11 @@ class AllEpisodesListRepository: AllEpisodesListRepositoryType {
     }
 
     func getAllEpisodesList(currentPage: Int) async -> Result<EpisodeResult, RickAndMortyDomainError> {
-        let episodesListCache = await cacheDataSource.getEpisodesList(currentPage: currentPage)
+        /*let episodesListCache = await cacheDataSource.getEpisodesList(currentPage: currentPage)
 
         if episodesListCache.info.pages >= currentPage || currentPage == -1 {
             return .success(episodesListCache)
-        }
+        }*/
 
         let episodesList = await apiDataSource.getEpisodesList(currentPage: currentPage)
 
@@ -46,7 +46,7 @@ class AllEpisodesListRepository: AllEpisodesListRepositoryType {
                                                                    prev: episodesListInfo.info.prev),
                                                      result: episodesDomain)
 
-        await cacheDataSource.saveEpisodesList(episodesResultDomain, currentPage: currentPage)
+        //await cacheDataSource.saveEpisodesList(episodesResultDomain, currentPage: currentPage)
 
         return .success(episodesResultDomain)
     }

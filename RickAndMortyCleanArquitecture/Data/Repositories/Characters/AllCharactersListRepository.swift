@@ -21,11 +21,11 @@ class AllCharactersListRepository: AllCharactersListRepositoryType {
     }
 
     func getAllCharactersList(currentPage: Int) async -> Result<CharacterResult, RickAndMortyDomainError> {
-        let charactersListCache = await cacheDataSource.getCharactersList(currentPage: currentPage)
+        /*let charactersListCache = await cacheDataSource.getCharactersList(currentPage: currentPage)
 
         if (charactersListCache.info.count >= currentPage) || currentPage == -1 {
             return .success(charactersListCache)
-        }
+        }*/
 
         let charactersList = await apiDataSource.getCharactersList(currentPage: currentPage)
 
@@ -47,7 +47,7 @@ class AllCharactersListRepository: AllCharactersListRepositoryType {
         let charactersResultDomain = CharacterResult(info: infoResult,
                                                      result: charactersDomain)
 
-        await cacheDataSource.saveCharactersList(charactersResultDomain, currentPage: currentPage)
+        //await cacheDataSource.saveCharactersList(charactersResultDomain, currentPage: currentPage)
 
         return .success(charactersResultDomain)
     }
