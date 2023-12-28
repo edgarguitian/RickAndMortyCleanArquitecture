@@ -18,26 +18,23 @@ class SwiftDataCacheLocationsDataSource: CacheLocationsDataSourceType {
     }
 
     func getLocationsList(currentPage: Int) async -> LocationResult {
-        let locationsList = await container.fetchLocations()
+        let locationsList = await container.fetchLocations(page: currentPage)
         return mapper.map(locationsList, currentPage: currentPage)
     }
 
     func saveLocationsList(_ locationsList: LocationResult, currentPage: Int) async {
-        let locationsResult = LocationsResultData(info: [], result: [], currentPage: currentPage)
-        await container.insert(locationsResultList: locationsResult)
-
-        let infoResultData = InfoResultLocationsData(currentPage: currentPage,
-                                            count: locationsList.info.count,
-                                            pages: locationsList.info.pages,
-                                            next: locationsList.info.next,
-                                            prev: locationsList.info.prev, infoResultData: locationsResult)
-        await container.insert(infoResultList: infoResultData)
 
         for location in locationsList.result {
-            let locationData = LocationsData(id: location.id, name: location.name, type: location.type,
-                                             dimension: location.dimension, residents: location.residents,
-                                             url: location.url, created: location.created,
-                                             locationsResultData: locationsResult)
+            let locationData = LocationsData(id: location.id,
+                                             name: location.name,
+                                             type: location.type,
+                                             dimension: location.dimension,
+                                             residents: [],
+                                             url: location.url,
+                                             created: location.created,
+                                             page: currentPage,
+                                             numPages: locationsList.info.pages,
+                                             count: locationsList.info.count)
 
             await container.insert(locationsDataList: locationData)
         }

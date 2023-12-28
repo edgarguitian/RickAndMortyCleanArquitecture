@@ -17,10 +17,11 @@ class LocationsData {
     let residents: [String]
     let url: String
     let created: String
-    var locationsResultData: LocationsResultData
+    let page: Int
+    let numPages: Int
+    let count: Int
 
-    
-    init(id: Int, name: String, type: String, dimension: String, residents: [String], url: String, created: String, locationsResultData: LocationsResultData) {
+    init(id: Int, name: String, type: String, dimension: String, residents: [String], url: String, created: String, page: Int, numPages: Int, count: Int) {
         self.id = id
         self.name = name
         self.type = type
@@ -28,6 +29,8 @@ class LocationsData {
         self.residents = residents
         self.url = url
         self.created = created
-        self.locationsResultData = locationsResultData
+        self.page = page
+        self.numPages = numPages
+        self.count = count
     }
 }

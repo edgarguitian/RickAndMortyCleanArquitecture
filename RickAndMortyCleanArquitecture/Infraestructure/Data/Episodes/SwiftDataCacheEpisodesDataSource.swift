@@ -18,26 +18,22 @@ class SwiftDataCacheEpisodesDataSource: CacheEpisodesDataSourceType {
     }
 
     func getEpisodesList(currentPage: Int) async -> EpisodeResult {
-        let charactersList = await container.fetchEpisodes()
+        let charactersList = await container.fetchEpisodes(page: currentPage)
         return mapper.map(charactersList, currentPage: currentPage)
     }
 
     func saveEpisodesList(_ episodesList: EpisodeResult, currentPage: Int) async {
-        let episodesResult = EpisodesResultData(info: [], result: [], currentPage: currentPage)
-        await container.insert(episodesResultList: episodesResult)
-
-        let infoResultData = InfoResultEpisodesData(currentPage: currentPage,
-                                            count: episodesList.info.count,
-                                            pages: episodesList.info.pages,
-                                            next: episodesList.info.next,
-                                            prev: episodesList.info.prev, infoResultData: episodesResult)
-        await container.insert(infoResultList: infoResultData)
 
         for episode in episodesList.result {
-            let episodeData = EpisodesData(id: episode.id, name: episode.name,
-                                           airDate: episode.airDate, episode: episode.episode,
-                                           characters: episode.characters, url: episode.url,
-                                           created: episode.created, episodesResultData: episodesResult)
+            let episodeData = EpisodesData(id: episode.id,
+                                           name: episode.name,
+                                           airDate: episode.airDate,
+                                           episode: episode.episode,
+                                           url: episode.url,
+                                           created: episode.created,
+                                           page: currentPage,
+                                           numPages: episodesList.info.pages,
+                                           count: episodesList.info.count)
             await container.insert(episodesDataList: episodeData)
         }
 

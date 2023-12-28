@@ -8,9 +8,8 @@
 import Foundation
 
 protocol SwiftDataEpisodesContainerType {
-    func fetchEpisodes() async -> [EpisodesResultData]
-    func insert(episodesResultList: EpisodesResultData) async
+    func fetchEpisodes() async -> [EpisodesData]
+    func fetchEpisodes(page: Int) -> [EpisodesData]
     func insert(episodesDataList: EpisodesData) async
-    func insert(infoResultList: InfoResultEpisodesData) async
     func saveData() async
 }

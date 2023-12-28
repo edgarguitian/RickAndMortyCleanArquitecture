@@ -53,16 +53,16 @@ class EpisodeListViewModel: ObservableObject {
         Task { @MainActor in
 
             showLoadingSpinner = false
-
             lastPage = episodes.info.pages
-            self.episodes = episodesPresentable
-            filteredEpisodes = self.episodes
+
             if lastPage > currentPage {
-                if episodes.info.count > episodesPresentable.count {
-                    currentPage += 1
-                } else {
-                    currentPage = lastPage + 1
-                }
+                self.episodes += episodesPresentable
+                filteredEpisodes = self.episodes
+                currentPage += 1
+            } else {
+                currentPage = lastPage + 1
+                self.episodes += episodesPresentable
+                filteredEpisodes = self.episodes
             }
 
         }

@@ -16,7 +16,7 @@ class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
     private let context: ModelContext?
 
     private init() {
-        let scheme = Schema([LocationsResultData.self, LocationsData.self, InfoResultLocationsData.self])
+        let scheme = Schema([LocationsData.self])
         do {
             let storeURL = URL.documentsDirectory.appending(path: "dbLocations.sqlite")
             let config = ModelConfiguration(url: storeURL)
@@ -35,8 +35,8 @@ class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
         }
     }
 
-    func fetchLocations() -> [LocationsResultData] {
-        let descriptor = FetchDescriptor<LocationsResultData>()
+    func fetchLocations() -> [LocationsData] {
+        let descriptor = FetchDescriptor<LocationsData>()
 
         do {
             guard let context = context else {
@@ -50,22 +50,27 @@ class SwiftDataLocationsContainer: SwiftDataLocationsContainerType {
         }
 
     }
+    
+    func fetchLocations(page: Int) -> [LocationsData] {
+        let descriptor = FetchDescriptor<LocationsData>(predicate: #Predicate { location in
+            location.page == page
+        })
 
-    func insert(locationsResultList: LocationsResultData) async {
-        if let context = context {
-            context.insert(locationsResultList)
+        do {
+            guard let context = context else {
+                return []
+            }
+            let locations = try context.fetch(descriptor)
+            return locations
+        } catch {
+            print("Error al realizar la consulta: \(error)")
+            return []
         }
     }
 
     func insert(locationsDataList: LocationsData) async {
         if let context = context {
             context.insert(locationsDataList)
-        }
-    }
-
-    func insert(infoResultList: InfoResultLocationsData) async {
-        if let context = context {
-            context.insert(infoResultList)
         }
     }
 

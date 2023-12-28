@@ -8,39 +8,19 @@
 import Foundation
 
 class SwiftDataCharactersDomainMapper {
-    func map(_ charactersList: [CharactersResultData], currentPage: Int) -> CharacterResult {
-        if charactersList.count > currentPage && currentPage == -1 {
-            return CharacterResult(info: InfoResult(count: -1,
-                                                    pages: -1,
-                                                         next: nil,
-                                                    prev: nil), result: [])
+    func map(_ charactersList: [CharactersData], currentPage: Int) -> CharacterResult {
+        let result = charactersList.map {
+            Character(id: $0.id, name: $0.name, status: $0.status,
+                      species: $0.species, type: $0.type, gender: $0.gender,
+                      origin: LocationCharacter(name: "", url: ""),
+                      location: LocationCharacter(name: "", url: ""),
+                      image: $0.image, episode: [], url: $0.url, created: $0.created)
+        }
+        if charactersList.isEmpty {
+            return CharacterResult(info: InfoResult(count: 0, pages: 0, next: "", prev: ""), result: result)
         } else {
-            var characterResult: [Character] = []
-            var lastPage = -1
-            var pages = -1
-            for character in charactersList {
-
-                if character.info.count > 0 {
-                    lastPage = character.info[character.info.count - 1].count
-                    pages = character.info[character.info.count - 1].pages
-                }
-                let characterResultList = character.result.map {
-                    Character(id: $0.id, name: $0.name, status: $0.status, species: $0.species,
-                              type: $0.type, gender: $0.gender,
-                              origin: LocationCharacter(name: $0.origin?.name ?? "", url: $0.origin?.url ?? ""),
-                              location: LocationCharacter(name: "", url: ""), image: $0.image,
-                              episode: $0.episode, url: $0.url, created: $0.created)
-                }
-
-                characterResult.append(contentsOf: characterResultList)
-
-            }
-            let characterResultSorted = characterResult.sorted(by: { $0.id < $1.id })
-            return CharacterResult(info: InfoResult(count: lastPage,
-                                                    pages: pages,
-                                                         next: nil,
-                                                         prev: nil),
-                                        result: characterResultSorted)
+            let lastCharacter = charactersList[charactersList.count - 1]
+            return CharacterResult(info: InfoResult(count: lastCharacter.page, pages: lastCharacter.numPages, next: "", prev: ""), result: result)
         }
     }
 }

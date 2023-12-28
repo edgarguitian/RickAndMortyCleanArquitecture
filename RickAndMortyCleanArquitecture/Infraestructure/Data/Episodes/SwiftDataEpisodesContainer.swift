@@ -16,7 +16,7 @@ class SwiftDataEpisodesContainer: SwiftDataEpisodesContainerType {
     private let context: ModelContext?
 
     private init() {
-        let scheme = Schema([EpisodesResultData.self, EpisodesData.self, InfoResultEpisodesData.self])
+        let scheme = Schema([EpisodesData.self])
         do {
             let storeURL = URL.documentsDirectory.appending(path: "dbEpisodes.sqlite")
             let config = ModelConfiguration(url: storeURL)
@@ -34,8 +34,8 @@ class SwiftDataEpisodesContainer: SwiftDataEpisodesContainerType {
         }
     }
 
-    func fetchEpisodes() -> [EpisodesResultData] {
-        let descriptor = FetchDescriptor<EpisodesResultData>()
+    func fetchEpisodes() -> [EpisodesData] {
+        let descriptor = FetchDescriptor<EpisodesData>()
 
         do {
             guard let context = context else {
@@ -49,22 +49,27 @@ class SwiftDataEpisodesContainer: SwiftDataEpisodesContainerType {
         }
 
     }
+    
+    func fetchEpisodes(page: Int) -> [EpisodesData] {
+        let descriptor = FetchDescriptor<EpisodesData>(predicate: #Predicate { episode in
+            episode.page == page
+        })
 
-    func insert(episodesResultList: EpisodesResultData) async {
-        if let context = context {
-            context.insert(episodesResultList)
+        do {
+            guard let context = context else {
+                return []
+            }
+            let episodes = try context.fetch(descriptor)
+            return episodes
+        } catch {
+            print("Error al realizar la consulta: \(error)")
+            return []
         }
     }
 
     func insert(episodesDataList: EpisodesData) async {
         if let context = context {
             context.insert(episodesDataList)
-        }
-    }
-
-    func insert(infoResultList: InfoResultEpisodesData) async {
-        if let context = context {
-            context.insert(infoResultList)
         }
     }
 

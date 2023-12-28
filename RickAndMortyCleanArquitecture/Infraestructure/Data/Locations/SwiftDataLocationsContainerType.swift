@@ -8,9 +8,8 @@
 import Foundation
 
 protocol SwiftDataLocationsContainerType {
-    func fetchLocations() async -> [LocationsResultData]
-    func insert(locationsResultList: LocationsResultData) async
+    func fetchLocations() async -> [LocationsData]
+    func fetchLocations(page: Int) -> [LocationsData]
     func insert(locationsDataList: LocationsData) async
-    func insert(infoResultList: InfoResultLocationsData) async
     func saveData() async
 }

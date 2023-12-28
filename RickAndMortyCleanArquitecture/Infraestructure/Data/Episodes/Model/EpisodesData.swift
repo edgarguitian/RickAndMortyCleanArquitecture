@@ -14,20 +14,21 @@ class EpisodesData {
     let name: String
     let airDate: String
     let episode: String
-    let characters: [String]
     let url: String
     let created: String
-    var episodesResultData: EpisodesResultData
+    let page: Int
+    let numPages: Int
+    let count: Int
 
-
-    init(id: Int, name: String, airDate: String, episode: String, characters: [String], url: String, created: String, episodesResultData: EpisodesResultData) {
+    init(id: Int, name: String, airDate: String, episode: String, url: String, created: String, page: Int, numPages: Int, count: Int) {
         self.id = id
         self.name = name
         self.airDate = airDate
         self.episode = episode
-        self.characters = characters
         self.url = url
         self.created = created
-        self.episodesResultData = episodesResultData
+        self.page = page
+        self.numPages = numPages
+        self.count = count
     }
 }

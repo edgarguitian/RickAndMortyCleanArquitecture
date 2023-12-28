@@ -103,16 +103,11 @@ class CharacterListViewModel: ObservableObject {
             lastPage = characters.info.pages
 
             if lastPage > currentPage {
-                if characters.info.count > charactersPresentable.count {
-                    self.characters += charactersPresentable
-                    filteredCharacters = self.characters
-                    currentPage += 1
-                } else {
-                    currentPage = lastPage + 1
-                    self.characters = charactersPresentable
-                    filteredCharacters = self.characters
-                }
+                self.characters += charactersPresentable
+                filteredCharacters = self.characters
+                currentPage += 1
             } else {
+                currentPage = lastPage + 1
                 self.characters += charactersPresentable
                 filteredCharacters = self.characters
             }

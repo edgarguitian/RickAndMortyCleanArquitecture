@@ -55,18 +55,14 @@ class LocationListViewModel: ObservableObject {
             showLoadingSpinner = false
 
             lastPage = locations.info.pages
+            print("--> LastPage: \(lastPage)")
 
             if lastPage > currentPage {
-                if locations.info.count > locationsPresentable.count {
-                    self.locations += locationsPresentable
-                    filteredLocations = self.locations
-                    currentPage += 1
-                } else {
-                    currentPage = lastPage + 1
-                    self.locations = locationsPresentable
-                    filteredLocations = self.locations
-                }
+                self.locations += locationsPresentable
+                filteredLocations = self.locations
+                currentPage += 1
             } else {
+                currentPage = lastPage + 1
                 self.locations += locationsPresentable
                 filteredLocations = self.locations
             }

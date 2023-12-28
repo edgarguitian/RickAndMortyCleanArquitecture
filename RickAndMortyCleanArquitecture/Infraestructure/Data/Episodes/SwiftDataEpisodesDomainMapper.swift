@@ -8,38 +8,21 @@
 import Foundation
 
 class SwiftDataEpisodesDomainMapper {
-    func map(_ episodesList: [EpisodesResultData], currentPage: Int) -> EpisodeResult {
-        if episodesList.count > currentPage && currentPage == -1 {
-            return EpisodeResult(info: InfoResult(count: -1,
-                                                    pages: -1,
-                                                         next: nil,
-                                                    prev: nil), result: [])
+    func map(_ episodesList: [EpisodesData], currentPage: Int) -> EpisodeResult {
+        let result = episodesList.map {
+            Episode(id: $0.id, name: $0.name, airDate: $0.airDate,
+                    episode: $0.episode, characters: [],
+                    url: $0.url, created: $0.created)
+        }
+        if episodesList.isEmpty {
+            return EpisodeResult(info: InfoResult(count: 0, pages: 0, next: "", prev: ""), result: result)
         } else {
-            var episodeResult: [Episode] = []
-            var lastPage = -1
-            var pages = -1
-            for episode in episodesList {
-
-                if episode.info.count > 0 {
-                    lastPage = episode.info[episode.info.count - 1].count
-
-                    pages = episode.info[episode.info.count - 1].pages
-                }
-                let episodeResultList = episode.result.map {
-                    Episode(id: $0.id, name: $0.name, airDate: $0.airDate,
-                            episode: $0.episode, characters: $0.characters,
-                            url: $0.url, created: $0.created)
-                }
-
-                episodeResult.append(contentsOf: episodeResultList)
-
-            }
-            let episodeResultSorted = episodeResult.sorted(by: { $0.id < $1.id })
-            return EpisodeResult(info: InfoResult(count: lastPage,
-                                                    pages: pages,
-                                                         next: nil,
-                                                         prev: nil),
-                                        result: episodeResultSorted)
+            let lastEpisode = episodesList[episodesList.count - 1]
+            return EpisodeResult(info: InfoResult(count: lastEpisode.page,
+                                                  pages: lastEpisode.numPages,
+                                                  next: "",
+                                                  prev: ""),
+                                 result: result)
         }
 
     }
